@@ -131,6 +131,16 @@ function openModal(p) {
         el("ul", { class: "pd-features" }, features.map((f) => el("li", { text: f }))),
         nutritionGrid,
         el("div", { class: "pd-ingredients" }, [el("strong", { text: labels.ingredients }), document.createTextNode(ingredients || "-")]),
+        p.detailImages && p.detailImages.length
+          ? el(
+              "div",
+              { class: "pd-detail-images" },
+              p.detailImages.map((src) => el("a", { href: src, target: "_blank", rel: "noopener" }, [el("img", { src, alt: name, loading: "lazy" })]))
+            )
+          : null,
+        p.buyLink
+          ? el("a", { class: "pd-buy-link", href: p.buyLink, target: "_blank", rel: "noopener", text: lang === "en" ? "Buy Now →" : "바로 구매하기 →" })
+          : null,
       ]),
     ])
   );
