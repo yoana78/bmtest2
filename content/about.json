@@ -1,0 +1,294 @@
+{
+  "hero": {
+    "eyebrow": "CORPORATE OVERVIEW & CI",
+    "title": "회사소개",
+    "titleEn": "About Us",
+    "body": "30년 이상 축적된 정직한 기술과 신뢰를 바탕으로 반려동물과 반려인의 행복한 내일을 열어갑니다.",
+    "bodyEn": "Built on 30+ years of honest technology and trust, we open a happier tomorrow for pets and their people.",
+    "image": "assets/hero_slide_1.jpg"
+  },
+  "ceo": {
+    "eyebrow": "CEO MESSAGE",
+    "title": "반려동물과 함께 행복한 세상을 꿈꿉니다",
+    "titleEn": "Dreaming of a happier world with pets",
+    "paragraphs": [
+      "안녕하십니까. 부명(BOOMYOUNG CO., LTD.) 대표이사 정성훈입니다.",
+      "부명은 반려동물과 반려인 모두에게 더 나은 제품과 서비스를 제공한다는 목표 아래 반려동물용품을 중심으로 상품 기획, 개발, 유통 및 물류 전반의 사업을 운영하고 있습니다.",
+      "빠르게 변화하는 반려동물 시장의 트렌드와 소비자의 요구를 면밀히 분석하여 실용성과 품질을 갖춘 제품을 선보이고, 국내 주요 유통채널과의 안정적인 협력관계를 바탕으로 지속적인 성장을 이어가고 있습니다.",
+      "앞으로도 신뢰를 바탕으로 하는 매장과 고객 모두가 만족할 수 있는 경영을 지향하며, 알찬 기획과 고품질 제조 역량으로 시장 지배력을 강화하고 가치 있는 미래를 만들어 가겠습니다. 감사합니다."
+    ],
+    "paragraphsEn": [
+      "Hello, I am Jung Seong-hoon, CEO of BOOMYOUNG CO., LTD.",
+      "BOOMYUNG operates across product planning, development, distribution, and logistics for pet products, with the goal of delivering better products and services to both pets and their owners.",
+      "We closely analyze fast-changing trends in the pet market and consumer needs to offer practical, high-quality products, and continue to grow through stable partnerships with major domestic distribution channels.",
+      "Going forward, we will pursue management that satisfies both our retail partners and customers through trust, strengthening our market position with thoughtful planning and high-quality manufacturing capability to build a valuable future. Thank you."
+    ],
+    "name": "정성훈 대표이사",
+    "nameEn": "Jung Seong-hoon, CEO",
+    "role": "(주)부명 대표이사",
+    "roleEn": "CEO, BOOMYUNG Co., Ltd.",
+    "signature": "assets/ceo_signature.png"
+  },
+  "historyIntro": {
+    "title": "기업 연혁",
+    "titleEn": "Company History"
+  },
+  "history": [
+    {
+      "year": "2024 ~ Present",
+      "title": "글로벌 네트워크 및 브랜드 확정",
+      "titleEn": "Global Network & Brand Consolidation",
+      "items": [
+        "호마드 사료 간식 공장",
+        "웰젠 R&D 연구소 체계 구축",
+        "글로벌 OEM/ODM 공급 체인 확장"
+      ],
+      "itemsEn": [
+        "Homad feed & treat factory",
+        "Wellzen R&D lab established",
+        "Global OEM/ODM supply chain expansion"
+      ],
+      "featured": true,
+      "image": ""
+    },
+    {
+      "year": "2023",
+      "title": "품질 인증 및 제조 혁신",
+      "titleEn": "Quality Certification & Manufacturing Innovation",
+      "items": [
+        "ISO 22000 및 HACCP 인증 획득, 전용 생산 시설 및 자동화 설비 도입"
+      ],
+      "itemsEn": [
+        "Acquired ISO 22000 and HACCP certification; introduced dedicated production facility and automation"
+      ],
+      "featured": true,
+      "image": ""
+    },
+    {
+      "year": "2021",
+      "title": "",
+      "items": [
+        "요기요 입점",
+        "CJ홈쇼핑 사료 입점",
+        "하우펫 브랜드 런칭"
+      ],
+      "itemsEn": [
+        "Listed on Yogiyo",
+        "Listed pet food on CJ Home Shopping",
+        "Launched HOWPET brand"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2020",
+      "title": "",
+      "items": [
+        "이마트24 전점 입점",
+        "마켓컬리 입점"
+      ],
+      "itemsEn": [
+        "Listed at all E-mart24 stores",
+        "Listed on Market Kurly"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2019",
+      "title": "",
+      "items": [
+        "킴스클럽 25개점 입점",
+        "메가마트 12개점 입점"
+      ],
+      "itemsEn": [
+        "Listed at 25 Kim's Club stores",
+        "Listed at 12 Megamart stores"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2018",
+      "title": "",
+      "items": [
+        "유망 중소기업 대상 수상",
+        "공영홈쇼핑 사료 입점"
+      ],
+      "itemsEn": [
+        "Received Promising SME Award",
+        "Listed pet food on Kongyoung Home Shopping"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2017",
+      "title": "",
+      "items": [
+        "농협 하나로마트 계약",
+        "농협 목우촌 제조위탁 계약",
+        "국내 로얄바이츠 사료공장 설립"
+      ],
+      "itemsEn": [
+        "Contract with NongHyup Hanaro Mart",
+        "Contract manufacturing with NongHyup Mokwoochon",
+        "Established Royal Bites feed factory in Korea"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2008",
+      "title": "",
+      "items": [
+        "미국 월마트 수출"
+      ],
+      "itemsEn": [
+        "Exported to Walmart USA"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2006",
+      "title": "",
+      "items": [
+        "GS마트 전점 입점",
+        "롯데슈퍼 전점 입점"
+      ],
+      "itemsEn": [
+        "Listed at all GS Mart stores",
+        "Listed at all Lotte Super stores"
+      ],
+      "featured": false
+    },
+    {
+      "year": "2002",
+      "title": "",
+      "items": [
+        "이마트 전점 입점"
+      ],
+      "itemsEn": [
+        "Listed at all E-mart stores"
+      ],
+      "featured": false
+    },
+    {
+      "year": "1995",
+      "title": "",
+      "items": [
+        "(주)부명 설립"
+      ],
+      "itemsEn": [
+        "BOOMYUNG Co., Ltd. founded"
+      ],
+      "featured": false
+    }
+  ],
+  "infraIntro": {
+    "title": "생산 및 R&D 인프라",
+    "titleEn": "Production & R&D Infrastructure"
+  },
+  "infra": [
+    {
+      "eyebrow": "KOREA FACTORY",
+      "title": "사료 및 간식 공장",
+      "titleEn": "Feed & Treat Factory",
+      "body": "반려동물 사료 및 식품 제조공장으로 ISO 22000 및 HACCP 인증을 보유하고 있습니다.",
+      "bodyEn": "A pet food manufacturing facility certified to ISO 22000 and HACCP standards.",
+      "tags": [
+        "ISO 22000",
+        "HACCP"
+      ],
+      "image": "assets/homad/homad_03.jpg"
+    },
+    {
+      "eyebrow": "R&D CENTER",
+      "title": "웰젠 R&D 연구소",
+      "titleEn": "Wellzen R&D Center",
+      "body": "반려동물 전용 헬스케어 전문 연구소로 고품질 원료 검증 및 가공 기술 개발을 주도합니다.",
+      "bodyEn": "A dedicated pet healthcare research center leading high-quality ingredient verification and processing technology development.",
+      "tags": [
+        "헬스케어 R&D",
+        "원료가공 기술"
+      ],
+      "tagsEn": [
+        "Healthcare R&D",
+        "Ingredient Processing Tech"
+      ],
+      "image": "assets/wellzen/wellzen_02.png"
+    },
+    {
+      "eyebrow": "LOGISTICS CENTER",
+      "title": "통합 물류센터",
+      "titleEn": "Integrated Logistics Center",
+      "body": "체계적인 재고 관리와 최적화된 물류 시스템을 통해 안전하고 신속한 전국 배송 네트워크를 제공합니다.",
+      "bodyEn": "A systematic inventory management and optimized logistics system delivering safe, fast nationwide shipping.",
+      "tags": [
+        "전국 공급망",
+        "글로벌 공급망"
+      ],
+      "tagsEn": [
+        "Nationwide Network",
+        "Global Network"
+      ],
+      "video": "assets/logistics/logistics.mp4"
+    },
+    {
+      "eyebrow": "GLOBAL NETWORK",
+      "title": "칭다오 공장",
+      "titleEn": "Qingdao Factory",
+      "body": "위생용품 및 글로벌 가공 OEM/ODM 공장입니다.",
+      "bodyEn": "A hygiene product and global OEM/ODM processing factory.",
+      "tags": [
+        "위생용품",
+        "글로벌 OEM/ODM"
+      ],
+      "tagsEn": [
+        "Hygiene Products",
+        "Global OEM/ODM"
+      ],
+      "image": "assets/china/qingdao-factory.jpg"
+    }
+  ],
+  "ciIntro": {
+    "title": "CI 소개",
+    "titleEn": "CI Overview",
+    "subtitle": "(주)부명 BOOMYOUNG",
+    "caption": "Corporate Identity System",
+    "logo": "assets/boomyung_ci_logo.png"
+  },
+  "ci": [
+    {
+      "num": "01",
+      "eyebrow": "SYMBOL MARK",
+      "title": "심볼마크의 상징성",
+      "titleEn": "The Meaning of Our Symbol",
+      "body": "부명의 CI 심볼은 고객 및 파트너사와의 견고한 신뢰, 과학적인 품질 검증, 그리고 모든 반려동물 생명에 대한 깊은 존중을 상징합니다.",
+      "bodyEn": "BOOMYUNG's CI symbol represents solid trust with customers and partners, scientific quality verification, and deep respect for every pet's life."
+    },
+    {
+      "num": "02",
+      "eyebrow": "CORE VALUE",
+      "title": "30년 정직한 기술과 혁신",
+      "titleEn": "30 Years of Honest Technology & Innovation",
+      "body": "30년 이상 축적된 정직한 제조 기술력을 바탕으로 고품질 원료 검증과 가공 기술 혁신을 주도하여 가치 있는 미래를 열어갑니다.",
+      "bodyEn": "Building on 30+ years of honest manufacturing expertise, we lead innovation in ingredient verification and processing technology to build a valuable future."
+    },
+    {
+      "num": "03",
+      "eyebrow": "COLOR SYSTEM",
+      "title": "시그니처 블루 컬러",
+      "titleEn": "Signature Blue",
+      "body": "부명 대표 메인 블루 컬러(#0066B3)는 깊은 신뢰와 정직, 기술 혁신을 의미하며 푸른 바다처럼 넓은 세계로 뻗어나가는 (주)부명의 도전 정신을 상징합니다.",
+      "bodyEn": "BOOMYUNG's signature blue (#0066B3) represents deep trust, honesty, and technological innovation — symbolizing our spirit of reaching out to the wider world, like a vast blue sea.",
+      "swatch": "#0066B3"
+    }
+  ],
+  "footer": {
+    "company": "(주)부명 BOOMYUNG",
+    "address": "경기도 구리시 건원대로34번길 19 306",
+    "tel": "031-553-8003",
+    "fax": "031-592-2460",
+    "email": "help@petsb2b.co.kr",
+    "brn": "132-81-49973",
+    "copyright": "© 2026 BOOMYUNG Co., Ltd. All Rights Reserved.",
+    "companyEn": "BOOMYUNG Co., Ltd.",
+    "addressEn": "306, 19 Geonwondae-ro 34beon-gil, Guri-si, Gyeonggi-do, Republic of Korea"
+  }
+}

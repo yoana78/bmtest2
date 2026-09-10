@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문의하기 | (주)부명 BOOMYUNG</title>
+    <meta name="description" content="B2B 입점, 제휴, OEM/ODM 관련 문의를 남겨주시면 담당자가 확인 후 연락드립니다." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
+  </head>
+  <body>
+    <header class="site-header scrolled" id="site-header">
+      <a href="index.html" class="brand-mark">
+        <img src="./assets/boomyung_ci_logo.png" alt="BOOMYUNG" />
+        <span>(주)부명</span>
+      </a>
+      <nav class="main-nav">
+        <a href="about.html">회사소개</a>
+        <a href="brands.html">브랜드</a>
+        <a href="imported-brands.html">수입브랜드</a>
+        <a href="catalog.html">제품 카탈로그</a>
+        <a href="trust.html">신뢰와 인증</a>
+      </nav>
+      <div class="header-right">
+        <button class="lang-btn" type="button">EN</button>
+        <a href="contact.html" class="lang-btn">문의하기</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav">
+      <nav>
+        <a href="about.html">회사소개</a>
+        <a href="brands.html">브랜드</a>
+        <a href="imported-brands.html">수입브랜드</a>
+        <a href="catalog.html">제품 카탈로그</a>
+        <a href="trust.html">신뢰와 인증</a>
+        <a href="contact.html">문의하기</a>
+      </nav>
+    </div>
+
+    <main>
+      <section class="section-pad" style="padding-top: 150px">
+        <div class="wrap contact-layout">
+          <div class="contact-info">
+            <p class="eyebrow"><span>CONTACT</span></p>
+            <h2 data-ko="B2B 입점 및 제휴 문의" data-en="B2B Partnership Inquiry">B2B 입점 및 제휴 문의</h2>
+            <p data-ko="대형 할인마트, 이커머스, 글로벌 바이어와의 OEM/ODM 및 유통 파트너십을 진행합니다. 아래 양식으로 문의를 남겨주시면 담당자가 확인 후 순차적으로 연락드립니다." data-en="We pursue OEM/ODM and distribution partnerships with major retailers, e-commerce platforms, and global buyers. Leave an inquiry below and our team will follow up in order.">대형 할인마트, 이커머스, 글로벌 바이어와의 OEM/ODM 및 유통 파트너십을 진행합니다. 아래 양식으로 문의를 남겨주시면 담당자가 확인 후 순차적으로 연락드립니다.</p>
+            <div class="contact-detail-list">
+              <div class="row"><div class="label" data-ko="주소" data-en="Address">주소</div><div class="value" data-ko="경기도 구리시 건원대로34번길 19 306" data-en="306, 19 Geonwondae-ro 34beon-gil, Guri-si, Gyeonggi-do, Republic of Korea">경기도 구리시 건원대로34번길 19 306</div></div>
+              <div class="row"><div class="label" data-ko="전화" data-en="Phone">전화</div><div class="value">031-553-8003</div></div>
+              <div class="row"><div class="label" data-ko="팩스" data-en="Fax">팩스</div><div class="value">031-592-2460</div></div>
+              <div class="row"><div class="label" data-ko="이메일" data-en="Email">이메일</div><div class="value">help@petsb2b.co.kr</div></div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label><span data-ko="회사명" data-en="Company">회사명</span><span class="req">*</span></label>
+                <input type="text" name="company" required maxlength="200" />
+              </div>
+              <div class="form-row">
+                <label><span data-ko="담당자명" data-en="Contact Name">담당자명</span><span class="req">*</span></label>
+                <input type="text" name="name" required maxlength="100" />
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label><span data-ko="연락처" data-en="Phone">연락처</span><span class="req">*</span></label>
+                <input type="tel" name="phone" required maxlength="50" placeholder="010-0000-0000" />
+              </div>
+              <div class="form-row">
+                <label data-ko="이메일" data-en="Email">이메일</label>
+                <input type="email" name="email" maxlength="200" />
+              </div>
+            </div>
+            <div class="form-row">
+              <label><span data-ko="문의 내용" data-en="Message">문의 내용</span><span class="req">*</span></label>
+              <textarea name="message" required maxlength="3000" placeholder="입점 채널, 취급 희망 제품, 물량 등을 남겨주시면 상담에 도움이 됩니다." data-ko="입점 채널, 취급 희망 제품, 물량 등을 남겨주시면 상담에 도움이 됩니다." data-en="Please include the channel, products of interest, and volume to help us assist you." data-i18n-placeholder></textarea>
+            </div>
+            <button class="submit-btn" type="submit" data-ko="문의 보내기" data-en="Send Inquiry">문의 보내기</button>
+            <div class="form-msg" id="form-msg"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="foot-top">
+          <div class="foot-brand">
+            <img src="./assets/boomyung_ci_logo.png" alt="BOOMYUNG" />
+            <div class="name" id="foot-company"></div>
+            <div id="foot-address"></div>
+            <div id="foot-email"></div>
+          </div>
+          <div class="foot-cols">
+            <div class="foot-col">
+              <h4>기업 안내</h4>
+              <a href="about.html">회사소개</a>
+              <a href="brands.html">브랜드</a>
+              <a href="trust.html">신뢰와 인증</a>
+            </div>
+            <div class="foot-col">
+              <h4>비즈니스</h4>
+              <a href="catalog.html">제품 카탈로그</a>
+              <a href="contact.html">B2B 입점 문의</a>
+            </div>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span id="foot-copy"></span>
+          <div class="foot-legal">
+            <span>개인정보처리방침</span>
+            <span>이용약관</span>
+            <a href="admin.html">관리자</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/contact.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>신뢰와 인증 | (주)부명 BOOMYUNG</title>
+    <meta name="description" content="ISO 22000, ISO 14001, HACCP 인증과 특허·디자인 등록 현황 — (주)부명의 품질과 기술력을 확인하세요." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <a href="index.html" class="brand-mark">
+        <img src="./assets/boomyung_ci_logo.png" alt="BOOMYUNG" />
+        <span>(주)부명</span>
+      </a>
+      <nav class="main-nav">
+        <a href="about.html">회사소개</a>
+        <a href="brands.html">브랜드</a>
+        <a href="imported-brands.html">수입브랜드</a>
+        <a href="catalog.html">제품 카탈로그</a>
+        <a href="trust.html">신뢰와 인증</a>
+      </nav>
+      <div class="header-right">
+        <button class="lang-btn" type="button">EN</button>
+        <a href="contact.html" class="lang-btn">문의하기</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav">
+      <nav>
+        <a href="about.html">회사소개</a>
+        <a href="brands.html">브랜드</a>
+        <a href="imported-brands.html">수입브랜드</a>
+        <a href="catalog.html">제품 카탈로그</a>
+        <a href="trust.html">신뢰와 인증</a>
+        <a href="contact.html">문의하기</a>
+      </nav>
+    </div>
+
+    <main>
+      <section class="page-hero" id="page-hero-root">
+        <img class="hero-bg" src="assets/trust_hero.png" alt="" />
+        <div class="wrap">
+          <p class="eyebrow"><span></span></p>
+          <h1></h1>
+          <p class="hero-body"></p>
+        </div>
+      </section>
+
+      <section class="section-pad" id="cert-root">
+        <div class="wrap">
+          <p class="eyebrow"><span>CERTIFICATIONS</span></p>
+          <h2 class="section-title"></h2>
+          <div class="cert-grid" id="cert-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="ip-root" style="background: var(--bg-alt)">
+        <div class="wrap">
+          <p class="eyebrow"><span>INTELLECTUAL PROPERTY</span></p>
+          <h2 class="section-title"></h2>
+          <p class="section-body"></p>
+          <div class="patent-grid" id="patent-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="expo-root">
+        <div class="wrap">
+          <p class="eyebrow"><span>GLOBAL EXHIBITION</span></p>
+          <h2 class="section-title"></h2>
+          <div id="expo-list"></div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="retail-root" style="background: var(--bg-alt)">
+        <div class="wrap">
+          <p class="eyebrow"><span>PARTNERSHIP</span></p>
+          <h2 class="section-title"></h2>
+          <p class="section-body"></p>
+          <div class="logo-flow-grid" id="retail-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="distributors-root">
+        <div class="wrap">
+          <p class="eyebrow"><span>PARTNERSHIP</span></p>
+          <h2 class="section-title"></h2>
+          <p class="section-body"></p>
+          <div class="logo-flow-grid" id="distributor-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="foot-top">
+          <div class="foot-brand">
+            <img src="./assets/boomyung_ci_logo.png" alt="BOOMYUNG" />
+            <div class="name" id="foot-company"></div>
+            <div id="foot-address"></div>
+            <div id="foot-email"></div>
+          </div>
+          <div class="foot-cols">
+            <div class="foot-col">
+              <h4>기업 안내</h4>
+              <a href="about.html">회사소개</a>
+              <a href="brands.html">브랜드</a>
+              <a href="trust.html">신뢰와 인증</a>
+            </div>
+            <div class="foot-col">
+              <h4>비즈니스</h4>
+              <a href="catalog.html">제품 카탈로그</a>
+              <a href="contact.html">B2B 입점 문의</a>
+            </div>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span id="foot-copy"></span>
+          <div class="foot-legal">
+            <span>개인정보처리방침</span>
+            <span>이용약관</span>
+            <a href="admin.html">관리자</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="image-lightbox" id="image-lightbox">
+      <button class="close-btn" type="button" id="lightbox-close" aria-label="닫기">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/trust.js"></script>
+  </body>
+</html>

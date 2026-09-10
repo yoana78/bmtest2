@@ -1,0 +1,79 @@
+{
+  "intro": {
+    "eyebrow": "수입브랜드",
+    "eyebrowEn": "Imported Brands",
+    "title": "세계의 좋은 제품을 국내 파트너에게",
+    "titleEn": "The World's Best, for Korean Partners",
+    "body": "검증된 해외 브랜드를 직접 소싱하여 국내 유통 채널에 공급합니다.",
+    "bodyEn": "We source verified overseas brands directly and supply them to domestic distribution channels.",
+    "image": "assets/stock/imported-brands-hero.jpg"
+  },
+  "brands": [
+    {
+      "id": "ninaottosson",
+      "nameKo": "니나오토슨",
+      "nameEn": "Nina Ottosson",
+      "tagline": "Interactive Play, Sweden",
+      "logo": "assets/brands/imported/ninaottosson.png",
+      "descriptionKo": "반려동물의 지능 발달을 돕는 스웨덴 노즈워크 · 퍼즐 토이 브랜드",
+      "descriptionEn": "Swedish nosework & puzzle toy brand for pet enrichment",
+      "color": "#2B2118",
+      "type": "imported"
+    },
+    {
+      "id": "dono",
+      "nameKo": "도노",
+      "nameEn": "DONO",
+      "tagline": "Trusted Everyday Care",
+      "logo": "assets/brands/imported/dono.png",
+      "descriptionKo": "수입 반려동물 위생 및 관리용품 브랜드",
+      "descriptionEn": "Imported pet hygiene & daily care brand",
+      "color": "#C0392B",
+      "type": "imported"
+    },
+    {
+      "id": "reflex",
+      "nameKo": "리플렉스",
+      "nameEn": "Reflex",
+      "tagline": "Balanced Nutrition",
+      "logo": "assets/brands/imported/reflex.png",
+      "descriptionKo": "균형 잡힌 영양 설계의 수입 반려동물 사료 브랜드",
+      "descriptionEn": "Imported pet food brand with balanced nutrition",
+      "color": "#1E1E1E",
+      "type": "imported"
+    },
+    {
+      "id": "sulfodene",
+      "nameKo": "설퍼딘",
+      "nameEn": "Sulfodene",
+      "tagline": "Skin & Coat Care, USA",
+      "logo": "assets/brands/imported/sulfodene.png",
+      "descriptionKo": "피부 및 모질 케어 전문 미국 수입 브랜드",
+      "descriptionEn": "American imported brand specialized in skin & coat care",
+      "color": "#B71C1C",
+      "type": "imported"
+    },
+    {
+      "id": "petstage",
+      "nameKo": "펫스테이지",
+      "nameEn": "Petstages",
+      "tagline": "Products With Purpose",
+      "logo": "assets/brands/imported/petstage.png",
+      "descriptionKo": "반려동물 장난감 전문 미국 수입 브랜드",
+      "descriptionEn": "American imported brand for purposeful pet toys",
+      "color": "#D32F2F",
+      "type": "imported"
+    }
+  ],
+  "footer": {
+    "company": "(주)부명 BOOMYUNG",
+    "address": "경기도 구리시 건원대로34번길 19 306",
+    "tel": "031-553-8003",
+    "fax": "031-592-2460",
+    "email": "help@petsb2b.co.kr",
+    "brn": "132-81-49973",
+    "copyright": "© 2026 BOOMYUNG Co., Ltd. All Rights Reserved.",
+    "companyEn": "BOOMYUNG Co., Ltd.",
+    "addressEn": "306, 19 Geonwondae-ro 34beon-gil, Guri-si, Gyeonggi-do, Republic of Korea"
+  }
+}

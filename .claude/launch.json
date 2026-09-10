@@ -4,7 +4,7 @@
     {
       "name": "homepage-static",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "serve", "-s", ".", "-l", "4173"],
+      "runtimeArgs": ["-y", "serve", ".", "-l", "4173"],
       "port": 4173
     }
   ]

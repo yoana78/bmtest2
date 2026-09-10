@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>관리자 | (주)부명 BOOMYUNG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-login-wrap" id="login-view">
+      <form class="admin-login-card" id="login-form">
+        <img src="./assets/boomyung_ci_logo.png" alt="BOOMYUNG" />
+        <h1>관리자 로그인</h1>
+        <p>비밀번호를 입력하면 홈페이지 콘텐츠를 수정할 수 있습니다.</p>
+        <input id="login-password" type="password" name="password" placeholder="비밀번호" required autocomplete="current-password" />
+        <button type="submit">로그인</button>
+        <p class="login-error" id="login-error" hidden></p>
+      </form>
+    </div>
+
+    <div id="dashboard-view" hidden>
+      <header class="admin-header">
+        <a href="index.html" class="brand-mark">
+          <img src="./assets/boomyung_ci_logo.png" alt="BOOMYUNG" />
+          <span>(주)부명 관리자</span>
+        </a>
+        <button class="lang-btn" id="logout-btn" type="button">로그아웃</button>
+      </header>
+
+      <div class="admin-layout">
+        <nav class="admin-tabs" id="admin-tabs"></nav>
+
+        <div class="admin-content">
+          <section class="admin-panel">
+            <h2>콘텐츠 편집</h2>
+            <div id="editor-panel"></div>
+          </section>
+
+          <section class="admin-panel">
+            <div class="admin-panel-head">
+              <h2>B2B 문의 내역</h2>
+              <span class="admin-count" id="inquiry-count"></span>
+            </div>
+            <div id="inquiry-list"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/admin.js"></script>
+  </body>
+</html>

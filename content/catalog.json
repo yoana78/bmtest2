@@ -1,0 +1,2107 @@
+{
+  "hero": {
+    "eyebrow": "CATALOG",
+    "title": "제품 카탈로그",
+    "titleEn": "Product Catalog",
+    "body": "(주)부명의 전체 펫 푸드 및 위생용품 카탈로그를 확인하실 수 있습니다.",
+    "bodyEn": "Browse BOOMYUNG's full catalog of pet food and hygiene products.",
+    "image": "assets/stock/catalog-hero.jpg"
+  },
+  "products": [
+    {
+      "id": "데이스포-와이즈-퍼피",
+      "nameKo": "데이스포 와이즈 퍼피",
+      "nameEn": "DAYSPO WISE Puppy",
+      "brandId": "dayspo",
+      "code": "8809400535783",
+      "spec": "1.2kg(100g*12pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 성장기 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "성장기 면역력 개선을 위한 초유 첨가",
+        "성장기 장 건강을 위한 프리바이오틱스 첨가"
+      ],
+      "ingredients": "오리고기분말, 가수분해연어, 가수분해닭고기, 유청단백, 아마씨, 프리바이오틱스, 글루코사민, MSM, 유카추출물, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image1.png",
+      "ingredientsEn": "Duck Meal, Hydrolyzed Salmon, Hydrolyzed Chicken, Whey Protein, Flaxseed, Prebiotics, Glucosamine, MSM, Yucca Extract, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-올스테이지",
+      "nameKo": "데이스포 와이즈 올스테이지",
+      "nameEn": "DAYSPO WISE All Stage",
+      "brandId": "dayspo",
+      "code": "8809400535745",
+      "spec": "1.2kg(200g*6pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강을 위한 프리바이오틱스 첨가",
+        "관절 건강에 도움을 주는 MSM 첨가"
+      ],
+      "ingredients": "오리고기분말, 가수분해연어, 가수분해닭고기,아마씨, 프리바이오틱스, 글루코사민, MSM, 유카추출물, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image3.png",
+      "ingredientsEn": "Duck Meal, Hydrolyzed Salmon, Hydrolyzed Chicken, Flaxseed, Prebiotics, Glucosamine, MSM, Yucca Extract, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-스킨앤코트",
+      "nameKo": "데이스포 와이즈 스킨앤코트",
+      "nameEn": "DAYSPO WISE Skin & Coat",
+      "brandId": "dayspo",
+      "code": "8809400535820",
+      "spec": "1.2kg(200g*6pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 피부 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강을 위한 프리바이오틱스 첨가",
+        "관절 건강에 도움을 주는 MSM 첨가"
+      ],
+      "ingredients": "오리고기분말, 가수분해연어, 가수분해닭고기,아마씨, 프리바이오틱스, 글루코사민, MSM, 유카추출물, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image2.png",
+      "ingredientsEn": "Duck Meal, Hydrolyzed Salmon, Hydrolyzed Chicken, Flaxseed, Prebiotics, Glucosamine, MSM, Yucca Extract, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-조인트",
+      "nameKo": "데이스포 와이즈 조인트",
+      "nameEn": "DAYSPO WISE Joint",
+      "brandId": "dayspo",
+      "code": "8809565904257",
+      "spec": "1.2kg(200g*6pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 관절 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강을 위한 프리바이오틱스 첨가",
+        "관절건강에 도움을 주는 MSM/글루코사민첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 유기농대두박(20%), 프로필렌글리콜, 정제연어유(오메가3&6지방산 함유), 셀룰로오스, 가수분해연어, 보리, 귀리, 글루코사민, 초록입홍합분말, MSM, 상어연골분말(콘드로이친함유), 프리바이오틱스(FOS), 유카추출물(뿌리), 야채과일혼합분말(파인애플, 사과, 시금치, 브로콜리)",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image29.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Organic Soybean Meal (20%), Propylene Glycol, Refined Salmon Oil (contains Omega-3 & 6 Fatty Acids), Cellulose, Hydrolyzed Salmon, Barley, Oats, Glucosamine, Green Lipped Mussel Powder, MSM, Shark Cartilage Powder (contains Chondroitin), Prebiotics (FOS), Yucca Extract (Root), Vegetable & Fruit Mixed Powder (Pineapple, Apple, Spinach, Broccoli)",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-라이트",
+      "nameKo": "데이스포 와이즈 라이트",
+      "nameEn": "DAYSPO WISE Light",
+      "brandId": "dayspo",
+      "code": "8809597122155",
+      "spec": "1.2kg(200g*6pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 다이어트 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강을 위한 프리바이오틱스 첨가",
+        "체중조절에 도움을 주는 L-카르니틴 첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 유기농대두박(20%), 프로필렌글리콜, 정제연어유(오메가3&6지방산 함유), 셀룰로오스, 가수분해연어, 보리, 귀리, 초록입홍합분말, L-카르니틴, 흰강낭콩추출물, 가르시니아 캄보지아추출물, 프리바이오틱스(FOS), 유카추출물(뿌리), 야채과일혼합분말",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image26.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Organic Soybean Meal (20%), Propylene Glycol, Refined Salmon Oil (contains Omega-3 & 6 Fatty Acids), Cellulose, Hydrolyzed Salmon, Barley, Oats, Green Lipped Mussel Powder, L-Carnitine, White Kidney Bean Extract, Garcinia Cambogia Extract, Prebiotics (FOS), Yucca Extract (Root), Vegetable & Fruit Mixed Powder",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-아이즈",
+      "nameKo": "데이스포 와이즈 아이즈",
+      "nameEn": "DAYSPO WISE Eyes",
+      "brandId": "dayspo",
+      "code": "8809565904271",
+      "spec": "1.2kg(200g*6pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 눈 관리 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강을 위한 프리바이오틱스 첨가",
+        "눈 건강에 도움을 주는 블루베리 첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 유기농대두박(20%), 프로필렌글리콜, 정제연어유(오메가3&6지방산 함유), 셀룰로오스, 가수분해연어, 보리, 귀리, 마리골드추출물, 블루베리, 헤마토코쿠스추출물, 히알루론산, 프리바이오틱스(FOS), 유카추출물(뿌리), 야채과일혼합분말",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image28.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Organic Soybean Meal (20%), Propylene Glycol, Refined Salmon Oil (contains Omega-3 & 6 Fatty Acids), Cellulose, Hydrolyzed Salmon, Barley, Oats, Marigold Extract, Blueberry, Haematococcus Extract, Hyaluronic Acid, Prebiotics (FOS), Yucca Extract (Root), Vegetable & Fruit Mixed Powder",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-시니어",
+      "nameKo": "데이스포 와이즈 시니어",
+      "nameEn": "DAYSPO WISE Senior",
+      "brandId": "dayspo",
+      "code": "8809565904288",
+      "spec": "1.2kg(200g*6pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "8세이상 노령견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강을 위한 프리바이오틱스 첨가",
+        "관절 건강에 도움을 주는 글루코사민 첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 유기농대두박(20%), 정제연어유(오메가3&6지방산 함유), 셀룰로오스, 가수분해연어, 보리, 귀리, 초록입홍합분말, 글루코사민, 블루베리, 헤마토코쿠스추출물, 저분자콜라겐, 피쉬콜라겐, 히알루론산, 프리바이오틱스, 유카추출물(뿌리), 야채과일혼합분말",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image27.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Organic Soybean Meal (20%), Refined Salmon Oil (contains Omega-3 & 6 Fatty Acids), Cellulose, Hydrolyzed Salmon, Barley, Oats, Green Lipped Mussel Powder, Glucosamine, Blueberry, Haematococcus Extract, Low Molecular Collagen, Fish Collagen, Hyaluronic Acid, Prebiotics, Yucca Extract (Root), Vegetable & Fruit Mixed Powder",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-인섹트-말티즈",
+      "nameKo": "데이스포 와이즈 인섹트 말티즈",
+      "nameEn": "DAYSPO WISE Insect Maltese",
+      "brandId": "dayspo",
+      "code": "8809565906718",
+      "spec": "1.5kg(100g*15pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 말티즈 전용 사료",
+        "인섹트 원료와 오리를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "알레르기 예방을 위한 글루텐프리 설계",
+        "눈 건강에 도움을 주는 루테인/블루베리 첨가",
+        "관절 건강에 도움을주는 콘드로이친 첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 강낭콩, 프로필렌글리콜, 연어유, 가수분해연어, 완두분, 고구마전분, 동애등에분말, 셀룰로오스, 인산칼슘, 건조효모, 프리바이오틱스),상어연골분말(콘드로이친 함유), MSM, 마리골드추출물(루테인 함유), 아마씨, 당근, 블루베리, 아스타잔틴, 저분자콜라겐, 코엔자임Q10, 히알루론산, 유카추출물, 녹차추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image30.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Kidney Bean, Propylene Glycol, Salmon Oil, Hydrolyzed Salmon, Pea Powder, Sweet Potato Starch, Black Soldier Fly Powder, Cellulose, Calcium Phosphate, Dried Yeast, Prebiotics), Shark Cartilage Powder (contains Chondroitin), MSM, Marigold Extract (contains Lutein), Flaxseed, Carrot, Blueberry, Astaxanthin, Low Molecular Collagen, Coenzyme Q10, Hyaluronic Acid, Yucca Extract, Green Tea Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-인섹트-푸들",
+      "nameKo": "데이스포 와이즈 인섹트 푸들",
+      "nameEn": "DAYSPO WISE Insect Poodle",
+      "brandId": "dayspo",
+      "code": "8809565906725",
+      "spec": "1.5kg(100g*15pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 푸들 전용 사료",
+        "인섹트 원료와 오리를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "알레르기 예방을 위한 글루텐프리 설계",
+        "관절건강에 도움을 주는 콘드로이친 첨가",
+        "눈건강에 도움을주는 마리골드추출물 첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 강낭콩, 프로필렌글리콜, 연어유,가수분해연어, 완두분, 고구마전분, 동애등에분말, 셀룰로오스, 인산칼슘, 건조효모, 프리바이오틱스,상어연골분말(콘드로이친 함유), 글루코사민, 마리골드추출물(루테인 함유), 아마씨, 당근, 저분자콜라겐, 히알루론산, 유카추출물,녹차추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image32.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Kidney Bean, Propylene Glycol, Salmon Oil, Hydrolyzed Salmon, Pea Powder, Sweet Potato Starch, Black Soldier Fly Powder, Cellulose, Calcium Phosphate, Dried Yeast, Prebiotics, Shark Cartilage Powder (contains Chondroitin), Glucosamine, Marigold Extract (contains Lutein), Flaxseed, Carrot, Low Molecular Collagen, Hyaluronic Acid, Yucca Extract, Green Tea Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-인섹트-포메라니안",
+      "nameKo": "데이스포 와이즈 인섹트 포메라니안",
+      "nameEn": "DAYSPO WISE Insect Pomeranian",
+      "brandId": "dayspo",
+      "code": "8809565906732",
+      "spec": "1.5kg(100g*15pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 포메라니안 전용 사료",
+        "인섹트 원료와 오리를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "알레르기 예방을 위한 글루텐프리 설계",
+        "관절건강에 도움을 주는 초록입홍합/MSM첨가",
+        "눈건강에 도움을주는 마리골드추출물 첨가"
+      ],
+      "ingredients": "오리고기분말, 쌀가루, 강낭콩, 프로필렌글리콜, 연어유, 가수분해연어, 완두분, 고구마전분, 동애등에분말, 셀룰로오스, 인산칼슘, 건조효모, 프리바이오틱스, 글루코사민, 상어연골분말(콘드로이친 함유), 녹색입홍합, MSM, 마리골드추출물(루테인 함유), 아마씨, 당근, 저분자콜라겐, L-카르니틴, 유카추출물, 녹차추출물,",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image31.png",
+      "ingredientsEn": "Duck Meal, Rice Flour, Kidney Bean, Propylene Glycol, Salmon Oil, Hydrolyzed Salmon, Pea Powder, Sweet Potato Starch, Black Soldier Fly Powder, Cellulose, Calcium Phosphate, Dried Yeast, Prebiotics, Glucosamine, Shark Cartilage Powder (contains Chondroitin), Green Lipped Mussel, MSM, Marigold Extract (contains Lutein), Flaxseed, Carrot, Low Molecular Collagen, L-Carnitine, Yucca Extract, Green Tea Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-인섹트-프로틴",
+      "nameKo": "데이스포 와이즈 인섹트 프로틴",
+      "nameEn": "DAYSPO WISE Insect Protein",
+      "brandId": "dayspo",
+      "code": "8809565906749",
+      "spec": "1.5kg(100g*15pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 포메라니안 전용 사료",
+        "단일 인섹트 원료 동애등에를 주 원료로 사용",
+        "알레르기 예방을 위한 하이로알러제닉 설계",
+        "알레르기 예방을 위한 글루텐프리 설계",
+        "눈 건강에 도움을 주는 블루베리 첨가",
+        "눈 건강에 도움을주는 마리골드추출물 첨가"
+      ],
+      "ingredients": "밀웜분말, 쌀가루, 강낭콩, 연어유, 완두단백, 완두분, 고구마전분, 셀룰로오스, 안산칼슘, 건조효모, 아마씨, 블루베리분말, 당근, 마리골드추출분말(루테인 함유), 프리바이오틱스, 유산균혼합분말,녹차추출물, 유카추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image33.png",
+      "ingredientsEn": "Mealworm Powder, Rice Flour, Kidney Bean, Salmon Oil, Pea Protein, Pea Powder, Sweet Potato Starch, Cellulose, Calcium Phosphate, Dried Yeast, Flaxseed, Blueberry Powder, Carrot, Marigold Extract Powder (contains Lutein), Prebiotics, Mixed Probiotic Powder, Green Tea Extract, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-퓨어mb",
+      "nameKo": "데이스포 와이즈 퓨어MB",
+      "nameEn": "DAYSPO WISE Pure MB",
+      "brandId": "dayspo",
+      "code": "8809445445399",
+      "spec": "7.6kg(200g*38pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "관절 건강에 도움을 주는 글루코사민 첨가",
+        "연골 건강에 도움을 주는 상어연골 첨가",
+        "소형견 및 다견가정에 적합한 미디엄바이트"
+      ],
+      "ingredients": "오리고기,가수분해연어,가수분해닭고기,블루베리,유산균,유카추출물,아마씨,타우린,프리바이오틱스,MSM,글루코사민,상어연골",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image67.png",
+      "ingredientsEn": "Duck Meat, Hydrolyzed Salmon, Hydrolyzed Chicken, Blueberry, Probiotics, Yucca Extract, Flaxseed, Taurine, Prebiotics, MSM, Glucosamine, Shark Cartilage",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-퓨어lb",
+      "nameKo": "데이스포 와이즈 퓨어LB",
+      "nameEn": "DAYSPO WISE Pure LB",
+      "brandId": "dayspo",
+      "code": "8809445445832",
+      "spec": "7.6kg(200g*38pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "관절 건강에 도움을 주는 글루코사민 첨가",
+        "연골 건강에 도움을 주는 상어연골 첨가",
+        "중대형견에 적합한 라지바이트"
+      ],
+      "ingredients": "오리고기,가수분해연어,가수분해닭고기,블루베리,유산균,유카추출물,아마씨,타우린,프리바이오틱스,MSM,글루코사민,상어연골",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image66.png",
+      "ingredientsEn": "Duck Meat, Hydrolyzed Salmon, Hydrolyzed Chicken, Blueberry, Probiotics, Yucca Extract, Flaxseed, Taurine, Prebiotics, MSM, Glucosamine, Shark Cartilage",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-그레이트",
+      "nameKo": "데이스포 와이즈 그레이트",
+      "nameEn": "DAYSPO WISE Great",
+      "brandId": "dayspo",
+      "code": "8809565908217",
+      "spec": "10kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 대형견 전용사료",
+        "오리고기와 닭고기를 주 원료로 사용",
+        "대형견을 위한 33%이상의 고품질 단백질",
+        "관절 건강에 도움을 주는 글루코사민 첨가",
+        "구강 건강에 도움을 주는 IgY 첨가",
+        "대형견에 적합한 라지바이트"
+      ],
+      "ingredients": "오리고기분말, 닭고기분말, 옥수수, 비트펄프, 정제계유, 천연향미제,글루코사민,MSM, Igy,코엔자임Q10, 타우린",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image65.png",
+      "ingredientsEn": "Duck Meal, Chicken Meal, Corn, Beet Pulp, Refined Chicken Oil, Natural Flavoring, Glucosamine, MSM, IgY, Coenzyme Q10, Taurine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-올스테이지",
+      "nameKo": "데이스포 테라픽 올스테이지",
+      "nameEn": "DAYSPO Therapeak All Stage",
+      "brandId": "dayspo",
+      "code": "8809597122131",
+      "spec": "1kg(100g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "장 건강에 도움을 주는 프리바이오틱스 첨가"
+      ],
+      "ingredients": "오리고기,가수분해닭고기,가수분해연어,연어오일,글루코사민,상어연골,프리바이오틱스,유카추출물,아스타잔틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image34.png",
+      "ingredientsEn": "Duck Meat, Hydrolyzed Chicken, Hydrolyzed Salmon, Salmon Oil, Glucosamine, Shark Cartilage, Prebiotics, Yucca Extract, Astaxanthin",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-올스테이지-플러스-코엔자임q10",
+      "nameKo": "데이스포 테라픽 올스테이지 플러스 코엔자임Q10",
+      "nameEn": "DAYSPO Therapeak All Stage Plus CoQ10",
+      "brandId": "dayspo",
+      "code": "8809565906398",
+      "spec": "1kg(100g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "면역력 개선을 위한 코엔자임Q10 첨가",
+        "필수 아미노산이 풍부한 황태 첨가",
+        "글루코사민 첨가로 관절 건강에 도움"
+      ],
+      "ingredients": "오리고기,연어오일,가수분해닭고기,황태,홍삼,가수분해연어,초록입홍합,글루코사민,코엔자임Q10,아스타잔틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image35.png",
+      "ingredientsEn": "Duck Meat, Salmon Oil, Hydrolyzed Chicken, Dried Pollock, Red Ginseng, Hydrolyzed Salmon, Green Lipped Mussel, Glucosamine, Coenzyme Q10, Astaxanthin",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-스킨앤코트",
+      "nameKo": "데이스포 테라픽 스킨앤코트",
+      "nameEn": "DAYSPO Therapeak Skin & Coat",
+      "brandId": "dayspo",
+      "code": "8809445445801",
+      "spec": "1.36kg(80g*17pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 피부관리 사료",
+        "오리와 연어를 주 원료로 사용",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "피부 건강에 도움을 주는 오메가3&6 첨가",
+        "장 건강에 도움을 주는 프리바이오틱스 첨가"
+      ],
+      "ingredients": "오리분,타피오카전분,연어유,가수분해닭고기,가수분해연어,아마씨,감자분말,바나나,사과,파슬리,시금치,케일,당근,아사이,인디언구스베리,브로콜리,밀싹,보리순,파인애플,프락토올리고당,유카추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image62.png",
+      "ingredientsEn": "Duck Powder, Tapioca Starch, Salmon Oil, Hydrolyzed Chicken, Hydrolyzed Salmon, Flaxseed, Potato Powder, Banana, Apple, Parsley, Spinach, Kale, Carrot, Acai, Indian Gooseberry, Broccoli, Wheatgrass, Barley Grass, Pineapple, Fructooligosaccharide, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-웨이트컨트롤",
+      "nameKo": "데이스포 테라픽 웨이트컨트롤",
+      "nameEn": "DAYSPO Therapeak Weight Control",
+      "brandId": "dayspo",
+      "code": "8809445446242",
+      "spec": "1.36kg(80g*17pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 체중관리사료",
+        "오리와 연어를 주 원료로 사용",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "체중 조절에 도움을 주는 L-카르니틴 첨가",
+        "장 건강에 도움을 주는 프리바이오틱스 첨가"
+      ],
+      "ingredients": "오리분,타피오카전분,정제닭지방,가수분해가금류,가수분해연어,비트펄트,아마씨,브로콜리,글리세린,프락토올리고당,유카추출물,녹색입홍합추출물,L-카르니틴,타우린,베타글루칸",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image64.png",
+      "ingredientsEn": "Duck Powder, Tapioca Starch, Refined Chicken Fat, Hydrolyzed Poultry, Hydrolyzed Salmon, Beet Pulp, Flaxseed, Broccoli, Glycerin, Fructooligosaccharide, Yucca Extract, Green Lipped Mussel Extract, L-Carnitine, Taurine, Beta-Glucan",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-시니어",
+      "nameKo": "데이스포 테라픽 시니어",
+      "nameEn": "DAYSPO Therapeak Senior",
+      "brandId": "dayspo",
+      "code": "8809445446211",
+      "spec": "1.36kg(80g*17pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "8세이상 노령 반려견 사료",
+        "오리와 연어를 주 원료로 사용",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "체중 관리에 도움을 주는 L-카르니틴 첨가",
+        "장 건강에 도움을 주는 프리바이오틱스 첨가"
+      ],
+      "ingredients": "오리분,타피오카전분,정제닭지방,가수분해가금류,가수분해연어,비트펄트,아마씨,글리세린,프락토올리고당,유카추출물(뿌리),글루코사민,MSM,콘드로이친,블루베리,L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image63.png",
+      "ingredientsEn": "Duck Powder, Tapioca Starch, Refined Chicken Fat, Hydrolyzed Poultry, Hydrolyzed Salmon, Beet Pulp, Flaxseed, Glycerin, Fructooligosaccharide, Yucca Extract (Root), Glucosamine, MSM, Chondroitin, Blueberry, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-코엔자임q10-라지브리드",
+      "nameKo": "데이스포 테라픽 코엔자임Q10 라지브리드",
+      "nameEn": "DAYSPO Therapeak CoQ10 Large Breed",
+      "brandId": "dayspo",
+      "code": "8809565908224",
+      "spec": "10kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 대형견 전용사료",
+        "오리고기와 닭고기를 주 원료로 사용",
+        "대형견을 위한 33%이상의 고품질 단백질",
+        "항산화에 도움을 주는 코엔자임Q10 첨가",
+        "관절 건강에 도움을 주는 글루코사민 첨가",
+        "구강 건강에 도움을 주는 IgY 첨가"
+      ],
+      "ingredients": "오리고기분말, 닭고기분말, 옥수수, 비트펄프, 정제계유, 천연향미제, 코엔자임Q10,글루코사민,MSM, Igy",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image68.png",
+      "ingredientsEn": "Duck Meal, Chicken Meal, Corn, Beet Pulp, Refined Chicken Oil, Natural Flavoring, Coenzyme Q10, Glucosamine, MSM, IgY",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-테라픽-라지브리드-에이징5",
+      "nameKo": "데이스포 테라픽 라지브리드 에이징5",
+      "nameEn": "DAYSPO Therapeak Large Breed Aging 5",
+      "brandId": "dayspo",
+      "code": "8809565903670",
+      "spec": "10kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 대형견 전용사료",
+        "오리고기와 닭고기를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "대형견을 위한 32%이상의 고품질 단백질",
+        "항산화에 도움을 주는 코엔자임Q10 첨가",
+        "관절 건강에 도움을 주는 초록입홍합 첨가"
+      ],
+      "ingredients": " 동물성단백질(오리고기분말, 닭고기분말, 수지박), 옥수수, 대두박, 주정박, 동물성혼합유지, 가수분해동물성단백질, 코엔자임q10, 초록입홍합, SHMP, IgY, L-아르기닌, 블루베리, 포스파티딜세린",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image69.png",
+      "ingredientsEn": "Animal Protein (Duck Meal, Chicken Meal, Oilseed Meal), Corn, Soybean Meal, Distiller's Grain, Mixed Animal Fat, Hydrolyzed Animal Protein, Coenzyme Q10, Green Lipped Mussel, SHMP, IgY, L-Arginine, Blueberry, Phosphatidylserine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-명품수제-사료-과일-식단",
+      "nameKo": "데이스포 명품수제 사료 과일 식단",
+      "nameEn": "DAYSPO Premium Handmade Feed Fruit Diet",
+      "brandId": "dayspo",
+      "code": "8809565906640",
+      "spec": "1kg(100g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "오리고기를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드럽고 뛰어난 기호성의 수제 사료",
+        "알레르기 예방을 위한  그레인프리 설꼐",
+        "NON-GMO 유전자 변형 원료 사용 안함"
+      ],
+      "ingredients": "오리고기, 타피오카전분, 생선살, 프로필렌글리콜, 글리세린, 난황분, 가수분해닭고기, 연어유, MSM, 녹색입홍합, 글루코사민, 상어연골분말(콘드로이친 함유), 딸기, 블루베리, 크렌베리, 바나나, 사과, 셀룰로오스, Bacillus coagulans, 프리바이오틱스, 함수포도당, 유카추출물(뿌리)",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image56.png",
+      "ingredientsEn": "Duck Meat, Tapioca Starch, Fish Meat, Propylene Glycol, Glycerin, Egg Yolk Powder, Hydrolyzed Chicken, Salmon Oil, MSM, Green Lipped Mussel, Glucosamine, Shark Cartilage Powder (contains Chondroitin), Strawberry, Blueberry, Cranberry, Banana, Apple, Cellulose, Bacillus coagulans, Prebiotics, Dextrose, Yucca Extract (Root)",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-명품수제-사료-녹황색-식단",
+      "nameKo": "데이스포 명품수제 사료 녹황색 식단",
+      "nameEn": "DAYSPO Premium Handmade Feed Green & Yellow Vegetable Diet",
+      "brandId": "dayspo",
+      "code": "8809565906664",
+      "spec": "1kg(100g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "양고기를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드럽고 뛰어난 기호성의 수제 사료",
+        "알레르기 예방을 위한  그레인프리 설꼐",
+        "NON-GMO 유전자 변형 원료 사용 안함"
+      ],
+      "ingredients": "양고기, 닭고기, 타피오카전분, 생선살, 프로필렌글리콜, 글리세린, 당근, 난황분, 가수분해닭고기, 연어유, 파슬리, 시금치, 단호박, 브로콜리, 블루베리, L-카르니틴, 셀룰로오스, 프리바이오틱스, 유카추출물(뿌리), ",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image57.png",
+      "ingredientsEn": "Lamb, Chicken, Tapioca Starch, Fish Meat, Propylene Glycol, Glycerin, Carrot, Egg Yolk Powder, Hydrolyzed Chicken, Salmon Oil, Parsley, Spinach, Sweet Pumpkin, Broccoli, Blueberry, L-Carnitine, Cellulose, Prebiotics, Yucca Extract (Root)",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-명품수제-사료-바다-식단",
+      "nameKo": "데이스포 명품수제 사료 바다 식단",
+      "nameEn": "DAYSPO Premium Handmade Feed Seafood Diet",
+      "brandId": "dayspo",
+      "code": "8809565906657",
+      "spec": "1kg(100g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드럽고 뛰어난 기호성의 수제 사료",
+        "알레르기 예방을 위한  그레인프리 설꼐",
+        "NON-GMO 유전자 변형 원료 사용 안함"
+      ],
+      "ingredients": "연어, 닭고기, 타피오카전분, 생선살, 프로필렌글리콜, 글리세린, 난황분, 가수분해닭고기, 연어유(오메가3&6지방산 함유), 황태분말, 새우분말, 멸치분말, 스피루리나, 녹색입홍합, 미역, 다시마, 블루베리, L-카르니틴, 셀룰로오스, 프리바이오틱스, 유카추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image58.png",
+      "ingredientsEn": "Salmon, Chicken, Tapioca Starch, Fish Meat, Propylene Glycol, Glycerin, Egg Yolk Powder, Hydrolyzed Chicken, Salmon Oil (contains Omega-3 & 6 Fatty Acids), Dried Pollock Powder, Shrimp Powder, Anchovy Powder, Spirulina, Green Lipped Mussel, Seaweed, Kelp, Blueberry, L-Carnitine, Cellulose, Prebiotics, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-명품수제-사료-자연-식단",
+      "nameKo": "데이스포 명품수제 사료 자연 식단",
+      "nameEn": "DAYSPO Premium Handmade Feed Nature Diet",
+      "brandId": "dayspo",
+      "code": "8809565907005",
+      "spec": "1kg(100g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 사료",
+        "동애등에를 주 원료로 사용(40%함량)",
+        "알러지 예방을 위한 하이포알러제닉 설계",
+        "부드럽고 뛰어난 기호성의 수제 사료",
+        "알레르기 예방을 위한  그레인프리 설꼐",
+        "눈 건강에 도움을 주는 마리골드추출물 및"
+      ],
+      "ingredients": "동애등에, 완두단백, 감자전분, 타피오카전분, 연어유, 프로필렌글리콜, 글리세린, 블루베리, 헤마토코쿠스추출물, 마리골드추출물, 밀크씨슬, 크렌베리, Bacillus coagulans, 프리바이오틱스, 함수포도당, 유카추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image59.png",
+      "ingredientsEn": "Black Soldier Fly, Pea Protein, Potato Starch, Tapioca Starch, Salmon Oil, Propylene Glycol, Glycerin, Blueberry, Haematococcus Extract, Marigold Extract, Milk Thistle, Cranberry, Bacillus coagulans, Prebiotics, Dextrose, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-말티즈",
+      "nameKo": "데이스포 우리아이 말티즈",
+      "nameEn": "DAYSPO Woorriai Maltese",
+      "brandId": "dayspo",
+      "code": "8809786602338",
+      "spec": "1.8kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 말티즈 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "눈 건강에 도움을 주는 마리골드추출물 첨가",
+        "피부 건강에 도움을 주는 저분자콜라겐 첨가"
+      ],
+      "ingredients": "오리고기,가수분해연어,연어오일,가수분해닭고기,아마씨,프리바이오틱스,마리골드추출물,헤마토코쿠스추출물,밀크씨슬,저분자콜라겐,글루코사민",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image60.png",
+      "ingredientsEn": "Duck Meat, Hydrolyzed Salmon, Salmon Oil, Hydrolyzed Chicken, Flaxseed, Prebiotics, Marigold Extract, Haematococcus Extract, Milk Thistle, Low Molecular Collagen, Glucosamine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-푸들",
+      "nameKo": "데이스포 우리아이 푸들",
+      "nameEn": "DAYSPO Woorriai Poodle",
+      "brandId": "dayspo",
+      "code": "8809786602345",
+      "spec": "1.80kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 푸들 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "눈 건강에 도움을 주는 마리골드추출물 첨가",
+        "체중 관리에 도움을 주는 L-카르니틴 첨가"
+      ],
+      "ingredients": "오리고기,가수분해연어,연어오일,가수분해닭고기,아마씨,프리바이오틱스,마리골드추출물,헤마토코쿠스추출물,글루코사민,상어연골,L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image51.png",
+      "ingredientsEn": "Duck Meat, Hydrolyzed Salmon, Salmon Oil, Hydrolyzed Chicken, Flaxseed, Prebiotics, Marigold Extract, Haematococcus Extract, Glucosamine, Shark Cartilage, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-포메라니안",
+      "nameKo": "데이스포 우리아이 포메라니안",
+      "nameEn": "DAYSPO Woorriai Pomeranian",
+      "brandId": "dayspo",
+      "code": "8809786602352",
+      "spec": "1.8kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 말티즈 사료",
+        "오리와 연어를 주 원료로 사용",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "부드러운 반습식 사료",
+        "눈 건강에 도움을 주는 마리골드추출물 첨가",
+        "피부 건강에 도움을 주는 저분자콜라겐 첨가"
+      ],
+      "ingredients": "오리고기,가수분해연어,연어오일,가수분해닭고기,아마씨,프리바이오틱스,마리골드추출물,저분자콜라겐,글루코사민,상어연골,MSM,초록입홍합,L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image52.png",
+      "ingredientsEn": "Duck Meat, Hydrolyzed Salmon, Salmon Oil, Hydrolyzed Chicken, Flaxseed, Prebiotics, Marigold Extract, Low Molecular Collagen, Glucosamine, Shark Cartilage, MSM, Green Lipped Mussel, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-건강한-관절",
+      "nameKo": "데이스포 우리아이 건강한 관절",
+      "nameEn": "DAYSPO Woorriai Healthy Joint",
+      "brandId": "dayspo",
+      "code": "8809565906114",
+      "spec": "1.8kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 관절 사료",
+        "오리와 연어를 주 원료로 사용",
+        "관절 및 연골 건강에 도움을 주는 글루코사민 및",
+        "콘드로이친  첨가",
+        "관절 및 연골 영양공급에 도움을 주는",
+        "초록입홍합 및 MSM"
+      ],
+      "ingredients": "오리고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 글리세린, 프로필렌글리콜, 연어오일, 가수분해닭고기, 프락토올리고당, 유카추출물, 글루코사민, 상어연골분말(콘드로이친 함유), MSM, 초록입홍합, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image78.png",
+      "ingredientsEn": "Duck Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Glycerin, Propylene Glycol, Salmon Oil, Hydrolyzed Chicken, Fructooligosaccharide, Yucca Extract, Glucosamine, Shark Cartilage Powder (contains Chondroitin), MSM, Green Lipped Mussel, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-체중관리",
+      "nameKo": "데이스포 우리아이 체중관리",
+      "nameEn": "DAYSPO Woorriai Weight Management",
+      "brandId": "dayspo",
+      "code": "8809565906121",
+      "spec": "1.8kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 체중조절 사료",
+        "오리와 연어를 주 원료로 사용",
+        "일반사료대비 약 23% 지방 함량 낮음",
+        "체지방 분해에도움을 주는 가르시니아캄보지아",
+        "추출물 및 L-카르니틴 첨가",
+        "탄수화물의 지방합성 억제에 도움을 주는"
+      ],
+      "ingredients": "오리고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 글리세린, 프로필렌글리콜, 연어오일, 가수분해닭고기, 프락토올리고당, 유카추출물, 초록입홍합,L-카르니틴,가르시니아캄보지아추출물,흰강낭콩추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image79.png",
+      "ingredientsEn": "Duck Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Glycerin, Propylene Glycol, Salmon Oil, Hydrolyzed Chicken, Fructooligosaccharide, Yucca Extract, Green Lipped Mussel, L-Carnitine, Garcinia Cambogia Extract, White Kidney Bean Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-맑은-눈",
+      "nameKo": "데이스포 우리아이 맑은 눈",
+      "nameEn": "DAYSPO Woorriai Clear Eyes",
+      "brandId": "dayspo",
+      "code": "8809565907012",
+      "spec": "1.8kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 눈 관리사료",
+        "오리와 연어를 주 원료로 사용",
+        "눈 건강에 도움을 주는 루테인과 제아잔틴이",
+        "풍부하게 함유된 마리골드 추출물 첨가",
+        "눈물 착색에 영향을 미치는 포르피린 배출에",
+        "도움을 주는 밀크씨슬 첨가"
+      ],
+      "ingredients": "오리고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 글리세린, 프로필렌글리콜, 연어오일, 가수분해닭고기, 프락토올리고당, 유카추출물, 마리골드추출물, 헤마토코쿠스추출물, 밀크씨슬,블루베리",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image80.png",
+      "ingredientsEn": "Duck Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Glycerin, Propylene Glycol, Salmon Oil, Hydrolyzed Chicken, Fructooligosaccharide, Yucca Extract, Marigold Extract, Haematococcus Extract, Milk Thistle, Blueberry",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-깨끗한-피부",
+      "nameKo": "데이스포 우리아이 깨끗한 피부",
+      "nameEn": "DAYSPO Woorriai Clean Skin",
+      "brandId": "dayspo",
+      "code": "8809565907548",
+      "spec": "1.8kg(200g*9pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 피부관리사료",
+        "오리와 연어를 주 원료로 사용",
+        "피부 재생에 도움을 주는 저분자콜라겐 첨가",
+        "피부 수분 공급에 도움을 주는 히알루론산 첨가",
+        "피부모질 개선에 도움을 주는 아마씨 첨가",
+        "피부 면역력에 도움을 주는 오메가3가 풍부한"
+      ],
+      "ingredients": "오리고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 글리세린, 프로필렌글리콜, 연어오일, 가수분해닭고기, 아마씨, 프락토올리고당, 유카추출물,저분자콜라겐,히알루론산,초록입홍합",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image81.png",
+      "ingredientsEn": "Duck Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Glycerin, Propylene Glycol, Salmon Oil, Hydrolyzed Chicken, Flaxseed, Fructooligosaccharide, Yucca Extract, Low Molecular Collagen, Hyaluronic Acid, Green Lipped Mussel",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-아이케어-스킨-앤-발란스",
+      "nameKo": "데이스포 아이케어 스킨 앤 발란스",
+      "nameEn": "DAYSPO i-Care Skin & Balance",
+      "brandId": "dayspo",
+      "code": "8809565905513",
+      "spec": "5kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 사료",
+        "피부건강에 도움을 주는 오리고기를",
+        "주 원료로 사용",
+        "알러지예방을 위한 가수분해 원료 사용",
+        "오메가3가 풍부한 연어오일 첨가",
+        "피부건강에 도움을 주는 저분자콜라겐 및"
+      ],
+      "ingredients": "오리고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 연어오일, 가수분해닭고기, 프락토올리고당, 유카추출물, 감자분말, 아마씨,저분자콜라겐, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image53.png",
+      "ingredientsEn": "Duck Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Salmon Oil, Hydrolyzed Chicken, Fructooligosaccharide, Yucca Extract, Potato Powder, Flaxseed, Low Molecular Collagen, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-아이케어-힙-앤-조인트",
+      "nameKo": "데이스포 아이케어 힙 앤 조인트",
+      "nameEn": "DAYSPO i-Care Hip & Joint",
+      "brandId": "dayspo",
+      "code": "8809565905520",
+      "spec": "5kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 사료",
+        "고단백 양고기를 주 원료로 사용",
+        "알러지예방을 위한 가수분해 원료 사용",
+        "관절건강에 도움을 주는 MSM 첨가",
+        "관절건강에 도움을 주는 글루코사민 및",
+        "콘드로이친 첨가"
+      ],
+      "ingredients": "양고기분말,닭고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 연어오일, 가수분해닭고기, 프락토올리고당, 유카추출물, 글루코사민, 상어연골분말(콘드로이친 함유), MSM, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image54.png",
+      "ingredientsEn": "Lamb Meal, Chicken Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Salmon Oil, Hydrolyzed Chicken, Fructooligosaccharide, Yucca Extract, Glucosamine, Shark Cartilage Powder (contains Chondroitin), MSM, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "에버그로-웰",
+      "nameKo": "에버그로 웰",
+      "nameEn": "ever grow Well",
+      "brandId": "evergrow",
+      "code": "8809786602826",
+      "spec": "3kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 사료",
+        "피부에 도움을 주는 오리고기를  주원료로 사용",
+        "면역력 개선을 위한 미국산 초유 첨가",
+        "피부건강에 도움을 주는 연어오일 첨가",
+        "관절건강에 도움을 주는 글루코사민 및",
+        "콘드로이친 첨가"
+      ],
+      "ingredients": "오리고기분말, 옥수수, 쌀가루, 소맥분, 대두박, 가수분해연어, 연어오일, 아마씨, 프리바이오틱스(FOS), 유카추출물, 글루코사민, 상어연골분말(콘드로이친 함유), IgY, 초유단백분말, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image55.png",
+      "ingredientsEn": "Duck Meal, Corn, Rice Flour, Wheat Flour, Soybean Meal, Hydrolyzed Salmon, Salmon Oil, Flaxseed, Prebiotics (FOS), Yucca Extract, Glucosamine, Shark Cartilage Powder (contains Chondroitin), IgY, Colostrum Protein Powder, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-에이치시리즈-관절",
+      "nameKo": "데이스포 에이치시리즈 관절",
+      "nameEn": "DAYSPO H-Series Joint",
+      "brandId": "dayspo",
+      "code": "882025010741",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 관절영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "관절건강에 도움을 주는 글루코사민 첨가",
+        "연골건강에 도움을 주는 글루코사민 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 소맥분, 정제닭기름, 유카추출물(뿌리), 글루코사민, 상어연골분말(콘드로이친 함유)",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/image43.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Wheat Flour, Refined Chicken Fat, Yucca Extract (Root), Glucosamine, Shark Cartilage Powder (contains Chondroitin)",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-에이치시리즈-피부",
+      "nameKo": "데이스포 에이치시리즈 피부",
+      "nameEn": "DAYSPO H-Series Skin",
+      "brandId": "dayspo",
+      "code": "882025010758",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 피부영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "피부건강에 도움을 주는 오메가3&6 첨가",
+        "피부건강에 도움을 주는 아마씨 첨가",
+        "피부보습에 도움을 주는 히알루론산 첨가",
+        "피부재생에 도움을 주는 저분자콜라겐 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 소맥분, 연어유(오메가3&6지방산 함유), 아마씨, 히알루론산, 저분자콜라겐",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/hseries_skin.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Wheat Flour, Salmon Oil (contains Omega-3 & 6 Fatty Acids), Flaxseed, Hyaluronic Acid, Low Molecular Collagen",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-에이치시리즈-종합",
+      "nameKo": "데이스포 에이치시리즈 종합",
+      "nameEn": "DAYSPO H-Series Total Care",
+      "brandId": "dayspo",
+      "code": "882025011137",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 종합영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "피부건강에 도움을 주는 오메가3&6 첨가",
+        "관절건강에 도움을 주는 글루코사민 첨가",
+        "면역력 증진에 도움을 주는 베타글루칸 첨가",
+        "장 건강에 도움을 주는 프리바이오틱스 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 소맥분, 정제닭기름, 연어유(오메가3&6지방산 함유), 유카추출물(뿌리), 글루코사민, 상어연골분말(콘드로이친 함유), 레시틴, 프리바이오틱스(프락토올리고당, 이눌린), 베타글루칸, 클로렐라, 스피루리나",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/hseries_total.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Wheat Flour, Refined Chicken Fat, Salmon Oil (contains Omega-3 & 6 Fatty Acids), Yucca Extract (Root), Glucosamine, Shark Cartilage Powder (contains Chondroitin), Lecithin, Prebiotics (Fructooligosaccharide, Inulin), Beta-Glucan, Chlorella, Spirulina",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-에이치시리즈-다이제스트",
+      "nameKo": "데이스포 에이치시리즈 다이제스트",
+      "nameEn": "DAYSPO H-Series Digest",
+      "brandId": "dayspo",
+      "code": "882025010734",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 장 영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "변 냄새 간소에 도움을 주는 유카추출물 첨가",
+        "면역력 증진에 도움을 주는 베타글루칸 첨가",
+        "장 건강에 도움을 주는 프리바이오틱스 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 소맥분, 정제닭기름, 유카추출물(뿌리), 베타글루칸, 프리바이오틱스(프락토올리고당, 이눌린)",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/hseries_digest.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Wheat Flour, Refined Chicken Fat, Yucca Extract (Root), Beta-Glucan, Prebiotics (Fructooligosaccharide, Inulin)",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-후코이단-관절건강",
+      "nameKo": "데이스포 후코이단 관절건강",
+      "nameEn": "DAYSPO Fucoidan Joint Health",
+      "brandId": "dayspo",
+      "code": "8809597123381",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 관절 영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "면역력 증진에 도움을 주는 후코이단 첨가",
+        "관절건강에 도움을 주는 글루코사민 및",
+        "MSM 첨가",
+        "연골건강에 도움을 주는 글루코사민 및"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 후코이단, 카놀라유, 글루코사민, 초록입홍합, 상어연골분말(콘드로이친 함유), MSM",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/fucoidan_joint.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Fucoidan, Canola Oil, Glucosamine, Green Lipped Mussel, Shark Cartilage Powder (contains Chondroitin), MSM",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-후코이단-피부건강",
+      "nameKo": "데이스포 후코이단 피부건강",
+      "nameEn": "DAYSPO Fucoidan Skin Health",
+      "brandId": "dayspo",
+      "code": "8809597123367",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 피부 영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "면역력 증진에 도움을 주는 후코이단 첨가",
+        "피부건강에 도움을 주는 오메가3&6첨가",
+        "피부건강에 도움을 주는 스피루리나 첨가",
+        "피부재생에 도움을 주는 저분자콜라겐 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 후코이단, 연어유, 스피루리나, 저분자콜라겐",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/fucoidan_skin.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Fucoidan, Salmon Oil, Spirulina, Low Molecular Collagen",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-후코이단-종합건강",
+      "nameKo": "데이스포 후코이단 종합건강",
+      "nameEn": "DAYSPO Fucoidan Total Health",
+      "brandId": "dayspo",
+      "code": "8809597123350",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 종합 영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "면역력 증진에 도움을 주는 후코이단 첨가",
+        "피부건강에 도움을 주는 오메가3&6 첨가",
+        "관절건강에 도움을 주는 글루코사민 첨가",
+        "체중 조절에 도움을 주는 L-카르니틴 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 후코이단, 카놀라유, 글루코사민, 상어연골분말(콘드로이친 함유), 가르시니아캄보지아추출물, L-카르니틴, 프락토올리고당, 유카추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/fucoidan_total.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Fucoidan, Canola Oil, Glucosamine, Shark Cartilage Powder (contains Chondroitin), Garcinia Cambogia Extract, L-Carnitine, Fructooligosaccharide, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-후코이단-장-건강",
+      "nameKo": "데이스포 후코이단 장 건강",
+      "nameEn": "DAYSPO Fucoidan Gut Health",
+      "brandId": "dayspo",
+      "code": "8809597123374",
+      "spec": "250g",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 장 영양제",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "면역력 증진에 도움을 주는 후코이단 첨가",
+        "체중조절에 도움을 주는 L-카르니틴 첨가",
+        "체지방 분해에 도움을 주는 가르시니아캄보지아",
+        "추출물 첨가"
+      ],
+      "ingredients": "쌀가루, 대두분, 가수분해연어, 효모, 글리세린, 프로필렌글리콜, 포도당, 후코이단, 카놀라유, L-카르니틴, 가르시니아캄보지아추출물, 유카추출물(뿌리), 프락토올리고당",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "dog",
+      "image": "assets/products/fucoidan_gut.png",
+      "ingredientsEn": "Rice Flour, Soybean Powder, Hydrolyzed Salmon, Yeast, Glycerin, Propylene Glycol, Glucose, Fucoidan, Canola Oil, L-Carnitine, Garcinia Cambogia Extract, Yucca Extract (Root), Fructooligosaccharide",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-365덴탈브러쉬-종합",
+      "nameKo": "데이스포 와이즈 365덴탈브러쉬 종합",
+      "nameEn": "DAYSPO WISE 365 Dental Brush Total Care",
+      "brandId": "dayspo",
+      "code": "8809597122032",
+      "spec": "240g(12g*20pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 덴탈껌",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "치아관리를 위한 SHMP 및 IgY사용",
+        "치태 관리에 효과적인 눈꽃모양 설계",
+        "눈 건강에 도움을 주는 마리골드추출물 첨가"
+      ],
+      "ingredients": "생선살,가수분해닭고기,연어오일,SHMP,IgY,프리바이오틱스,유카추출물,아마씨,블루베리,글루코사민,아스타잔틴,마리골드추출물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image38.png",
+      "ingredientsEn": "Fish Meat, Hydrolyzed Chicken, Salmon Oil, SHMP, IgY, Prebiotics, Yucca Extract, Flaxseed, Blueberry, Glucosamine, Astaxanthin, Marigold Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-365덴탈브러쉬-눈",
+      "nameKo": "데이스포 와이즈 365덴탈브러쉬 눈",
+      "nameEn": "DAYSPO WISE 365 Dental Brush Eyes",
+      "brandId": "dayspo",
+      "code": "8809597122025",
+      "spec": "240g(12g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 덴탈껌",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "치아관리를 위한 SHMP 및 IgY사용",
+        "치태 관리에 효과적인 눈꽃모양 설계",
+        "눈 건강에 도움을 주는 마리골드추출물 첨가"
+      ],
+      "ingredients": "생선살,가수분해닭고기,연어오일,SHMP,IgY,프리바이오틱스,유카추출물,마리골드추출물,밀크씨슬,아스타잔틴,블루베리",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image37.png",
+      "ingredientsEn": "Fish Meat, Hydrolyzed Chicken, Salmon Oil, SHMP, IgY, Prebiotics, Yucca Extract, Marigold Extract, Milk Thistle, Astaxanthin, Blueberry",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-365덴탈브러쉬-관절",
+      "nameKo": "데이스포 와이즈 365덴탈브러쉬 관절",
+      "nameEn": "DAYSPO WISE 365 Dental Brush Joint",
+      "brandId": "dayspo",
+      "code": "8809597122001",
+      "spec": "240g(12g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 덴탈껌",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "치아관리를 위한 SHMP 및 IgY사용",
+        "치태 관리에 효과적인 눈꽃모양 설계",
+        "관절 건강에 도움을 주는 글루코사민 첨가"
+      ],
+      "ingredients": "생선살,가수분해닭고기,연어오일,SHMP,IgY,프리바이오틱스,유카추출물,초록입홍합,MSM,글루코사민,상어연골",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image40.png",
+      "ingredientsEn": "Fish Meat, Hydrolyzed Chicken, Salmon Oil, SHMP, IgY, Prebiotics, Yucca Extract, Green Lipped Mussel, MSM, Glucosamine, Shark Cartilage",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-와이즈-365덴탈브러쉬-피부",
+      "nameKo": "데이스포 와이즈 365덴탈브러쉬 피부",
+      "nameEn": "DAYSPO WISE 365 Dental Brush Skin",
+      "brandId": "dayspo",
+      "code": "8809597122018",
+      "spec": "240g(12g*10pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 덴탈껌",
+        "곡물 알레르기 예방을 위한 그레인프리 설계",
+        "알레르기 예방을 위한 가수분해 원료 사용",
+        "치아관리를 위한 SHMP 및 IgY사용",
+        "치태 관리에 효과적인 눈꽃모양 설계",
+        "피부 건강에 도움을 주는 아마씨 첨가"
+      ],
+      "ingredients": "생선살,가수분해닭고기,연어오일,SHMP,IgY,프리바이오틱스,유카추출물,아마씨,저분자콜라겐,히알루론산",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image41.png",
+      "ingredientsEn": "Fish Meat, Hydrolyzed Chicken, Salmon Oil, SHMP, IgY, Prebiotics, Yucca Extract, Flaxseed, Low Molecular Collagen, Hyaluronic Acid",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-황태-츄러스",
+      "nameKo": "데이스포 황태 츄러스",
+      "nameEn": "DAYSPO Dried Pollack Churu",
+      "brandId": "dayspo",
+      "code": "S: 8809565905407 / M: 8809565905414",
+      "spec": "150g(10g*15pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 반려동물용",
+        "휴먼그레이드 특상급 황태 70%첨가",
+        "구강 관리를 위한 버블 타입",
+        "반려견 크기에 따른 S / M 사이즈",
+        "알레르기 개선을 위한 글루텐프리 설계",
+        "알레르기 개선을 위한 가수분해 원료 사용"
+      ],
+      "ingredients": "생선살,가수분해닭고기,연어오일,SHMP,IgY,프리바이오틱스,유카추출물,아마씨,저분자콜라겐,히알루론산",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "용품",
+      "petType": "dog",
+      "image": "assets/products/image42.png",
+      "ingredientsEn": "Fish Meat, Hydrolyzed Chicken, Salmon Oil, SHMP, IgY, Prebiotics, Yucca Extract, Flaxseed, Low Molecular Collagen, Hyaluronic Acid",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-비건-덴탈껌",
+      "nameKo": "데이스포 비건 덴탈껌",
+      "nameEn": "DAYSPO Vegan Dental Chew",
+      "brandId": "dayspo",
+      "code": "8809565905575",
+      "spec": "240g(12g*20PACK)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 덴탈껌",
+        "한국 비견 평가원 인증 제품",
+        "100% 비건 원료만 사용",
+        "80% 유기농 원료 사용",
+        "하이포 알러제닉 / 글루텐 프리",
+        "구강관리/소화관리/피부관리/눈건강"
+      ],
+      "ingredients": "유기농쌀가루(65%), 유기농고구마(5%), 유기농타피오카(5%), 유기농대두분(5%), 식물성 글리세린, 프로필렌글리콜, 코코넛오일, 바나나분말, 건조효모, SHMP, 스피루리나, 세이지추출물, 로즈마리추출물, 아마씨, 마리골드추출물, 크랜베리, 블루베리, 프리바이오틱스(FOS), 소르빈산칼륨",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image39.png",
+      "ingredientsEn": "Organic Rice Flour (65%), Organic Sweet Potato (5%), Organic Tapioca (5%), Organic Soybean Powder (5%), Vegetable Glycerin, Propylene Glycol, Coconut Oil, Banana Powder, Dried Yeast, SHMP, Spirulina, Sage Extract, Rosemary Extract, Flaxseed, Marigold Extract, Cranberry, Blueberry, Prebiotics (FOS), Potassium Sorbate",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "벨버드-져키킹-1kg-s",
+      "nameKo": "벨버드 져키킹 1kg S",
+      "nameEn": "Bell bird Jerky King 1kg S",
+      "brandId": "bellbird",
+      "code": "8809565901195",
+      "spec": "1kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 간식",
+        "뛰어난 맛과 영양",
+        "노즈워크 놀이에 최적화된 사이즈",
+        "칭찬 및 보상용 간식으로 적합",
+        "필수 아미노산이 풍부한 황태 첨가",
+        "오메가3가 풍부한 참치 및 연어 첨가"
+      ],
+      "ingredients": "소맥분, 대두박, 가수분해닭고기, 쌀가루, 정제닭기름, 프로필렌글리콜, 치즈분말, 참치분말, 오리고기분말, 가수분해연어, 황태분말, 시금치, 프락토올리고당, 유카추출물(뿌리)",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "용품",
+      "petType": "dog",
+      "image": "assets/products/image36.png",
+      "ingredientsEn": "Wheat Flour, Soybean Meal, Hydrolyzed Chicken, Rice Flour, Refined Chicken Fat, Propylene Glycol, Cheese Powder, Tuna Powder, Duck Meal, Hydrolyzed Salmon, Dried Pollock Powder, Spinach, Fructooligosaccharide, Yucca Extract (Root)",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-독-케어스틱-오리+닭고기관절",
+      "nameKo": "데이스포 독 케어스틱 오리+닭고기(관절)",
+      "nameEn": "DAYSPO Dog Care Stick Duck + Chicken (Joint)",
+      "brandId": "dayspo",
+      "code": "8809565901751",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "닭가슴살과 오리를 주 원료로 사용",
+        "관절건강에 도움을 주는 상어연골 첨가",
+        "관절건강에 도움을 주는 글루코사민 첨가"
+      ],
+      "ingredients": "닭가슴살, 정제수, 타피오카전분, 오리, 브로콜리, 당근, 상어\n연골분말, 글루코사민, 초록입홍합추출분말, 호박즙, 유산균",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image74.png",
+      "ingredientsEn": "Chicken Breast, Purified Water, Tapioca Starch, Duck, Broccoli, Carrot, Shark Cartilage Powder, Glucosamine, Green Lipped Mussel Extract Powder, Pumpkin Juice, Probiotics",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-독-케어스틱-소고기+소간눈",
+      "nameKo": "데이스포 독 케어스틱 소고기+소간(눈)",
+      "nameEn": "DAYSPO Dog Care Stick Beef + Liver (Eyes)",
+      "brandId": "dayspo",
+      "code": "8809565901768",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "소고기와 연어를 주 원료로 사용",
+        "눈 건강에 도움을 주는 소간 첨가",
+        "눈 건강에 도움을 주는 블루베리 첨가"
+      ],
+      "ingredients": "정제수, 소고기, 연어, 타피오카, 당근, 브로콜리, 소간, 호박, 블루베리, 산양유, 프락토올리고당, 루테인, 유산균",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image77.png",
+      "ingredientsEn": "Purified Water, Beef, Salmon, Tapioca, Carrot, Broccoli, Beef Liver, Pumpkin, Blueberry, Goat Milk, Fructooligosaccharide, Lutein, Probiotics",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-독-케어스틱-닭가슴살+바나나구강",
+      "nameKo": "데이스포 독 케어스틱 닭가슴살+바나나(구강)",
+      "nameEn": "DAYSPO Dog Care Stick Chicken Breast + Banana (Oral)",
+      "brandId": "dayspo",
+      "code": "8809565903632",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "닭가슴살을 주 원료로 사용",
+        "구강관리에 도움을 주는 SHMP 첨가",
+        "면역력에 도움을 주는 베타글루칸 첨가"
+      ],
+      "ingredients": "정제수, 닭가슴살, 타피오카, 바나나, 잔탄검, 당근, 브로콜리, 호박, 베타글루칸, β-글루칸, 헥사메타인산염(SHMP), 후코이단, 프로폴리스",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image76.png",
+      "ingredientsEn": "Purified Water, Chicken Breast, Tapioca, Banana, Xanthan Gum, Carrot, Broccoli, Pumpkin, Beta-Glucan, Beta-Glucan, Sodium Hexametaphosphate (SHMP), Fucoidan, Propolis",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-독-케어스틱-연어+황태라이트",
+      "nameKo": "데이스포 독 케어스틱 연어+황태(라이트)",
+      "nameEn": "DAYSPO Dog Care Stick Salmon + Pollack (Light)",
+      "brandId": "dayspo",
+      "code": "8809565903656",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려견 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "연어를 주 원료로 사용",
+        "체중관리에 도움을 주는 L-카르니틴 첨가",
+        "체중관리에 도움을 주는 가르시니아 첨가"
+      ],
+      "ingredients": "정제수, 연어살, 생선살, 황태분말, 타피오카, 잔탄검, 당근, 브로콜리, 호박, 가르시니아캄보지아추출물, L-카르니틴",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image75.png",
+      "ingredientsEn": "Purified Water, Salmon Meat, Fish Meat, Dried Pollock Powder, Tapioca, Xanthan Gum, Carrot, Broccoli, Pumpkin, Garcinia Cambogia Extract, L-Carnitine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-원데이-펫밀크-아이즈-앤-조인트",
+      "nameKo": "데이스포 우리아이 원데이 펫밀크 아이즈 앤 조인트",
+      "nameEn": "DAYSPO Woorriai One-Day Pet Milk Eyes & Joint",
+      "brandId": "dayspo",
+      "code": "8809565903076",
+      "spec": "150ml",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 반려동물용",
+        "유당이 분해된 락토프리설계로 편안한 소화",
+        "관절 건강에 도움을 주는 글루코사민 첨가",
+        "눈 건강에 도움을 주는 타우린 첨가"
+      ],
+      "ingredients": "우유(국산)99.043%,탄산칼슘혼합제제(탄산칼슘,대두다당류),콜라겐, 오메가-3 DHA 함유 분말,,유당분해효소,Lactobacillus plantarum배양물, Lactobacillus rhamnosus배양물,유카추추물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image18.png",
+      "ingredientsEn": "Milk (Domestic) 99.043%, Calcium Carbonate Mixture (Calcium Carbonate, Soybean Polysaccharide), Collagen, Powder containing Omega-3 DHA, Lactase, Lactobacillus plantarum Culture, Lactobacillus rhamnosus Culture, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-우리아이-원데이-펫밀크-힐링-앤-뷰티",
+      "nameKo": "데이스포 우리아이 원데이 펫밀크 힐링 앤 뷰티",
+      "nameEn": "DAYSPO Woorriai One-Day Pet Milk Healing & Beauty",
+      "brandId": "dayspo",
+      "code": "8809565903076",
+      "spec": "150ml",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 반려동물용",
+        "유당이 분해된 락토프리설계로 편안한 소화",
+        "스트레스 완화에 도움을 주는 DHA 첨가",
+        "피부 건강에 도움을 주는 저분자 콜라겐 및",
+        "오메가 3 첨가"
+      ],
+      "ingredients": "우유(국산)99.043%,탄산칼슘혼합제제(탄산칼슘,대두다당류),콜라겐, 오메가-3 DHA 함유 분말,,유당분해효소,Lactobacillus plantarum배양물, Lactobacillus rhamnosus배양물,유카추추물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "dog",
+      "image": "assets/products/image17.png",
+      "ingredientsEn": "Milk (Domestic) 99.043%, Calcium Carbonate Mixture (Calcium Carbonate, Soybean Polysaccharide), Collagen, Powder containing Omega-3 DHA, Lactase, Lactobacillus plantarum Culture, Lactobacillus rhamnosus Culture, Yucca Extract",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "에버그로-펫밀크-초유",
+      "nameKo": "에버그로 펫밀크 초유",
+      "nameEn": "ever grow Pet Milk Colostrum",
+      "brandId": "evergrow",
+      "code": "8809597126993",
+      "spec": "150ml",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 반려동물용 펫밀크",
+        "유당이 분해된 락토프리설계로 편안한 소화",
+        "면역력 개선에 도움을 주는 초유 첨가",
+        "장 건강에 도움을 주는 유산균 첨가"
+      ],
+      "ingredients": "우유(국산)99.193%, 탄산칼슘혼합제제(탄산칼슘, 대두다당류), 초유, 탄산수소나트륨, 비타민프리믹스, 미네랄프리믹스, 유당분해효소, 유카추출물, Lactobacillus plantarum 배양물, Lactobacillus rhamnosus 배양물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "용품",
+      "petType": "dog",
+      "image": "assets/products/image20.png",
+      "ingredientsEn": "Milk (Domestic) 99.193%, Calcium Carbonate Mixture (Calcium Carbonate, Soybean Polysaccharide), Colostrum, Sodium Bicarbonate, Vitamin Premix, Mineral Premix, Lactase, Yucca Extract, Lactobacillus plantarum Culture, Lactobacillus rhamnosus Culture",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "에버그로-펫밀크-피부",
+      "nameKo": "에버그로 펫밀크 피부",
+      "nameEn": "ever grow Pet Milk Skin",
+      "brandId": "evergrow",
+      "code": "8809597126771",
+      "spec": "150ml",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 반려동물용 펫밀크",
+        "유당이 분해된 락토프리설계로 편안한 소화",
+        "피부 건강에 도움을 주는 콜라겐 첨가",
+        "피부 건강에 도움을 주는 오메가3 및 DHA첨가",
+        "장 건강에 도움을 주는 유산균 첨가"
+      ],
+      "ingredients": "우유(국산)99.043%, 탄산칼슘혼합제제(탄산칼슘, 대두다당류), 콜라겐, DHA 오메가-3분말, 탄산수소나트륨, 비타민프리 믹스, 미네랄프리믹스, 유당분해효소, 유카추출물, Lactobacillus plantarum 배양물, Lactobacillus rhamnosus 배양물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "용품",
+      "petType": "dog",
+      "image": "assets/products/image19.png",
+      "ingredientsEn": "Milk (Domestic) 99.043%, Calcium Carbonate Mixture (Calcium Carbonate, Soybean Polysaccharide), Collagen, DHA Omega-3 Powder, Sodium Bicarbonate, Vitamin Premix, Mineral Premix, Lactase, Yucca Extract, Lactobacillus plantarum Culture, Lactobacillus rhamnosus Culture",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "에버그로-펫밀크-눈&관절",
+      "nameKo": "에버그로 펫밀크 눈&관절",
+      "nameEn": "ever grow Pet Milk Eyes & Joint",
+      "brandId": "evergrow",
+      "code": "8809597126764",
+      "spec": "150ml",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "2개월 이상 전연령 반려동물용 펫밀크",
+        "유당이 분해된 락토프리설계로 편안한 소화",
+        "관절 건강에 도움을 주는 글루코사민 첨가",
+        "눈 건강에 도움을 주는 타우린 첨가",
+        "장 건강에 도움을 주는 유산균 첨가"
+      ],
+      "ingredients": "우유 (국산)99.073%, 탄산칼슘혼합제제(탄산칼슘, 대두다당류), 글루코사민, 타우린, 탄산수소나트륨, 비타민프리믹스, 미네랄 프리믹스, 유당분해효소, 유카추출물, Lactobacillus plantarum 배양물, Lactobacillus rhamnosus 배양물",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "용품",
+      "petType": "dog",
+      "image": "assets/products/image61.png",
+      "ingredientsEn": "Milk (Domestic) 99.073%, Calcium Carbonate Mixture (Calcium Carbonate, Soybean Polysaccharide), Glucosamine, Taurine, Sodium Bicarbonate, Vitamin Premix, Mineral Premix, Lactase, Yucca Extract, Lactobacillus plantarum Culture, Lactobacillus rhamnosus Culture",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "벨버드-캣츠맘마",
+      "nameKo": "벨버드 캣츠맘마",
+      "nameEn": "Bell bird Cat's Mamma",
+      "brandId": "bellbird",
+      "code": "8809565900914",
+      "spec": "1kg",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려묘 사료",
+        "균형잡힌 영양소",
+        "뛰어난 맛",
+        "면역력을 위한 타우린 3,000mg/kg 첨가",
+        "피부 건강을 위한 맥주효모 첨가",
+        "반려묘 필수 비타민 및 미네랄 첨가"
+      ],
+      "ingredients": "닭고기 현미,맥주효모, 타우린,비타민합제,미네랄합제",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "사료",
+      "petType": "cat",
+      "image": "assets/products/image82.png",
+      "ingredientsEn": "Chicken Brown Rice, Brewer's Yeast, Taurine, Vitamin Mix, Mineral Mix",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-캣-캐어스틱-참치-닭고기",
+      "nameKo": "데이스포 캣 캐어스틱 참치 닭고기",
+      "nameEn": "DAYSPO Cat Care Stick Tuna & Chicken",
+      "brandId": "dayspo",
+      "code": "8809565901744",
+      "spec": "4P(14g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려묘 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "참치와 닭고기를 주 원료로 사용",
+        "반려묘 필수 영양소인 L-라이신 및 타우린 첨가",
+        "체중유지에 도움을 주는 L-카르니틴 첨가"
+      ],
+      "ingredients": "참치, 정제수, 타피오카전분, 닭고기, 당근, 브로콜리, 호박, L-라이신, 타우린, 오메가3, L-카르니틴, 녹차분말, 유산균",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "cat",
+      "image": "assets/products/image86.png",
+      "ingredientsEn": "Tuna, Purified Water, Tapioca Starch, Chicken, Carrot, Broccoli, Pumpkin, L-Lysine, Taurine, Omega-3, L-Carnitine, Green Tea Powder, Probiotics",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-캣-캐어스틱-참치-연어",
+      "nameKo": "데이스포 캣 캐어스틱 참치 연어",
+      "nameEn": "DAYSPO Cat Care Stick Tuna & Salmon",
+      "brandId": "dayspo",
+      "code": "8809565901737",
+      "spec": "4P(14g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려묘 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "참치와 연어를 주 원료로 사용",
+        "반려묘 필수 영양소인 L-라이신 및 타우린 첨가",
+        "결석 예방에 도움을 주는 크렌베리 첨가"
+      ],
+      "ingredients": "정제수, 연어, 참치, 타피오카, 당근, 브로콜리, 호박, L-라이신, 타우린, 오메가3, 크랜베리, 녹차분말, 유산균",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "cat",
+      "image": "assets/products/image87.png",
+      "ingredientsEn": "Purified Water, Salmon, Tuna, Tapioca, Carrot, Broccoli, Pumpkin, L-Lysine, Taurine, Omega-3, Cranberry, Green Tea Powder, Probiotics",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-캣-캐어스틱-참치-게살",
+      "nameKo": "데이스포 캣 캐어스틱 참치 게살",
+      "nameEn": "DAYSPO Cat Care Stick Tuna & Crab",
+      "brandId": "dayspo",
+      "code": "8809565901720",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려묘 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "참치와 게살을 주 원료로 사용",
+        "반려묘 필수 영양소인 L-라이신 및 타우린 첨가",
+        "결석 예방에 도움을 주는 크렌베리 첨가"
+      ],
+      "ingredients": "참치, 정제수, 타피오카전분, 게살, 당근, 브로콜리, 호박, L-라이신, 타우린, 오메가3, 크랜베리분말, 녹차분말, 유산균",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "cat",
+      "image": "assets/products/image85.png",
+      "ingredientsEn": "Tuna, Purified Water, Tapioca Starch, Crab Meat, Carrot, Broccoli, Pumpkin, L-Lysine, Taurine, Omega-3, Cranberry Powder, Green Tea Powder, Probiotics",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-캣-캐어스틱-닭가슴살-황태",
+      "nameKo": "데이스포 캣 캐어스틱 닭가슴살 황태",
+      "nameEn": "DAYSPO Cat Care Stick Chicken Breast & Pollack",
+      "brandId": "dayspo",
+      "code": "8809565903618",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려묘 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "닭가슴살과 황태를 주 원료로 사용",
+        "반려묘 필수 영양소인 L-라이신 및 타우린 첨가",
+        "면역력 개선에 도움을 주는 베타글루칸 첨가"
+      ],
+      "ingredients": "정제수, 닭가슴살, 타피오카, 황태분말, 당근, 브로콜리, 호박, 후코이단, 베타글루칸, 타우린,차전자피, 비타민합제,미네랄합제, L-라이신",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "cat",
+      "image": "assets/products/image83.png",
+      "ingredientsEn": "Purified Water, Chicken Breast, Tapioca, Dried Pollock Powder, Carrot, Broccoli, Pumpkin, Fucoidan, Beta-Glucan, Taurine, Psyllium Husk, Vitamin Mix, Mineral Mix, L-Lysine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    },
+    {
+      "id": "데이스포-캣-캐어스틱-닭가슴살",
+      "nameKo": "데이스포 캣 캐어스틱 닭가슴살",
+      "nameEn": "DAYSPO Cat Care Stick Chicken Breast",
+      "brandId": "dayspo",
+      "code": "8809565903625",
+      "spec": "4P(15g*4pack)",
+      "shelfLife": "제조일로부터 18개월까지",
+      "features": [
+        "생후 2개월이상 전연령 반려묘 간식",
+        "부드러운 겔 타입",
+        "뛰어난 맛과 균형잡힌 영양",
+        "닭가슴살을 주 원료로 사용",
+        "반려묘 필수 영양소인 L-라이신 및 타우린 첨가",
+        "구강 관리에 도움을 주는 프로폴리스 첨가"
+      ],
+      "ingredients": "정제수, 닭가슴살, 타피오카, 바나나, 당근,브로콜리, 호박, IgY, 스피루리나, SHMP, 타우린, 차전자피, 프로폴리스,비타민합제,미네랄합제, L-라이신",
+      "nutrition": {
+        "protein": "24.0% (Min)",
+        "fat": "10.0% (Min)",
+        "fiber": "5.0% (Max)",
+        "moisture": "12.0% (Max)"
+      },
+      "origin": "대한민국",
+      "category": "간식",
+      "petType": "cat",
+      "image": "assets/products/image84.png",
+      "ingredientsEn": "Purified Water, Chicken Breast, Tapioca, Banana, Carrot, Broccoli, Pumpkin, IgY, Spirulina, SHMP, Taurine, Psyllium Husk, Propolis, Vitamin Mix, Mineral Mix, L-Lysine",
+      "originEn": "Republic of Korea",
+      "shelfLifeEn": "18 months from manufacture date"
+    }
+  ],
+  "footer": {
+    "company": "(주)부명 BOOMYUNG",
+    "address": "경기도 구리시 건원대로34번길 19 306",
+    "tel": "031-553-8003",
+    "fax": "031-592-2460",
+    "email": "help@petsb2b.co.kr",
+    "brn": "132-81-49973",
+    "copyright": "© 2026 BOOMYUNG Co., Ltd. All Rights Reserved.",
+    "companyEn": "BOOMYUNG Co., Ltd.",
+    "addressEn": "306, 19 Geonwondae-ro 34beon-gil, Guri-si, Gyeonggi-do, Republic of Korea"
+  },
+  "categories": [
+    {
+      "id": "all",
+      "label": "전체",
+      "labelEn": "All"
+    },
+    {
+      "id": "사료",
+      "label": "사료",
+      "labelEn": "Food"
+    },
+    {
+      "id": "간식",
+      "label": "간식",
+      "labelEn": "Treats"
+    },
+    {
+      "id": "모래",
+      "label": "모래",
+      "labelEn": "Litter"
+    },
+    {
+      "id": "용품",
+      "label": "용품",
+      "labelEn": "Supplies"
+    }
+  ],
+  "brands": [
+    {
+      "id": "all",
+      "label": "전체 브랜드",
+      "labelEn": "All Brands"
+    },
+    {
+      "id": "dayspo",
+      "label": "데이스포",
+      "labelEn": "DAYSPO"
+    },
+    {
+      "id": "bellbird",
+      "label": "벨버드",
+      "labelEn": "Bell bird"
+    },
+    {
+      "id": "evergrow",
+      "label": "에버그로",
+      "labelEn": "ever grow"
+    },
+    {
+      "id": "howpet",
+      "label": "하우펫",
+      "labelEn": "HOWPET"
+    },
+    {
+      "id": "ninaottosson",
+      "label": "니나오토슨",
+      "labelEn": "Nina Ottosson"
+    },
+    {
+      "id": "dono",
+      "label": "도노",
+      "labelEn": "DONO"
+    },
+    {
+      "id": "reflex",
+      "label": "리플렉스",
+      "labelEn": "Reflex"
+    },
+    {
+      "id": "sulfodene",
+      "label": "설퍼딘",
+      "labelEn": "Sulfodene"
+    },
+    {
+      "id": "petstage",
+      "label": "펫스테이지",
+      "labelEn": "Petstages"
+    }
+  ]
+}

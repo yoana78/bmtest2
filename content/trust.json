@@ -1,0 +1,312 @@
+{
+  "hero": {
+    "eyebrow": "QUALITY & GLOBAL TRUST",
+    "title": "신뢰와 인증",
+    "body": "엄격한 품질 표준과 글로벌 박람회 출품을 통해 신뢰를 실증합니다.",
+    "image": "assets/trust_hero.png",
+    "titleEn": "Trust & Certification",
+    "bodyEn": "We demonstrate our reliability through rigorous quality standards and participation in global exhibitions.",
+    "eyebrowEn": "QUALITY & GLOBAL TRUST"
+  },
+  "certIntro": {
+    "title": "품질 및 안전 인증 시스템",
+    "titleEn": "Quality & Safety Certification Systems"
+  },
+  "certifications": [
+    {
+      "code": "ISO 14001",
+      "title": "환경경영시스템 (ISO 14001)",
+      "body": "생산 전 과정에서 환경 영향을 최소화하는 국제 표준 환경경영시스템을 적용합니다.",
+      "image": "assets/certifications/iso14001.png",
+      "titleEn": "Environmental Management System",
+      "bodyEn": "Certified environmental management system minimizing environmental impact across production processes."
+    },
+    {
+      "code": "ISO 22000",
+      "title": "식품안전경영시스템 (ISO 22000)",
+      "body": "원료 입고부터 제조, 포장 전 과정에 걸쳐 국제 표준 식품안전 경영시스템을 적용합니다.",
+      "image": "assets/certifications/iso22000.png",
+      "titleEn": "Food Safety Management System",
+      "bodyEn": "Certified international food safety management from raw materials to final packaging."
+    },
+    {
+      "code": "HACCP",
+      "title": "HACCP 위해요소 중점관리",
+      "body": "제조 공정상 발생할 수 있는 위해요소를 사전 차단하여 안전한 사료와 간식을 생산합니다.",
+      "image": "assets/certifications/haccp.png",
+      "titleEn": "Hazard Analysis Critical Control Point",
+      "bodyEn": "Rigorous monitoring and prevention of biological, chemical, and physical hazards."
+    },
+    {
+      "code": "AAFCO",
+      "title": "AAFCO 미국사료관리협회 영양기준",
+      "body": "미국사료관리협회(AAFCO)의 개·고양이 필수 영양 가이드라인을 준수합니다.",
+      "image": "",
+      "titleEn": "AAFCO Nutritional Guidelines Compliant",
+      "bodyEn": "Formulated to meet global AAFCO nutritional standards for dogs and cats."
+    }
+  ],
+  "ipIntro": {
+    "title": "보유 특허",
+    "body": "(주)부명은 반려동물 사료 및 용품 관련 기술에 대해 특허청(KIPO)에 등록된 특허, 디자인등록, 실용신안을 보유하고 있습니다.",
+    "titleEn": "Patents Held",
+    "bodyEn": "BOOMYUNG holds patents, design registrations, and utility model registrations granted by the Korean Intellectual Property Office (KIPO) for pet food and pet product technologies."
+  },
+  "patents": [
+    {
+      "type": "특허",
+      "number": "10-2252390",
+      "title": "반려 동물용 육포 및 그 제조방법",
+      "image": "assets/patents/patent_2252390.jpg",
+      "titleEn": "Pet Jerky and Manufacturing Method Thereof"
+    },
+    {
+      "type": "특허",
+      "number": "10-2042458",
+      "title": "벤토나이트를 함유한 고양이 모래 및 그 제조방법",
+      "image": "assets/patents/patent_2042458.jpg",
+      "titleEn": "Bentonite-Containing Cat Litter and Manufacturing Method Thereof"
+    },
+    {
+      "type": "특허",
+      "number": "10-2042457",
+      "title": "두부 부산물을 함유한 고양이 모래 및 그 제조방법",
+      "image": "assets/patents/patent_2042457.jpg",
+      "titleEn": "Tofu-Byproduct Cat Litter and Manufacturing Method Thereof"
+    },
+    {
+      "type": "특허",
+      "number": "10-2248006",
+      "title": "노즈워크매트",
+      "image": "assets/patents/patent_2248006.jpg",
+      "titleEn": "Nosework Mat"
+    },
+    {
+      "type": "특허",
+      "number": "10-2233264",
+      "title": "반려 동물용 육포 포장방법",
+      "image": "assets/patents/patent_2233264.jpg",
+      "titleEn": "Packaging Method for Pet Jerky"
+    },
+    {
+      "type": "특허",
+      "number": "10-2254626",
+      "title": "치석제거가 가능한 반려동물용 껌",
+      "image": "assets/patents/patent_2254626.jpg",
+      "titleEn": "Tartar-Removing Chew Gum for Pets"
+    },
+    {
+      "type": "특허",
+      "number": "10-2246000",
+      "title": "원료육이 코팅된 반려동물용 간식 및 이의 제조방법",
+      "image": "assets/patents/patent_2246000.jpg",
+      "titleEn": "Meat-Coated Pet Treat and Manufacturing Method Thereof"
+    },
+    {
+      "type": "특허",
+      "number": "10-2956733",
+      "title": "반려동물 안구를 위한 식품 조성물",
+      "image": "assets/patents/patent_2956733.jpg",
+      "titleEn": "Food Composition for Pet Eye Health"
+    },
+    {
+      "type": "디자인등록",
+      "number": "30-0833217",
+      "title": "애견용 패드",
+      "image": "assets/patents/design_0833217.png",
+      "titleEn": "Pet Pad"
+    },
+    {
+      "type": "디자인등록",
+      "number": "30-0847166",
+      "title": "애완동물용 목줄",
+      "image": "assets/patents/design_0847166.png",
+      "titleEn": "Pet Leash"
+    }
+  ],
+  "footer": {
+    "company": "(주)부명 BOOMYUNG",
+    "address": "경기도 구리시 건원대로34번길 19 306",
+    "tel": "031-553-8003",
+    "fax": "031-592-2460",
+    "email": "help@petsb2b.co.kr",
+    "brn": "132-81-49973",
+    "copyright": "© 2026 BOOMYUNG Co., Ltd. All Rights Reserved.",
+    "companyEn": "BOOMYUNG Co., Ltd.",
+    "addressEn": "306, 19 Geonwondae-ro 34beon-gil, Guri-si, Gyeonggi-do, Republic of Korea"
+  },
+  "expoIntro": {
+    "title": "글로벌 박람회 참가 이력",
+    "titleEn": "Global Exhibition History"
+  },
+  "exhibitions": [
+    {
+      "year": "2019",
+      "title": "2019 미국 올랜도 글로벌 펫 엑스포",
+      "location": "올랜도, 미국",
+      "photos": [
+        "assets/expo/expo_2019_01.jpg",
+        "assets/expo/expo_2019_02.jpg",
+        "assets/expo/expo_2019_03.jpg",
+        "assets/expo/expo_2019_04.jpg",
+        "assets/expo/expo_2019_05.jpg",
+        "assets/expo/expo_2019_06.jpg"
+      ],
+      "titleEn": "2019 Global Pet Expo, Orlando",
+      "locationEn": "Orlando, USA"
+    },
+    {
+      "year": "2023",
+      "title": "2023 태국 국제 펫 박람회",
+      "location": "방콕, 태국",
+      "photos": [
+        "assets/expo/expo_2023_01.jpg",
+        "assets/expo/expo_2023_02.jpg",
+        "assets/expo/expo_2023_03.jpg",
+        "assets/expo/expo_2023_04.jpg",
+        "assets/expo/expo_2023_05.jpg",
+        "assets/expo/expo_2023_06.jpg",
+        "assets/expo/expo_2023_07.jpg",
+        "assets/expo/expo_2023_08.jpg",
+        "assets/expo/expo_2023_09.jpg",
+        "assets/expo/expo_2023_10.jpg",
+        "assets/expo/expo_2023_11.jpg",
+        "assets/expo/expo_2023_12.jpg"
+      ],
+      "titleEn": "2023 Pet Fair South East Asia",
+      "locationEn": "Bangkok, Thailand"
+    },
+    {
+      "year": "2024",
+      "title": "2024 태국 국제 펫 박람회",
+      "location": "방콕, 태국",
+      "photos": [
+        "assets/expo/expo_2024_01.jpg",
+        "assets/expo/expo_2024_02.jpg",
+        "assets/expo/expo_2024_03.jpg",
+        "assets/expo/expo_2024_04.jpg",
+        "assets/expo/expo_2024_05.jpg",
+        "assets/expo/expo_2024_06.jpg",
+        "assets/expo/expo_2024_07.jpg",
+        "assets/expo/expo_2024_08.jpg"
+      ],
+      "titleEn": "2024 Pet Fair South East Asia",
+      "locationEn": "Bangkok, Thailand"
+    },
+    {
+      "year": "2025",
+      "title": "2025 태국 국제 펫 박람회",
+      "location": "방콕, 태국",
+      "photos": [
+        "assets/expo/expo_01.jpg",
+        "assets/expo/expo_02.jpg",
+        "assets/expo/expo_03.jpg",
+        "assets/expo/expo_04.jpg",
+        "assets/expo/expo_05.jpg",
+        "assets/expo/expo_06.jpg",
+        "assets/expo/expo_07.jpg",
+        "assets/expo/expo_08.jpg"
+      ],
+      "titleEn": "2025 Pet Fair South East Asia",
+      "locationEn": "Bangkok, Thailand"
+    }
+  ],
+  "retailIntro": {
+    "title": "신뢰로 인정받은 국내 대형 유통 네트워크",
+    "titleEn": "Trusted by Major Domestic Retail Networks"
+  },
+  "retailers": [
+    {
+      "name": "이마트",
+      "logo": "assets/partners/emart.jpg"
+    },
+    {
+      "name": "홈플러스",
+      "logo": "assets/partners/homeplus.jpg"
+    },
+    {
+      "name": "코스트코",
+      "logo": "assets/partners/costco.jpg"
+    },
+    {
+      "name": "쿠팡",
+      "logo": "assets/partners/coupang.jpg"
+    },
+    {
+      "name": "롯데마트",
+      "logo": "assets/partners/lottemart.jpg"
+    },
+    {
+      "name": "다이소",
+      "logo": "assets/partners/daiso.jpg"
+    },
+    {
+      "name": "CU",
+      "logo": "assets/partners/cu.jpg"
+    },
+    {
+      "name": "GS25",
+      "logo": "assets/partners/gs25.jpg"
+    },
+    {
+      "name": "세븐일레븐",
+      "logo": "assets/partners/seveneleven.jpg"
+    },
+    {
+      "name": "이마트24",
+      "logo": "assets/partners/emart24.jpg"
+    },
+    {
+      "name": "GS리테일",
+      "logo": "assets/partners/gsretail.jpg"
+    },
+    {
+      "name": "롯데슈퍼",
+      "logo": "assets/partners/lottesuper.jpg"
+    },
+    {
+      "name": "자주",
+      "logo": "assets/partners/jaju.jpg"
+    }
+  ],
+  "distributorIntro": {
+    "title": "부명과 함께 하는 국내 펫 전문 유통사",
+    "body": "선진펫, 꼬기오, 야옹아멍멍해봐, 더 키코 등 국내 대형 펫 유통 채널에 검증된 제품을 공급합니다.",
+    "titleEn": "Pet Specialty Distribution Partners in Korea",
+    "bodyEn": "We supply verified products to major domestic pet retail channels including Sujin Pet, Kkogio, Yaonga-Mungmung-Haebwa, and The Kico."
+  },
+  "distributors": [
+    {
+      "name": "더키코",
+      "logo": "assets/pet-retail/thekiko.png"
+    },
+    {
+      "name": "수진펫",
+      "logo": "assets/pet-retail/sujin.png"
+    },
+    {
+      "name": "야옹아멍멍해봐",
+      "logo": "assets/pet-retail/meongmeong.png"
+    },
+    {
+      "name": "웰펫컴퍼니",
+      "logo": "assets/pet-retail/wellpet.png"
+    },
+    {
+      "name": "",
+      "logo": ""
+    },
+    {
+      "name": "",
+      "logo": ""
+    },
+    {
+      "name": "",
+      "logo": ""
+    },
+    {
+      "name": "",
+      "logo": ""
+    }
+  ]
+}
