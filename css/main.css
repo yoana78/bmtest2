@@ -761,6 +761,12 @@ body.nav-open { overflow: hidden; }
   .infra-grid { grid-template-columns: 1fr; }
   .ci-grid { grid-template-columns: 1fr; }
   .ci-item { grid-template-columns: 1fr; gap: 8px; }
+
+  /* Narrow portrait viewports show only a thin vertical slice of the wide
+     hero photo under object-fit: cover; shift the focal point right so the
+     cat and dog (positioned right-of-center in the source image) stay in
+     frame instead of the empty wall/plant area on the left. */
+  .hero img.hero-bg { object-position: 78% center; }
 }
 
 /* ---------- Corporate weight tuning ----------
