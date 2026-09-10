@@ -2,10 +2,16 @@ name = "boomyung-site"
 compatibility_date = "2024-09-01"
 pages_build_output_dir = "."
 
-# Create with: npx wrangler kv namespace create CONTENT_KV
-# Then replace the id below with the one wrangler prints,
-# or add the same binding in the Cloudflare Pages dashboard
-# (Settings -> Functions -> KV namespace bindings).
-[[kv_namespaces]]
-binding = "CONTENT_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+# KV namespace binding is intentionally NOT declared here.
+# A placeholder/invalid id in this file makes Cloudflare Pages fail the
+# build outright when it reads wrangler.toml during deploy.
+#
+# To enable the admin backend after deploying:
+# 1. Create the namespace: npx wrangler kv namespace create CONTENT_KV
+# 2. In the Cloudflare dashboard: Workers & Pages -> this project ->
+#    Settings -> Functions -> KV namespace bindings -> add
+#    variable name "CONTENT_KV" bound to the namespace you created.
+# 3. Also add environment variable ADMIN_PASSWORD = 3051 in the same
+#    Settings -> Environment variables screen.
+# (For local `wrangler pages dev` testing only, pass the namespace with
+# `--kv CONTENT_KV`, or add the [[kv_namespaces]] block back locally.)
