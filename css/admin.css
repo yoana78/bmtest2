@@ -8,6 +8,14 @@
   justify-content: center;
   background: var(--bg-alt);
 }
+/* The `hidden` attribute is normally handled by the browser's default
+   [hidden] { display: none } rule, but author styles always win over that
+   default regardless of specificity — so the flex display above must be
+   explicitly turned off again once `hidden` is set, or the login card
+   stays visible (stacked on top of the dashboard) after a successful login. */
+.admin-login-wrap[hidden] {
+  display: none;
+}
 .admin-login-card {
   background: #fff;
   border: 1px solid var(--line);
