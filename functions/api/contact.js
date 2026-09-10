@@ -1,11 +1,10 @@
 import { isAuthed } from "../_lib/auth.js";
 
-const KV_KEY = "contact-submissions";
 const MAX_STORED = 300;
 
 export async function onRequestPost({ request, env }) {
-  if (!env.CONTENT_KV) {
-    return new Response("CONTENT_KV binding is not configured", { status: 500 });
+  if (!env.DB) {
+    return new Response("DB binding is not configured", { status: 500 });
   }
   let body;
   try {
@@ -33,18 +32,14 @@ export async function onRequestPost({ request, env }) {
     return new Response("Invalid email", { status: 400 });
   }
 
-  const existing = (await env.CONTENT_KV.get(KV_KEY, "json")) || [];
-  existing.unshift({
-    id: crypto.randomUUID(),
-    company,
-    name,
-    phone,
-    email,
-    message,
-    submittedAt: new Date().toISOString(),
-    read: false,
-  });
-  await env.CONTENT_KV.put(KV_KEY, JSON.stringify(existing.slice(0, MAX_STORED)));
+  await env.DB.prepare(
+    'INSERT INTO contacts (id, company, name, phone, email, message, submitted_at, read) VALUES (?, ?, ?, ?, ?, ?, ?, 0)'
+  ).bind(crypto.randomUUID(), company, name, phone, email, message, new Date().toISOString()).run();
+
+  // Keep the table from growing unbounded — drop anything past the newest MAX_STORED.
+  await env.DB.prepare(
+    `DELETE FROM contacts WHERE id NOT IN (SELECT id FROM contacts ORDER BY submitted_at DESC LIMIT ?)`
+  ).bind(MAX_STORED).run();
 
   return Response.json({ ok: true });
 }
@@ -53,8 +48,10 @@ export async function onRequestGet({ request, env }) {
   if (!(await isAuthed(request, env))) {
     return new Response("Unauthorized", { status: 401 });
   }
-  const list = env.CONTENT_KV ? (await env.CONTENT_KV.get(KV_KEY, "json")) || [] : [];
-  return Response.json(list, { headers: { "Cache-Control": "no-store" } });
+  if (!env.DB) return Response.json([], { headers: { "Cache-Control": "no-store" } });
+  const { results } = await env.DB.prepare('SELECT * FROM contacts ORDER BY submitted_at DESC').all();
+  const items = results.map((row) => ({ ...row, read: !!row.read }));
+  return Response.json(items, { headers: { "Cache-Control": "no-store" } });
 }
 
 export async function onRequestPut({ request, env }) {
@@ -62,19 +59,17 @@ export async function onRequestPut({ request, env }) {
   if (!(await isAuthed(request, env))) {
     return new Response("Unauthorized", { status: 401 });
   }
-  if (!env.CONTENT_KV) {
-    return new Response("CONTENT_KV binding is not configured", { status: 500 });
+  if (!env.DB) {
+    return new Response("DB binding is not configured", { status: 500 });
   }
   const { id, action } = await request.json().catch(() => ({}));
   if (!id || !["markRead", "markUnread", "delete"].includes(action)) {
     return new Response("Invalid request", { status: 400 });
   }
-  let list = (await env.CONTENT_KV.get(KV_KEY, "json")) || [];
   if (action === "delete") {
-    list = list.filter((item) => item.id !== id);
+    await env.DB.prepare('DELETE FROM contacts WHERE id = ?').bind(id).run();
   } else {
-    list = list.map((item) => (item.id === id ? { ...item, read: action === "markRead" } : item));
+    await env.DB.prepare('UPDATE contacts SET read = ? WHERE id = ?').bind(action === "markRead" ? 1 : 0, id).run();
   }
-  await env.CONTENT_KV.put(KV_KEY, JSON.stringify(list));
   return Response.json({ ok: true });
 }

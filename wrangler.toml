@@ -2,16 +2,15 @@ name = "boomyung-site"
 compatibility_date = "2024-09-01"
 pages_build_output_dir = "."
 
-# KV namespace binding is intentionally NOT declared here.
-# A placeholder/invalid id in this file makes Cloudflare Pages fail the
-# build outright when it reads wrangler.toml during deploy.
+[[d1_databases]]
+binding = "DB"
+database_name = "boomyung-siteb-db"
+database_id = "5207e6d6-eb0f-40ce-8f46-cc458d85a22a"
+
+# ADMIN_PASSWORD is set as a secret (not in this file):
+#   npx wrangler pages secret put ADMIN_PASSWORD --project-name=bmtest2
 #
-# To enable the admin backend after deploying:
-# 1. Create the namespace: npx wrangler kv namespace create CONTENT_KV
-# 2. In the Cloudflare dashboard: Workers & Pages -> this project ->
-#    Settings -> Functions -> KV namespace bindings -> add
-#    variable name "CONTENT_KV" bound to the namespace you created.
-# 3. Also add environment variable ADMIN_PASSWORD = 3051 in the same
-#    Settings -> Environment variables screen.
-# (For local `wrangler pages dev` testing only, pass the namespace with
-# `--kv CONTENT_KV`, or add the [[kv_namespaces]] block back locally.)
+# If the D1 binding above isn't picked up automatically by a git-triggered
+# Pages build, add it manually once in the dashboard:
+# Workers & Pages -> bmtest2 -> Settings -> Functions -> D1 database bindings
+# -> variable name "DB" bound to "boomyung-siteb-db".

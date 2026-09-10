@@ -1,16 +1,16 @@
 import { isAuthed } from "../_lib/auth.js";
 
-// Admin image uploads. Images are stored as raw bytes in the same KV
-// namespace as everything else (no R2 bucket needed for this site's scale)
-// and served back out through /api/asset/:id with the right content-type.
+// Admin image uploads. Images are stored as BLOBs in D1 (no R2 bucket
+// needed for this site's scale) and served back out through
+// /api/asset/:id with the right content-type.
 const MAX_BYTES = 5 * 1024 * 1024; // 5MB per image is plenty for web use
 
 export async function onRequestPost({ request, env }) {
   if (!(await isAuthed(request, env))) {
     return new Response("Unauthorized", { status: 401 });
   }
-  if (!env.CONTENT_KV) {
-    return new Response("CONTENT_KV binding is not configured", { status: 500 });
+  if (!env.DB) {
+    return new Response("DB binding is not configured", { status: 500 });
   }
 
   let body;
@@ -38,9 +38,9 @@ export async function onRequestPost({ request, env }) {
   }
 
   const id = crypto.randomUUID();
-  await env.CONTENT_KV.put(`asset:${id}`, bytes, {
-    metadata: { contentType, filename: filename || id },
-  });
+  await env.DB.prepare('INSERT INTO assets (id, content_type, filename, data) VALUES (?, ?, ?, ?)')
+    .bind(id, contentType, filename || id, bytes)
+    .run();
 
   return Response.json({ id, url: `/api/asset/${id}` });
 }
