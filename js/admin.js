@@ -257,28 +257,233 @@ function formField(labelText, inputEl, required) {
   ]);
 }
 
-function renderAddBrandForm(panel) {
-  panel.innerHTML = "";
-  const nameKo = el("input", { type: "text", placeholder: "예: 웰젠, 부명케어" });
-  const nameEn = el("input", { type: "text", placeholder: "예: WELLZEN" });
-  const typeOwn = el("input", { type: "radio", name: "brand-type", value: "own", checked: true });
-  const typeImported = el("input", { type: "radio", name: "brand-type", value: "imported" });
-  const tagline = el("input", { type: "text", placeholder: "예: Healthy & Happy Pet Care" });
-  const descKo = el("textarea", { rows: 2, placeholder: "브랜드에 대한 간단한 소개를 입력하세요." });
-  const descEn = el("textarea", { rows: 2, placeholder: "Enter brand description in English." });
-  const color = el("input", { type: "color", value: "#0066b3" });
-  const colorText = el("input", { type: "text", value: "#0066B3" });
+// ---------- Shared modal helper ----------
+let modalCounter = 0;
+
+function openModal(title, bodyEl, onSave) {
+  const overlay = el("div", { class: "admin-modal-overlay" });
+  const card = el("div", { class: "admin-modal-card" });
+  const status = el("div", { class: "editor-status" });
+  const cancelBtn = el("button", { class: "mini-btn", type: "button", text: "취소" });
+  const saveBtn = el("button", { class: "submit-btn", type: "button", text: "저장하기" });
+  cancelBtn.addEventListener("click", () => overlay.remove());
+  saveBtn.addEventListener("click", async () => {
+    saveBtn.disabled = true;
+    saveBtn.textContent = "저장 중...";
+    status.textContent = "";
+    status.className = "editor-status";
+    try {
+      await onSave();
+      overlay.remove();
+    } catch (e) {
+      status.textContent = "저장 실패: " + e.message;
+      status.className = "editor-status error";
+      saveBtn.disabled = false;
+      saveBtn.textContent = "저장하기";
+    }
+  });
+  card.appendChild(el("h3", { class: "media-manager-title", text: title }));
+  card.appendChild(bodyEl);
+  card.appendChild(status);
+  card.appendChild(el("div", { class: "modal-actions" }, [cancelBtn, saveBtn]));
+  overlay.appendChild(card);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) overlay.remove();
+  });
+  document.body.appendChild(overlay);
+  return { overlay, status };
+}
+
+function imagePreview(url) {
+  const wrap = el("div", { class: "image-preview" });
+  if (url) wrap.appendChild(el("img", { src: url, alt: "" }));
+  else wrap.appendChild(el("span", { text: "이미지 미리보기" }));
+  return wrap;
+}
+
+// ---------- Brand form (shared by add + edit) ----------
+function buildBrandFields(prefill) {
+  const p = prefill || {};
+  const groupName = "brand-type-" + ++modalCounter;
+  const nameKo = el("input", { type: "text", placeholder: "예: 웰젠, 부명케어", value: p.nameKo || "" });
+  const nameEn = el("input", { type: "text", placeholder: "예: WELLZEN", value: p.nameEn || "" });
+  const typeOwn = el("input", { type: "radio", name: groupName, value: "own", checked: (p.type || "own") === "own" });
+  const typeImported = el("input", { type: "radio", name: groupName, value: "imported", checked: p.type === "imported" });
+  const tagline = el("input", { type: "text", placeholder: "예: Healthy & Happy Pet Care", value: p.tagline || "" });
+  const descKo = el("textarea", { rows: 2, placeholder: "브랜드에 대한 간단한 소개를 입력하세요.", text: p.descriptionKo || "" });
+  const descEn = el("textarea", { rows: 2, placeholder: "Enter brand description in English.", text: p.descriptionEn || "" });
+  const color = el("input", { type: "color", value: p.color || "#0066b3" });
+  const colorText = el("input", { type: "text", value: (p.color || "#0066B3").toUpperCase() });
   color.addEventListener("input", () => (colorText.value = color.value.toUpperCase()));
   colorText.addEventListener("change", () => {
     if (/^#[0-9a-fA-F]{6}$/.test(colorText.value)) color.value = colorText.value;
   });
   const logoFile = el("input", { type: "file", accept: "image/*" });
+  let preview = imagePreview(p.logo);
+  const previewSlot = el("div", {}, [preview]);
+  logoFile.addEventListener("change", () => {
+    const f = logoFile.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const fresh = imagePreview(reader.result);
+      preview.replaceWith(fresh);
+      preview = fresh;
+    };
+    reader.readAsDataURL(f);
+  });
+  let currentLogo = p.logo || "";
+
+  const container = el("div", { class: "admin-form" }, [
+    el("div", { class: "form-row-2" }, [formField("브랜드명 (한글)", nameKo, true), formField("브랜드명 (영문)", nameEn)]),
+    formField(
+      "브랜드 유형 (노출될 메뉴/페이지 결정)",
+      el("div", { class: "radio-row" }, [
+        el("label", {}, [typeOwn, document.createTextNode(' 자사 브랜드 → "브랜드" 메뉴에 노출')]),
+        el("label", {}, [typeImported, document.createTextNode(' 수입 브랜드 → "수입브랜드" 메뉴에 노출')]),
+      ])
+    ),
+    formField("브랜드 슬로건 (Tagline)", tagline),
+    el("div", { class: "form-row-2" }, [formField("브랜드 설명 (한글)", descKo), formField("브랜드 설명 (영문)", descEn)]),
+    el("div", { class: "form-row-2" }, [
+      formField("브랜드 대표 테마 색상", el("div", { class: "color-row" }, [color, colorText])),
+      formField("브랜드 로고 이미지 첨부", logoFile),
+    ]),
+    previewSlot,
+  ]);
+
+  return {
+    container,
+    validate() {
+      return nameKo.value.trim() ? null : "브랜드명(한글)은 필수입니다.";
+    },
+    async getBrand() {
+      let logo = currentLogo;
+      if (logoFile.files[0]) {
+        const { url } = await uploadImage(logoFile.files[0]);
+        logo = url;
+      }
+      return {
+        nameKo: nameKo.value.trim(),
+        nameEn: nameEn.value.trim(),
+        type: typeImported.checked ? "imported" : "own",
+        tagline: tagline.value.trim(),
+        descriptionKo: descKo.value.trim(),
+        descriptionEn: descEn.value.trim(),
+        color: colorText.value,
+        logo,
+      };
+    },
+    reset() {
+      nameKo.value = "";
+      nameEn.value = "";
+      tagline.value = "";
+      descKo.value = "";
+      descEn.value = "";
+      logoFile.value = "";
+      currentLogo = "";
+      const fresh = imagePreview("");
+      preview.replaceWith(fresh);
+      preview = fresh;
+      typeOwn.checked = true;
+      typeImported.checked = false;
+      colorText.value = "#0066B3";
+      color.value = "#0066b3";
+    },
+  };
+}
+
+// Brands live in one of two content files depending on type, and are
+// mirrored into the catalog's brand filter and (for in-house brands only)
+// the homepage teaser grid — every write keeps all three in sync.
+async function upsertBrand(fields, existingId) {
+  const data = await fields.getBrand();
+  const id = existingId || slugify(data.nameEn || data.nameKo);
+  const brand = { id, ...data };
+
+  const ownData = await fetchJson("/api/brands-content");
+  const importedData = await fetchJson("/api/imported-content");
+  ownData.brands = (ownData.brands || []).filter((b) => b.id !== id);
+  importedData.brands = (importedData.brands || []).filter((b) => b.id !== id);
+  if (brand.type === "own") ownData.brands.push(brand);
+  else importedData.brands.push(brand);
+  await putJson("/api/brands-content", ownData);
+  await putJson("/api/imported-content", importedData);
+
+  const catalogData = await fetchJson("/api/catalog-content");
+  catalogData.brands = catalogData.brands || [];
+  const filterIdx = catalogData.brands.findIndex((b) => b.id === id);
+  const filterEntry = { id, label: brand.nameKo, labelEn: brand.nameEn || brand.nameKo };
+  if (filterIdx >= 0) catalogData.brands[filterIdx] = filterEntry;
+  else catalogData.brands.push(filterEntry);
+  await putJson("/api/catalog-content", catalogData);
+
+  const homeData = await fetchJson("/api/content");
+  homeData.brands = homeData.brands || [];
+  const homeIdx = homeData.brands.findIndex((b) => b.href === `brands.html#${id}`);
+  if (brand.type === "own") {
+    const teaser = {
+      name: brand.nameKo,
+      nameEn: brand.nameEn,
+      tagline: brand.descriptionKo,
+      taglineEn: brand.descriptionEn,
+      logo: brand.logo,
+      href: `brands.html#${id}`,
+    };
+    if (homeIdx >= 0) homeData.brands[homeIdx] = teaser;
+    else homeData.brands.push(teaser);
+  } else if (homeIdx >= 0) {
+    homeData.brands.splice(homeIdx, 1);
+  }
+  await putJson("/api/content", homeData);
+
+  return id;
+}
+
+async function deleteBrand(id) {
+  const ownData = await fetchJson("/api/brands-content");
+  const importedData = await fetchJson("/api/imported-content");
+  ownData.brands = (ownData.brands || []).filter((b) => b.id !== id);
+  importedData.brands = (importedData.brands || []).filter((b) => b.id !== id);
+  await putJson("/api/brands-content", ownData);
+  await putJson("/api/imported-content", importedData);
+
+  const catalogData = await fetchJson("/api/catalog-content");
+  catalogData.brands = (catalogData.brands || []).filter((b) => b.id !== id);
+  await putJson("/api/catalog-content", catalogData);
+
+  const homeData = await fetchJson("/api/content");
+  homeData.brands = (homeData.brands || []).filter((b) => b.href !== `brands.html#${id}`);
+  await putJson("/api/content", homeData);
+}
+
+function openBrandEditModal(brand, panel) {
+  const fields = buildBrandFields(brand);
+  openModal("✏️ 브랜드 정보 수정", fields.container, async () => {
+    const err = fields.validate();
+    if (err) throw new Error(err);
+    await upsertBrand(fields, brand.id);
+    renderAddBrandForm(panel);
+  });
+}
+
+async function renderAddBrandForm(panel) {
+  panel.innerHTML = "";
+  panel.appendChild(el("p", { class: "admin-loading", text: "불러오는 중..." }));
+
+  const [ownData, importedData] = await Promise.all([
+    fetchJson("/api/brands-content").catch(() => ({ brands: [] })),
+    fetchJson("/api/imported-content").catch(() => ({ brands: [] })),
+  ]);
+  panel.innerHTML = "";
+
+  const fields = buildBrandFields(null);
   const status = el("div", { class: "editor-status" });
   const submitBtn = el("button", { class: "submit-btn", type: "button", text: "+ 신규 브랜드 등록 완료" });
-
   submitBtn.addEventListener("click", async () => {
-    if (!nameKo.value.trim()) {
-      status.textContent = "브랜드명(한글)은 필수입니다.";
+    const err = fields.validate();
+    if (err) {
+      status.textContent = err;
       status.className = "editor-status error";
       return;
     }
@@ -287,63 +492,11 @@ function renderAddBrandForm(panel) {
     status.textContent = "";
     status.className = "editor-status";
     try {
-      const type = typeImported.checked ? "imported" : "own";
-      let logo = "";
-      if (logoFile.files[0]) {
-        const { url } = await uploadImage(logoFile.files[0]);
-        logo = url;
-      }
-      const id = slugify(nameEn.value || nameKo.value);
-      const brand = {
-        id,
-        nameKo: nameKo.value.trim(),
-        nameEn: nameEn.value.trim(),
-        tagline: tagline.value.trim(),
-        logo,
-        descriptionKo: descKo.value.trim(),
-        descriptionEn: descEn.value.trim(),
-        color: colorText.value,
-        type,
-      };
-
-      const endpoint = type === "own" ? "/api/brands-content" : "/api/imported-content";
-      const brandData = await fetchJson(endpoint);
-      brandData.brands = brandData.brands || [];
-      brandData.brands.push(brand);
-      await putJson(endpoint, brandData);
-
-      // Keep the catalog's brand filter chips in sync so the new brand is
-      // selectable when adding products.
-      const catalogData = await fetchJson("/api/catalog-content");
-      catalogData.brands = catalogData.brands || [];
-      if (!catalogData.brands.some((b) => b.id === id)) {
-        catalogData.brands.push({ id, label: brand.nameKo, labelEn: brand.nameEn || brand.nameKo });
-        await putJson("/api/catalog-content", catalogData);
-      }
-
-      // Only in-house brands get a teaser card on the homepage.
-      if (type === "own") {
-        const homeData = await fetchJson("/api/content");
-        homeData.brands = homeData.brands || [];
-        homeData.brands.push({
-          name: brand.nameKo,
-          nameEn: brand.nameEn,
-          tagline: brand.descriptionKo,
-          taglineEn: brand.descriptionEn,
-          logo: brand.logo,
-          href: `brands.html#${id}`,
-        });
-        await putJson("/api/content", homeData);
-      }
-
+      await upsertBrand(fields, null);
       status.textContent = "브랜드가 등록되었습니다. 모든 방문자에게 즉시 반영됩니다.";
       status.className = "editor-status success";
-      nameKo.value = "";
-      nameEn.value = "";
-      tagline.value = "";
-      descKo.value = "";
-      descEn.value = "";
-      logoFile.value = "";
+      fields.reset();
+      renderAddBrandForm(panel);
     } catch (e) {
       status.textContent = "등록 실패: " + e.message;
       status.className = "editor-status error";
@@ -356,152 +509,303 @@ function renderAddBrandForm(panel) {
   panel.appendChild(
     el("div", { class: "admin-form" }, [
       el("h3", { class: "media-manager-title", text: "🏷️ 브랜드 정보 입력" }),
-      el("div", { class: "form-row-2" }, [formField("브랜드명 (한글)", nameKo, true), formField("브랜드명 (영문)", nameEn)]),
-      formField(
-        "브랜드 유형 (노출될 메뉴/페이지 결정)",
-        el("div", { class: "radio-row" }, [
-          el("label", {}, [typeOwn, document.createTextNode(' 자사 브랜드 → "브랜드" 메뉴에 노출')]),
-          el("label", {}, [typeImported, document.createTextNode(' 수입 브랜드 → "수입브랜드" 메뉴에 노출')]),
-        ])
-      ),
-      formField("브랜드 슬로건 (Tagline)", tagline),
-      el("div", { class: "form-row-2" }, [formField("브랜드 설명 (한글)", descKo), formField("브랜드 설명 (영문)", descEn)]),
-      el("div", { class: "form-row-2" }, [
-        formField("브랜드 대표 테마 색상", el("div", { class: "color-row" }, [color, colorText])),
-        formField("브랜드 로고 이미지 첨부", logoFile),
-      ]),
+      fields.container,
       submitBtn,
       status,
     ])
   );
-}
 
-function renderAddProductForm(panel) {
-  panel.innerHTML = "";
-  panel.appendChild(el("p", { class: "admin-loading", text: "불러오는 중..." }));
-
-  Promise.all([
-    fetchJson("/api/brands-content").catch(() => ({ brands: [] })),
-    fetchJson("/api/imported-content").catch(() => ({ brands: [] })),
-    fetchJson("/api/catalog-content"),
-  ]).then(([ownBrands, importedBrands, catalogData]) => {
-    panel.innerHTML = "";
-    const allBrands = [...(ownBrands.brands || []), ...(importedBrands.brands || [])];
-    const categories = (catalogData.categories || []).filter((c) => c.id !== "all");
-
-    const brandSelect = el(
-      "select",
-      {},
-      [el("option", { value: "", text: "-- 브랜드 선택 --" }), ...allBrands.map((b) => el("option", { value: b.id, text: b.nameKo }))]
-    );
-    const categorySelect = el(
-      "select",
-      {},
-      categories.map((c) => el("option", { value: c.id, text: c.label }))
-    );
-    const nameKo = el("input", { type: "text", placeholder: "예: 데이스포 프레시 츄르 연어" });
-    const nameEn = el("input", { type: "text", placeholder: "예: Dayspo Fresh Churu Salmon" });
-    const petType = el("select", {}, [
-      el("option", { value: "dog", text: "강아지 (Dog)" }),
-      el("option", { value: "cat", text: "고양이 (Cat)" }),
-      el("option", { value: "all", text: "공통 (All)" }),
-    ]);
-    const spec = el("input", { type: "text", placeholder: "예: 1.2kg (200g * 6)" });
-    const code = el("input", { type: "text", placeholder: "예: 8809565905407" });
-    const mainImage = el("input", { type: "file", accept: "image/*" });
-    const detailImages = el("input", { type: "file", accept: "image/*", multiple: true });
-    const buyLink = el("input", { type: "text", placeholder: "https://..." });
-    const features = el("textarea", { rows: 4, placeholder: "예:\n· 생후 2개월 이상 전연령 반려견 사료\n· 가수분해 오리 원료 사용\n· 관절 건강에 도움을 주는 초유 첨가" });
-    const ingredients = el("textarea", { rows: 3, placeholder: "사용된 상세 원료와 성분 정보를 작성해주세요." });
-    const status = el("div", { class: "editor-status" });
-    const submitBtn = el("button", { class: "submit-btn", type: "button", text: "📦 신규 제품 등록 완료" });
-
-    submitBtn.addEventListener("click", async () => {
-      if (!brandSelect.value || !nameKo.value.trim()) {
-        status.textContent = "소속 브랜드와 제품명(한글)은 필수입니다.";
-        status.className = "editor-status error";
-        return;
-      }
-      submitBtn.disabled = true;
-      submitBtn.textContent = "등록 중...";
-      status.textContent = "";
-      status.className = "editor-status";
-      try {
-        let image = "";
-        if (mainImage.files[0]) {
-          const { url } = await uploadImage(mainImage.files[0]);
-          image = url;
-        }
-        const detailUrls = [];
-        for (const file of detailImages.files) {
-          const { url } = await uploadImage(file);
-          detailUrls.push(url);
-        }
-        const id = slugify(nameEn.value || nameKo.value);
-        const product = {
-          id,
-          nameKo: nameKo.value.trim(),
-          nameEn: nameEn.value.trim(),
-          brandId: brandSelect.value,
-          code: code.value.trim(),
-          spec: spec.value.trim(),
-          shelfLife: "제조일로부터 18개월까지",
-          shelfLifeEn: "18 months from manufacture date",
-          features: features.value
-            .split("\n")
-            .map((s) => s.replace(/^[·\-•]\s*/, "").trim())
-            .filter(Boolean),
-          ingredients: ingredients.value.trim(),
-          origin: "대한민국",
-          originEn: "Republic of Korea",
-          category: categorySelect.value,
-          petType: petType.value,
-          image,
-          detailImages: detailUrls,
-          buyLink: buyLink.value.trim(),
-        };
-
-        const fresh = await fetchJson("/api/catalog-content");
-        fresh.products = fresh.products || [];
-        fresh.products.push(product);
-        await putJson("/api/catalog-content", fresh);
-
-        status.textContent = "제품이 등록되었습니다. 모든 방문자에게 즉시 반영됩니다.";
-        status.className = "editor-status success";
-        nameKo.value = "";
-        nameEn.value = "";
-        spec.value = "";
-        code.value = "";
-        buyLink.value = "";
-        features.value = "";
-        ingredients.value = "";
-        mainImage.value = "";
-        detailImages.value = "";
-      } catch (e) {
-        status.textContent = "등록 실패: " + e.message;
-        status.className = "editor-status error";
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "📦 신규 제품 등록 완료";
-      }
+  const allBrands = [
+    ...(ownData.brands || []).map((b) => ({ ...b, type: "own" })),
+    ...(importedData.brands || []).map((b) => ({ ...b, type: "imported" })),
+  ];
+  const listWrap = el("div", { class: "admin-list-panel" });
+  listWrap.appendChild(el("h3", { class: "media-manager-title", text: `📋 등록된 브랜드 목록 (${allBrands.length}개)` }));
+  const list = el("div", { class: "admin-item-list" });
+  allBrands.forEach((b) => {
+    const editBtn = el("button", { class: "mini-btn", type: "button", text: "✏️ 수정" });
+    editBtn.addEventListener("click", () => openBrandEditModal(b, panel));
+    const delBtn = el("button", { class: "mini-btn danger", type: "button", text: "🗑 삭제" });
+    delBtn.addEventListener("click", async () => {
+      if (!confirm(`'${b.nameKo}' 브랜드를 삭제할까요?`)) return;
+      await deleteBrand(b.id);
+      renderAddBrandForm(panel);
     });
-
-    panel.appendChild(
-      el("div", { class: "admin-form" }, [
-        el("h3", { class: "media-manager-title", text: "📦 신제품 정보 입력" }),
-        el("div", { class: "form-row-2" }, [formField("소속 브랜드 선택", brandSelect, true), formField("제품 카테고리", categorySelect, true)]),
-        el("div", { class: "form-row-2" }, [formField("제품명 (한글)", nameKo, true), formField("제품명 (영문)", nameEn)]),
-        el("div", { class: "form-row-3" }, [formField("반려동물 구분", petType), formField("제품 규격 / 용량", spec), formField("상품 바코드 / 코드", code)]),
-        formField("제품 대표 이미지 첨부", mainImage),
-        formField("상세정보 페이지 이미지 첨부 (여러 장 가능)", detailImages),
-        formField("바로 구매하기 링크 (URL)", buyLink),
-        formField("제품 주요 특징 (줄바꿈으로 구분)", features),
-        formField("원료 및 원산지/유통기한 정보", ingredients),
-        submitBtn,
-        status,
+    list.appendChild(
+      el("div", { class: "admin-item-row" }, [
+        el("div", { class: "admin-item-thumb" }, b.logo ? [el("img", { src: b.logo, alt: "" })] : []),
+        el("div", { class: "admin-item-info" }, [
+          el("div", { class: "admin-item-title" }, [
+            document.createTextNode(`${b.nameKo} (${b.nameEn || ""}) `),
+            el("span", { class: "admin-badge " + (b.type === "own" ? "badge-own" : "badge-imported"), text: b.type === "own" ? "자사브랜드" : "수입브랜드" }),
+          ]),
+          el("div", { class: "admin-item-sub", text: b.tagline || "" }),
+        ]),
+        el("div", { class: "admin-item-actions" }, [editBtn, delBtn]),
       ])
     );
   });
+  listWrap.appendChild(list);
+  panel.appendChild(listWrap);
+}
+
+// ---------- Product form (shared by add + edit) ----------
+function buildProductFields(prefill, allBrands, categories) {
+  const p = prefill || {};
+  const brandSelect = el(
+    "select",
+    {},
+    [el("option", { value: "", text: "-- 브랜드 선택 --" }), ...allBrands.map((b) => el("option", { value: b.id, text: b.nameKo }))]
+  );
+  brandSelect.value = p.brandId || "";
+  const categorySelect = el("select", {}, categories.map((c) => el("option", { value: c.id, text: c.label })));
+  if (p.category) categorySelect.value = p.category;
+  const nameKo = el("input", { type: "text", placeholder: "예: 데이스포 프레시 츄르 연어", value: p.nameKo || "" });
+  const nameEn = el("input", { type: "text", placeholder: "예: Dayspo Fresh Churu Salmon", value: p.nameEn || "" });
+  const petType = el("select", {}, [
+    el("option", { value: "dog", text: "강아지 (Dog)" }),
+    el("option", { value: "cat", text: "고양이 (Cat)" }),
+    el("option", { value: "all", text: "공통 (All)" }),
+  ]);
+  petType.value = p.petType || "dog";
+  const spec = el("input", { type: "text", placeholder: "예: 1.2kg (200g * 6)", value: p.spec || "" });
+  const code = el("input", { type: "text", placeholder: "예: 8809565905407", value: p.code || "" });
+
+  const mainImage = el("input", { type: "file", accept: "image/*" });
+  let mainPreview = imagePreview(p.image);
+  const mainPreviewSlot = el("div", {}, [mainPreview]);
+  mainImage.addEventListener("change", () => {
+    const f = mainImage.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const fresh = imagePreview(reader.result);
+      mainPreview.replaceWith(fresh);
+      mainPreview = fresh;
+    };
+    reader.readAsDataURL(f);
+  });
+  let currentImage = p.image || "";
+
+  const detailImages = el("input", { type: "file", accept: "image/*", multiple: true });
+  const detailPreview = el("div", { class: "image-preview-row" }, (p.detailImages || []).map((src) => el("img", { src, alt: "" })));
+  let currentDetailImages = p.detailImages || [];
+
+  const buyLink = el("input", { type: "text", placeholder: "https://...", value: p.buyLink || "" });
+  const features = el("textarea", {
+    rows: 4,
+    placeholder: "예:\n· 생후 2개월 이상 전연령 반려견 사료\n· 가수분해 오리 원료 사용\n· 관절 건강에 도움을 주는 초유 첨가",
+    text: (p.features || []).join("\n"),
+  });
+  const ingredients = el("textarea", { rows: 3, placeholder: "사용된 상세 원료와 성분 정보를 작성해주세요.", text: p.ingredients || "" });
+  const shelfLife = el("input", { type: "text", value: p.shelfLife || "제조일로부터 18개월까지" });
+  const origin = el("input", { type: "text", value: p.origin || "대한민국" });
+
+  const container = el("div", { class: "admin-form" }, [
+    el("div", { class: "form-row-2" }, [formField("소속 브랜드 선택", brandSelect, true), formField("제품 카테고리", categorySelect, true)]),
+    el("div", { class: "form-row-2" }, [formField("제품명 (한글)", nameKo, true), formField("제품명 (영문)", nameEn)]),
+    el("div", { class: "form-row-3" }, [formField("반려동물 구분", petType), formField("제품 규격 / 용량", spec), formField("상품 바코드 / 코드", code)]),
+    formField("제품 대표 이미지 첨부", mainImage),
+    mainPreviewSlot,
+    formField("상세정보 페이지 이미지 첨부 (여러 장 가능)", detailImages),
+    detailPreview,
+    formField("바로 구매하기 링크 (URL)", buyLink),
+    formField("제품 주요 특징 (줄바꿈으로 구분)", features),
+    el("div", { class: "form-row-2" }, [formField("유통기한", shelfLife), formField("제조국 / 원산지", origin)]),
+    formField("원료 정보", ingredients),
+  ]);
+
+  return {
+    container,
+    validate() {
+      return brandSelect.value && nameKo.value.trim() ? null : "소속 브랜드와 제품명(한글)은 필수입니다.";
+    },
+    async getProduct() {
+      let image = currentImage;
+      if (mainImage.files[0]) {
+        const { url } = await uploadImage(mainImage.files[0]);
+        image = url;
+      }
+      let detailUrls = currentDetailImages;
+      if (detailImages.files.length) {
+        detailUrls = [];
+        for (const f of detailImages.files) {
+          const { url } = await uploadImage(f);
+          detailUrls.push(url);
+        }
+      }
+      return {
+        nameKo: nameKo.value.trim(),
+        nameEn: nameEn.value.trim(),
+        brandId: brandSelect.value,
+        code: code.value.trim(),
+        spec: spec.value.trim(),
+        shelfLife: shelfLife.value.trim(),
+        shelfLifeEn: p.shelfLifeEn || "18 months from manufacture date",
+        features: features.value
+          .split("\n")
+          .map((s) => s.replace(/^[·\-•]\s*/, "").trim())
+          .filter(Boolean),
+        ingredients: ingredients.value.trim(),
+        origin: origin.value.trim(),
+        originEn: p.originEn || "Republic of Korea",
+        category: categorySelect.value,
+        petType: petType.value,
+        image,
+        detailImages: detailUrls,
+        buyLink: buyLink.value.trim(),
+        nutrition: p.nutrition,
+      };
+    },
+    reset() {
+      nameKo.value = "";
+      nameEn.value = "";
+      spec.value = "";
+      code.value = "";
+      buyLink.value = "";
+      features.value = "";
+      ingredients.value = "";
+      mainImage.value = "";
+      detailImages.value = "";
+      currentImage = "";
+      currentDetailImages = [];
+      const fresh = imagePreview("");
+      mainPreview.replaceWith(fresh);
+      mainPreview = fresh;
+      detailPreview.innerHTML = "";
+      shelfLife.value = "제조일로부터 18개월까지";
+      origin.value = "대한민국";
+    },
+  };
+}
+
+async function upsertProduct(fields, existingId) {
+  const data = await fields.getProduct();
+  const id = existingId || slugify(data.nameEn || data.nameKo);
+  const product = { id, ...data };
+  const catalogData = await fetchJson("/api/catalog-content");
+  catalogData.products = catalogData.products || [];
+  const idx = catalogData.products.findIndex((x) => x.id === id);
+  if (idx >= 0) catalogData.products[idx] = product;
+  else catalogData.products.push(product);
+  await putJson("/api/catalog-content", catalogData);
+  return id;
+}
+
+async function deleteProduct(id) {
+  const catalogData = await fetchJson("/api/catalog-content");
+  catalogData.products = (catalogData.products || []).filter((p) => p.id !== id);
+  await putJson("/api/catalog-content", catalogData);
+}
+
+function openProductEditModal(product, allBrands, categories, panel) {
+  const fields = buildProductFields(product, allBrands, categories);
+  openModal("✏️ 제품 정보 전체 수정", fields.container, async () => {
+    const err = fields.validate();
+    if (err) throw new Error(err);
+    await upsertProduct(fields, product.id);
+    renderAddProductForm(panel);
+  });
+}
+
+async function renderAddProductForm(panel) {
+  panel.innerHTML = "";
+  panel.appendChild(el("p", { class: "admin-loading", text: "불러오는 중..." }));
+
+  const [ownBrands, importedBrands, catalogData] = await Promise.all([
+    fetchJson("/api/brands-content").catch(() => ({ brands: [] })),
+    fetchJson("/api/imported-content").catch(() => ({ brands: [] })),
+    fetchJson("/api/catalog-content"),
+  ]);
+  panel.innerHTML = "";
+  const allBrands = [...(ownBrands.brands || []), ...(importedBrands.brands || [])];
+  const brandLabel = Object.fromEntries(allBrands.map((b) => [b.id, b.nameKo]));
+  const categories = (catalogData.categories || []).filter((c) => c.id !== "all");
+  const products = catalogData.products || [];
+
+  const fields = buildProductFields(null, allBrands, categories);
+  const status = el("div", { class: "editor-status" });
+  const submitBtn = el("button", { class: "submit-btn", type: "button", text: "📦 신규 제품 등록 완료" });
+  submitBtn.addEventListener("click", async () => {
+    const err = fields.validate();
+    if (err) {
+      status.textContent = err;
+      status.className = "editor-status error";
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = "등록 중...";
+    status.textContent = "";
+    status.className = "editor-status";
+    try {
+      await upsertProduct(fields, null);
+      status.textContent = "제품이 등록되었습니다. 모든 방문자에게 즉시 반영됩니다.";
+      status.className = "editor-status success";
+      fields.reset();
+      renderAddProductForm(panel);
+    } catch (e) {
+      status.textContent = "등록 실패: " + e.message;
+      status.className = "editor-status error";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "📦 신규 제품 등록 완료";
+    }
+  });
+
+  panel.appendChild(
+    el("div", { class: "admin-form" }, [
+      el("h3", { class: "media-manager-title", text: "📦 신제품 정보 입력" }),
+      fields.container,
+      submitBtn,
+      status,
+    ])
+  );
+
+  const listWrap = el("div", { class: "admin-list-panel" });
+  listWrap.appendChild(el("h3", { class: "media-manager-title", text: `📋 등록된 제품 목록 (${products.length}개)` }));
+  const brandFilter = el(
+    "select",
+    {},
+    [el("option", { value: "", text: "전체 브랜드" }), ...allBrands.map((b) => el("option", { value: b.id, text: b.nameKo }))]
+  );
+  const search = el("input", { type: "text", placeholder: "제품명 검색..." });
+  const list = el("div", { class: "admin-item-list" });
+
+  function renderList() {
+    list.innerHTML = "";
+    const q = search.value.trim().toLowerCase();
+    const filtered = products.filter((p) => {
+      if (brandFilter.value && p.brandId !== brandFilter.value) return false;
+      if (q && !`${p.nameKo} ${p.nameEn || ""}`.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    filtered.forEach((p) => {
+      const editBtn = el("button", { class: "mini-btn", type: "button", text: "✏️ 수정" });
+      editBtn.addEventListener("click", () => openProductEditModal(p, allBrands, categories, panel));
+      const delBtn = el("button", { class: "mini-btn danger", type: "button", text: "🗑 삭제" });
+      delBtn.addEventListener("click", async () => {
+        if (!confirm(`'${p.nameKo}' 제품을 삭제할까요?`)) return;
+        await deleteProduct(p.id);
+        renderAddProductForm(panel);
+      });
+      list.appendChild(
+        el("div", { class: "admin-item-row" }, [
+          el("div", { class: "admin-item-thumb" }, p.image ? [el("img", { src: p.image, alt: "" })] : []),
+          el("div", { class: "admin-item-info" }, [
+            el("div", { class: "admin-item-title", text: p.nameKo }),
+            el("div", { class: "admin-item-sub", text: `${brandLabel[p.brandId] || p.brandId} · ${p.category} · ${p.code || ""}` }),
+          ]),
+          el("div", { class: "admin-item-actions" }, [editBtn, delBtn]),
+        ])
+      );
+    });
+  }
+  brandFilter.addEventListener("change", renderList);
+  search.addEventListener("input", renderList);
+  listWrap.appendChild(el("div", { class: "list-toolbar" }, [brandFilter, search]));
+  listWrap.appendChild(list);
+  panel.appendChild(listWrap);
+  renderList();
 }
 
 async function loadSection(id) {

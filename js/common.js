@@ -1,7 +1,8 @@
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
-    if (v === "" && k !== "class") continue; // skip unset optional fields (e.g. image: "")
+    if (v === "" && k !== "class" && k !== "value") continue; // skip unset optional fields (e.g. image: "") — but not `value`, since an empty option/input value is meaningful (e.g. a "no selection" placeholder) and must not fall back to the element's text content
+    if (v === false) continue; // boolean attribute explicitly off (e.g. checked: false) — omit entirely, since setAttribute(k, "false") would still make it present/true
     if (v === true) node.setAttribute(k, ""); // boolean attribute (autoplay, muted, ...)
     else if (k === "html") node.innerHTML = v;
     else if (k === "text") node.textContent = v;
