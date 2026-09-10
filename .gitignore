@@ -2,3 +2,10 @@ node_modules/
 .DS_Store
 .dev.vars
 .wrangler/
+
+# Raw source/reference material not used by the built site (large files,
+# not needed in the deployed repo — Cloudflare Pages enforces a 25MiB
+# per-file limit on deployed static assets).
+data/
+.reports/
+index.spa-backup.html
