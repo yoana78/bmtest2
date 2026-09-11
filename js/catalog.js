@@ -108,7 +108,6 @@ function openModal(p) {
     : null;
 
   const name = lang === "en" ? p.nameEn : p.nameKo;
-  const subName = lang === "en" ? p.nameKo : p.nameEn;
   // 영문 특징이 아직 없는 제품은 한글 특징이라도 보여준다 (영어 모드에서 목록이 통째로 사라지지 않도록)
   const features = (lang === "en" ? (p.featuresEn?.length ? p.featuresEn : p.features) : p.features) || [];
   const origin = lang === "en" ? p.originEn || p.origin : p.origin;
@@ -127,7 +126,6 @@ function openModal(p) {
       el("div", { class: "pd-body" }, [
         el("div", { class: "brand-tag", text: brandLabels[p.brandId] || p.brandId }),
         nameEl,
-        el("div", { class: "en-name", text: subName }),
         el("div", { class: "meta-row" }, [
           el("span", { html: `<strong>${labels.spec}</strong> ${p.spec}` }),
           el("span", { html: `<strong>${labels.origin}</strong> ${origin}` }),

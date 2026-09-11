@@ -202,7 +202,6 @@
 .product-detail h2 { min-width: 0; max-width: 100%; }
 .product-detail .brand-tag { font-size: 11px; letter-spacing: .08em; color: var(--gold-ink); margin-bottom: 12px; text-transform: uppercase; }
 .product-detail h2 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 0 0 6px; }
-.product-detail .en-name { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 20px; }
 .product-detail .meta-row { display: flex; gap: 24px; font-size: 12.5px; color: var(--ink-soft); margin-bottom: 20px; flex-wrap: wrap; }
 .product-detail .meta-row strong { color: var(--ink); font-weight: 600; }
 .product-detail ul.pd-features { margin: 0 0 22px; padding-left: 18px; font-size: 13px; color: var(--ink-soft); }
