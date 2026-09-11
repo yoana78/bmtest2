@@ -368,7 +368,7 @@ h2.section-title {
 .distributor-grid {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   gap: 12px;
 }
 

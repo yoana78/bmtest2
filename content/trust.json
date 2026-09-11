@@ -293,20 +293,24 @@
       "logo": "assets/pet-retail/wellpet.png"
     },
     {
-      "name": "",
-      "logo": ""
+      "name": "강아지대통령",
+      "logo": "assets/pet-retail/gangajidaetongryeong.png"
     },
     {
-      "name": "",
-      "logo": ""
+      "name": "견생냥품",
+      "logo": "assets/pet-retail/gyeonsaengnyangpum.png"
     },
     {
-      "name": "",
-      "logo": ""
+      "name": "고양이대통령",
+      "logo": "assets/pet-retail/goyangidaetongryeong.png"
     },
     {
-      "name": "",
-      "logo": ""
+      "name": "아무도없개",
+      "logo": "assets/pet-retail/amudoeopsgae.png"
+    },
+    {
+      "name": "펫마트",
+      "logo": "assets/pet-retail/petmart.png"
     }
   ]
 }
