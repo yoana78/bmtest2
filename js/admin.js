@@ -1,11 +1,11 @@
+// 브랜드/수입브랜드/제품 카탈로그는 "브랜드 추가 등록"과 "신규 제품 추가" 탭이
+// 이미 전용 폼(+ 3개 문서 동기화 로직)으로 관리하므로, 같은 데이터를 다시 원시
+// JSON으로 편집할 수 있게 두면 두 편집 경로가 어긋날 수 있어 탭에서 제외한다.
 const SECTIONS = [
   { id: "add-brand", label: "브랜드 추가 등록" },
   { id: "add-product", label: "신규 제품 추가" },
   { id: "home", label: "홈페이지", endpoint: "/api/content", preview: "index.html" },
   { id: "about", label: "회사소개", endpoint: "/api/about-content", preview: "about.html" },
-  { id: "brands", label: "브랜드", endpoint: "/api/brands-content", preview: "brands.html" },
-  { id: "imported", label: "수입브랜드", endpoint: "/api/imported-content", preview: "imported-brands.html" },
-  { id: "catalog", label: "제품 카탈로그", endpoint: "/api/catalog-content", preview: "catalog.html" },
   { id: "trust", label: "신뢰와 인증", endpoint: "/api/trust-content", preview: "trust.html" },
 ];
 
@@ -108,18 +108,55 @@ function itemLabel(item, index) {
   return nameKey ? `${index + 1}. ${item[nameKey]}` : `항목 ${index + 1}`;
 }
 
-async function uploadImage(file) {
-  const dataUrl = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
+// 업로드 전 이미지 용량을 줄인다 (D1 행 크기 제한 및 느린 업로드 방지).
+// 투명 배경이 필요한 PNG는 PNG로, 그 외는 훨씬 작은 JPEG로 인코딩.
+function compressImage(file, { maxDimension = 1600, startQuality = 0.85, maxBase64Length = 850000 } = {}) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      let { width, height } = img;
+      if (width > maxDimension || height > maxDimension) {
+        const scale = maxDimension / Math.max(width, height);
+        width = Math.round(width * scale);
+        height = Math.round(height * scale);
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, width, height);
+
+      const keepPng = file.type === "image/png";
+      let quality = startQuality;
+      let dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", quality);
+
+      while (dataUrl.length > maxBase64Length && quality > 0.3) {
+        quality -= 0.1;
+        if (keepPng) {
+          canvas.width = Math.round(canvas.width * 0.85);
+          canvas.height = Math.round(canvas.height * 0.85);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          dataUrl = canvas.toDataURL("image/png");
+        } else {
+          dataUrl = canvas.toDataURL("image/jpeg", quality);
+        }
+      }
+      resolve({ dataUrl, contentType: keepPng ? "image/png" : "image/jpeg" });
+    };
+    img.onerror = reject;
+    img.src = objectUrl;
   });
+}
+
+async function uploadImage(file) {
+  const { dataUrl, contentType } = await compressImage(file);
   const dataBase64 = dataUrl.split(",")[1];
   const res = await fetch("/api/upload", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ filename: file.name, contentType: file.type, dataBase64 }),
+    body: JSON.stringify({ filename: file.name, contentType, dataBase64 }),
   });
   if (!res.ok) throw new Error(await res.text());
   return res.json();

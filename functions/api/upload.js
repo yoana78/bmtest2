@@ -38,8 +38,11 @@ export async function onRequestPost({ request, env }) {
   }
 
   const id = crypto.randomUUID();
+  // D1's HTTP binding layer only recognizes a raw ArrayBuffer as BLOB —
+  // binding the Uint8Array view directly gets coerced to its comma-joined
+  // decimal string (e.g. "137,80,78,...") instead of the actual bytes.
   await env.DB.prepare('INSERT INTO assets (id, content_type, filename, data) VALUES (?, ?, ?, ?)')
-    .bind(id, contentType, filename || id, bytes)
+    .bind(id, contentType, filename || id, bytes.buffer)
     .run();
 
   return Response.json({ id, url: `/api/asset/${id}` });

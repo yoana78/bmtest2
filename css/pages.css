@@ -132,7 +132,7 @@
   max-width: 880px;
   width: 100%;
   max-height: 86vh;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
   transform: translateY(12px);
   transition: transform .25s ease;
@@ -195,10 +195,11 @@
 }
 .image-lightbox .close-btn:hover { background: rgba(255,255,255,.28); }
 
-.product-detail { display: grid; grid-template-columns: 1fr 1fr; }
+/* 좌측 대표 이미지는 고정, 우측 상세 정보만 스크롤되도록 분리 */
+.product-detail { display: grid; grid-template-columns: 1fr 1fr; max-height: 86vh; }
 .product-detail .pd-media { background: var(--bg-alt); display: flex; align-items: center; justify-content: center; padding: 40px; min-width: 0; }
 .product-detail .pd-media img { max-width: 100%; max-height: 360px; object-fit: contain; }
-.product-detail .pd-body { padding: 44px 40px; min-width: 0; }
+.product-detail .pd-body { padding: 44px 40px; min-width: 0; max-height: 86vh; overflow-y: auto; }
 .product-detail h2 { min-width: 0; max-width: 100%; }
 .product-detail .brand-tag { font-size: 11px; letter-spacing: .08em; color: var(--gold-ink); margin-bottom: 12px; text-transform: uppercase; }
 .product-detail h2 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 0 0 6px; }
@@ -319,7 +320,11 @@
 @media (max-width: 900px) {
   .brand-feature { grid-template-columns: 1fr; gap: 24px; padding: 44px 0; }
   .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .product-detail { grid-template-columns: 1fr; }
+  /* 좁은 화면에서는 이미지+정보가 세로로 쌓이므로, 우측만 스크롤하는 데스크톱
+     레이아웃을 풀고 시트 전체가 하나로 스크롤되게 되돌림 */
+  .product-detail { grid-template-columns: 1fr; max-height: none; }
+  .product-detail .pd-body { max-height: none; overflow-y: visible; }
+  .product-modal .sheet { overflow-y: auto; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .patent-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
