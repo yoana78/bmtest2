@@ -116,10 +116,12 @@ function compressImage(file, { maxDimension = 1600, startQuality = 0.85, maxBase
     const objectUrl = URL.createObjectURL(file);
     img.onload = () => {
       URL.revokeObjectURL(objectUrl);
+      // 상세페이지 인포그래픽처럼 세로로 매우 긴 이미지는 폭 기준으로만 축소한다.
+      // (가로/세로 중 큰 쪽을 기준으로 맞추면 세로가 긴 이미지의 폭이 과도하게 눌려 읽을 수 없게 된다.)
       let { width, height } = img;
-      if (width > maxDimension || height > maxDimension) {
-        const scale = maxDimension / Math.max(width, height);
-        width = Math.round(width * scale);
+      if (width > maxDimension) {
+        const scale = maxDimension / width;
+        width = maxDimension;
         height = Math.round(height * scale);
       }
       const canvas = document.createElement("canvas");
@@ -132,13 +134,13 @@ function compressImage(file, { maxDimension = 1600, startQuality = 0.85, maxBase
       let quality = startQuality;
       let dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", quality);
 
-      while (dataUrl.length > maxBase64Length && quality > 0.3) {
-        quality -= 0.1;
-        if (keepPng) {
+      while (dataUrl.length > maxBase64Length && (quality > 0.3 || canvas.width > 300)) {
+        if (quality > 0.3) quality -= 0.1;
+        if (keepPng || quality <= 0.3) {
           canvas.width = Math.round(canvas.width * 0.85);
           canvas.height = Math.round(canvas.height * 0.85);
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          dataUrl = canvas.toDataURL("image/png");
+          dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", keepPng ? undefined : quality);
         } else {
           dataUrl = canvas.toDataURL("image/jpeg", quality);
         }
@@ -148,6 +150,23 @@ function compressImage(file, { maxDimension = 1600, startQuality = 0.85, maxBase
     img.onerror = reject;
     img.src = objectUrl;
   });
+}
+
+// 어드민 폼에서 영문 항목을 비워두면 저장 시 한글 값을 자동 번역해 채운다.
+async function translateText(text) {
+  if (!text || !text.trim()) return "";
+  try {
+    const res = await fetch("/api/translate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+    if (!res.ok) return "";
+    const { translated } = await res.json();
+    return translated || "";
+  } catch {
+    return "";
+  }
 }
 
 async function uploadImage(file) {
@@ -346,7 +365,8 @@ function buildBrandFields(prefill) {
   const nameEn = el("input", { type: "text", placeholder: "예: WELLZEN", value: p.nameEn || "" });
   const typeOwn = el("input", { type: "radio", name: groupName, value: "own", checked: (p.type || "own") === "own" });
   const typeImported = el("input", { type: "radio", name: groupName, value: "imported", checked: p.type === "imported" });
-  const tagline = el("input", { type: "text", placeholder: "예: Healthy & Happy Pet Care", value: p.tagline || "" });
+  const tagline = el("input", { type: "text", placeholder: "예: 건강하고 행복한 반려생활", value: p.tagline || "" });
+  const taglineEn = el("input", { type: "text", placeholder: "예: Healthy & Happy Pet Care", value: p.taglineEn || "" });
   const descKo = el("textarea", { rows: 2, placeholder: "브랜드에 대한 간단한 소개를 입력하세요.", text: p.descriptionKo || "" });
   const descEn = el("textarea", { rows: 2, placeholder: "Enter brand description in English.", text: p.descriptionEn || "" });
   const color = el("input", { type: "color", value: p.color || "#0066b3" });
@@ -380,7 +400,7 @@ function buildBrandFields(prefill) {
         el("label", {}, [typeImported, document.createTextNode(' 수입 브랜드 → "수입브랜드" 메뉴에 노출')]),
       ])
     ),
-    formField("브랜드 슬로건 (Tagline)", tagline),
+    el("div", { class: "form-row-2" }, [formField("브랜드 슬로건 (한글)", tagline), formField("브랜드 슬로건 (영문)", taglineEn)]),
     el("div", { class: "form-row-2" }, [formField("브랜드 설명 (한글)", descKo), formField("브랜드 설명 (영문)", descEn)]),
     el("div", { class: "form-row-2" }, [
       formField("브랜드 대표 테마 색상", el("div", { class: "color-row" }, [color, colorText])),
@@ -400,13 +420,18 @@ function buildBrandFields(prefill) {
         const { url } = await uploadImage(logoFile.files[0]);
         logo = url;
       }
+      let descriptionEn = descEn.value.trim();
+      if (!descriptionEn && descKo.value.trim()) descriptionEn = await translateText(descKo.value.trim());
+      let taglineEnVal = taglineEn.value.trim();
+      if (!taglineEnVal && tagline.value.trim()) taglineEnVal = await translateText(tagline.value.trim());
       return {
         nameKo: nameKo.value.trim(),
         nameEn: nameEn.value.trim(),
         type: typeImported.checked ? "imported" : "own",
         tagline: tagline.value.trim(),
+        taglineEn: taglineEnVal,
         descriptionKo: descKo.value.trim(),
-        descriptionEn: descEn.value.trim(),
+        descriptionEn,
         color: colorText.value,
         logo,
       };
@@ -415,6 +440,7 @@ function buildBrandFields(prefill) {
       nameKo.value = "";
       nameEn.value = "";
       tagline.value = "";
+      taglineEn.value = "";
       descKo.value = "";
       descEn.value = "";
       logoFile.value = "";
@@ -638,6 +664,25 @@ function buildProductFields(prefill, allBrands, categories) {
   const shelfLife = el("input", { type: "text", value: p.shelfLife || "제조일로부터 18개월까지" });
   const origin = el("input", { type: "text", value: p.origin || "대한민국" });
 
+  const CATEGORIES_WITH_NUTRITION = ["사료", "간식"];
+  const nut = p.nutrition || {};
+  const protein = el("input", { type: "text", placeholder: "예: 24.0% (Min)", value: nut.protein || "" });
+  const fat = el("input", { type: "text", placeholder: "예: 14.0% (Min)", value: nut.fat || "" });
+  const fiber = el("input", { type: "text", placeholder: "예: 4.0% (Max)", value: nut.fiber || "" });
+  const moisture = el("input", { type: "text", placeholder: "예: 10.0% (Max)", value: nut.moisture || "" });
+  const nutritionGroup = el("div", { class: "form-row-3" }, [
+    formField("조단백", protein),
+    formField("조지방", fat),
+    formField("조섬유", fiber),
+  ]);
+  const nutritionGroup2 = el("div", { class: "form-row-3" }, [formField("수분", moisture)]);
+  const nutritionWrap = el("div", {}, [nutritionGroup, nutritionGroup2]);
+  function syncNutritionVisibility() {
+    nutritionWrap.hidden = !CATEGORIES_WITH_NUTRITION.includes(categorySelect.value);
+  }
+  categorySelect.addEventListener("change", syncNutritionVisibility);
+  syncNutritionVisibility();
+
   const container = el("div", { class: "admin-form" }, [
     el("div", { class: "form-row-2" }, [formField("소속 브랜드 선택", brandSelect, true), formField("제품 카테고리", categorySelect, true)]),
     el("div", { class: "form-row-2" }, [formField("제품명 (한글)", nameKo, true), formField("제품명 (영문)", nameEn)]),
@@ -650,6 +695,7 @@ function buildProductFields(prefill, allBrands, categories) {
     formField("제품 주요 특징 (줄바꿈으로 구분)", features),
     el("div", { class: "form-row-2" }, [formField("유통기한", shelfLife), formField("제조국 / 원산지", origin)]),
     formField("원료 정보", ingredients),
+    formField("등록 성분량 (사료/간식만 해당)", nutritionWrap),
   ]);
 
   return {
@@ -671,27 +717,59 @@ function buildProductFields(prefill, allBrands, categories) {
           detailUrls.push(url);
         }
       }
+      const nameKoVal = nameKo.value.trim();
+      let nameEnVal = nameEn.value.trim();
+      if (!nameEnVal && nameKoVal) nameEnVal = await translateText(nameKoVal);
+
+      const ingredientsVal = ingredients.value.trim();
+      let ingredientsEnVal = p.ingredientsEn || "";
+      if (!ingredientsEnVal && ingredientsVal) ingredientsEnVal = await translateText(ingredientsVal);
+
+      const originVal = origin.value.trim();
+      let originEnVal = p.originEn || "";
+      if (!originEnVal && originVal) originEnVal = await translateText(originVal);
+
+      const shelfLifeVal = shelfLife.value.trim();
+      let shelfLifeEnVal = p.shelfLifeEn || "";
+      if (!shelfLifeEnVal && shelfLifeVal) shelfLifeEnVal = await translateText(shelfLifeVal);
+
+      const featuresVal = features.value
+        .split("\n")
+        .map((s) => s.replace(/^[·\-•]\s*/, "").trim())
+        .filter(Boolean);
+      let featuresEnVal = p.featuresEn;
+      if ((!featuresEnVal || !featuresEnVal.length) && featuresVal.length) {
+        featuresEnVal = await Promise.all(featuresVal.map((f) => translateText(f)));
+      }
+
+      const category = categorySelect.value;
+      function buildNutrition() {
+        const values = { protein: protein.value.trim(), fat: fat.value.trim(), fiber: fiber.value.trim(), moisture: moisture.value.trim() };
+        if (!CATEGORIES_WITH_NUTRITION.includes(category)) return null;
+        if (!values.protein && !values.fat && !values.fiber && !values.moisture) return null;
+        return values;
+      }
+
       return {
-        nameKo: nameKo.value.trim(),
-        nameEn: nameEn.value.trim(),
+        nameKo: nameKoVal,
+        nameEn: nameEnVal,
         brandId: brandSelect.value,
         code: code.value.trim(),
         spec: spec.value.trim(),
-        shelfLife: shelfLife.value.trim(),
-        shelfLifeEn: p.shelfLifeEn || "18 months from manufacture date",
-        features: features.value
-          .split("\n")
-          .map((s) => s.replace(/^[·\-•]\s*/, "").trim())
-          .filter(Boolean),
-        ingredients: ingredients.value.trim(),
-        origin: origin.value.trim(),
-        originEn: p.originEn || "Republic of Korea",
-        category: categorySelect.value,
+        shelfLife: shelfLifeVal,
+        shelfLifeEn: shelfLifeEnVal,
+        features: featuresVal,
+        featuresEn: featuresEnVal || [],
+        ingredients: ingredientsVal,
+        ingredientsEn: ingredientsEnVal,
+        origin: originVal,
+        originEn: originEnVal,
+        category,
         petType: petType.value,
         image,
         detailImages: detailUrls,
         buyLink: buyLink.value.trim(),
-        nutrition: p.nutrition,
+        nutrition: buildNutrition(),
       };
     },
     reset() {
@@ -712,6 +790,11 @@ function buildProductFields(prefill, allBrands, categories) {
       detailPreview.innerHTML = "";
       shelfLife.value = "제조일로부터 18개월까지";
       origin.value = "대한민국";
+      protein.value = "";
+      fat.value = "";
+      fiber.value = "";
+      moisture.value = "";
+      syncNutritionVisibility();
     },
   };
 }

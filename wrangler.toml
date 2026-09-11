@@ -7,6 +7,9 @@ binding = "DB"
 database_name = "boomyung-siteb-db"
 database_id = "5207e6d6-eb0f-40ce-8f46-cc458d85a22a"
 
+[ai]
+binding = "AI"
+
 # ADMIN_PASSWORD is set as a secret (not in this file):
 #   npx wrangler pages secret put ADMIN_PASSWORD --project-name=bmtest2
 #

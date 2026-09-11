@@ -19,7 +19,7 @@ function render(content, lang) {
       el("div", { class: "brand-feature", id: b.id, style: `--accent:${b.color}`, "data-reveal": "" }, [
         el("div", { class: "mark" }, [el("img", { src: b.logo, alt: name })]),
         el("div", {}, [
-          el("p", { class: "tagline", text: b.tagline }),
+          el("p", { class: "tagline", text: (lang === "en" ? b.taglineEn : b.tagline) || b.tagline }),
           el("h3", { text: name }),
           el("p", { class: "desc", text: desc }),
           el("p", { class: "en", text: sub }),

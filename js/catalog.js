@@ -94,14 +94,19 @@ function openModal(p) {
   sheet.appendChild(closeBtn);
 
   const nutrition = p.nutrition || {};
+  const showNutrition =
+    (p.category === "사료" || p.category === "간식") &&
+    (nutrition.protein || nutrition.fat || nutrition.fiber || nutrition.moisture);
   const nutritionLabels = lang === "en" ? NUTRITION_LABELS_EN : NUTRITION_LABELS;
-  const nutritionGrid = el(
-    "div",
-    { class: "pd-nutrition" },
-    Object.keys(nutritionLabels).map((key) =>
-      el("div", {}, [el("div", { class: "label", text: nutritionLabels[key] }), el("div", { class: "value", text: nutrition[key] || "-" })])
-    )
-  );
+  const nutritionGrid = showNutrition
+    ? el(
+        "div",
+        { class: "pd-nutrition" },
+        Object.keys(nutritionLabels).map((key) =>
+          el("div", {}, [el("div", { class: "label", text: nutritionLabels[key] }), el("div", { class: "value", text: nutrition[key] || "-" })])
+        )
+      )
+    : null;
 
   const name = lang === "en" ? p.nameEn : p.nameKo;
   const subName = lang === "en" ? p.nameKo : p.nameEn;
@@ -128,7 +133,7 @@ function openModal(p) {
           el("span", { html: `<strong>${labels.origin}</strong> ${origin}` }),
           el("span", { html: `<strong>${labels.shelfLife}</strong> ${shelfLife}` }),
         ]),
-        el("ul", { class: "pd-features" }, features.map((f) => el("li", { text: f }))),
+        features.length ? el("ul", { class: "pd-features" }, features.map((f) => el("li", { text: f }))) : null,
         nutritionGrid,
         el("div", { class: "pd-ingredients" }, [el("strong", { text: labels.ingredients }), document.createTextNode(ingredients || "-")]),
         p.detailImages && p.detailImages.length
