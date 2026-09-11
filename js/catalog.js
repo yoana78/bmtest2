@@ -40,7 +40,6 @@ function setBrand(id) {
   refresh();
 }
 function refresh() {
-  document.querySelectorAll("#category-filter-row .filter-chip").forEach((b, i) => {});
   buildFiltersActiveState();
   renderGrid();
 }
@@ -110,7 +109,8 @@ function openModal(p) {
 
   const name = lang === "en" ? p.nameEn : p.nameKo;
   const subName = lang === "en" ? p.nameKo : p.nameEn;
-  const features = (lang === "en" ? p.featuresEn : p.features) || [];
+  // 영문 특징이 아직 없는 제품은 한글 특징이라도 보여준다 (영어 모드에서 목록이 통째로 사라지지 않도록)
+  const features = (lang === "en" ? (p.featuresEn?.length ? p.featuresEn : p.features) : p.features) || [];
   const origin = lang === "en" ? p.originEn || p.origin : p.origin;
   const shelfLife = lang === "en" ? p.shelfLifeEn || p.shelfLife : p.shelfLife;
   const ingredients = lang === "en" ? p.ingredientsEn || p.ingredients : p.ingredients;

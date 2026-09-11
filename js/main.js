@@ -43,6 +43,8 @@ function renderPhilosophy(items) {
 }
 
 function renderBrands(intro, brands, imported) {
+  // 이 eyebrow만 HTML에 한글로 박혀 있어서 영어 모드에서도 안 바뀌었다 — 렌더할 때 같이 맞춰준다
+  document.querySelector("#brands-root .eyebrow span").textContent = lang === "en" ? "BRANDS" : "브랜드";
   document.querySelector("#brands-root .section-title").textContent = t(intro, "title", lang);
   document.querySelector("#brands-root .section-body").textContent = t(intro, "body", lang);
   const grid = document.getElementById("brand-grid");

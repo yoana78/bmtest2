@@ -757,7 +757,6 @@ body.nav-open { overflow: hidden; }
   .tl-row::before { left: 3.5px; top: 24px; transform: none; }
   .tl-row:hover::before { transform: scale(1.35); }
   .tl-row.featured::before { left: 2.5px; }
-  .tl-featured-body { grid-template-columns: 1fr; }
   .infra-grid { grid-template-columns: 1fr; }
   .ci-grid { grid-template-columns: 1fr; }
   .ci-item { grid-template-columns: 1fr; gap: 8px; }

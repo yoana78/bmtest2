@@ -47,7 +47,6 @@
 }
 .brand-feature h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 0 0 10px; }
 .brand-feature .desc { color: var(--ink-soft); font-size: 14px; max-width: 560px; margin: 0 0 18px; }
-.brand-feature .en { font-size: 12.5px; color: var(--ink-soft); opacity: .7; }
 .brand-feature .go-catalog {
   display: inline-flex;
   align-items: center;

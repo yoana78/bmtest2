@@ -53,11 +53,14 @@ function renderPatents(intro, list) {
   document.querySelector("#ip-root .section-body").textContent = t(intro, "body");
   const grid = document.getElementById("patent-grid");
   grid.innerHTML = "";
+  // 등록 종류는 데이터에 한글로만 들어있어서, 영어 모드 표시용 라벨을 여기서 매핑한다
+  const typeEnMap = { "특허": "Patent", "디자인등록": "Design Registration" };
   list.forEach((p) => {
+    const typeLabel = currentLang() === "en" ? typeEnMap[p.type] || p.type : p.type;
     const card = el("div", { class: "patent-card", "data-reveal": "" }, [
       el("div", { class: "thumb" }, [el("img", { src: p.image, alt: t(p, "title"), loading: "lazy" })]),
       el("div", { class: "cap" }, [
-        el("div", { class: "type", text: `${p.type} ${p.number}` }),
+        el("div", { class: "type", text: `${typeLabel} ${p.number}` }),
         el("div", { class: "num", text: t(p, "title") }),
       ]),
     ]);
