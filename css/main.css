@@ -794,3 +794,8 @@ h2.section-title,
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+
+/* 아무도없개 로고가 다른 유통사 로고 대비 작아 보여서 20% 확대 */
+img[alt="아무도없개"] {
+  transform: scale(1.2);
+}
