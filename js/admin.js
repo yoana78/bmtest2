@@ -55,37 +55,6 @@ function renderTabs() {
 }
 
 // ---------- Path utilities (dot/bracket paths like "brands[2].logo") ----------
-function getPath(obj, path) {
-  return path.reduce((cur, key) => (cur == null ? undefined : cur[key]), obj);
-}
-function setPath(obj, path, value) {
-  let cur = obj;
-  for (let i = 0; i < path.length - 1; i++) cur = cur[path[i]];
-  cur[path[path.length - 1]] = value;
-}
-function pathLabel(path) {
-  return path
-    .map((seg, i) => (typeof seg === "number" ? `[${seg}]` : i === 0 ? seg : `.${seg}`))
-    .join("");
-}
-
-// Any string field whose key looks like an image reference, or whose value
-// already looks like one, is treated as an editable image field.
-const IMAGE_KEY_RE = /image|logo|photo|thumbnail|src/i;
-const IMAGE_VALUE_RE = /^(assets\/|\/api\/asset\/|https?:\/\/)/i;
-
-function findImageFields(obj, path = [], out = []) {
-  if (obj == null || typeof obj !== "object") return out;
-  for (const [key, value] of Object.entries(obj)) {
-    const nextPath = [...path, key];
-    if (typeof value === "string" && (IMAGE_KEY_RE.test(key) || IMAGE_VALUE_RE.test(value))) {
-      out.push(nextPath);
-    } else if (typeof value === "object" && value !== null) {
-      findImageFields(value, nextPath, out);
-    }
-  }
-  return out;
-}
 
 // Arrays of objects at any depth are treated as manageable lists (brands,
 // products, distributors, certifications, ...) so they get add/remove
@@ -152,6 +121,90 @@ function compressImage(file, { maxDimension = 1600, startQuality = 0.85, maxBase
   });
 }
 
+// 페이지에 들어가는 이미지는 자리마다 노출 규격(가로:세로 비율)이 정해져 있다.
+// 다른 비율의 사진을 올리면 레이아웃이 깨지므로, 규격에 맞춰 자동으로 맞춘 뒤 저장한다.
+//   mode 'cover'  : 가운데를 기준으로 잘라내 규격을 꽉 채운다 (사진용)
+//   mode 'contain': 잘리지 않게 전체를 넣고 남는 곳을 여백으로 둔다 (로고용)
+function cropImageToBox(file, targetWidth, targetHeight, { maxBase64Length = 850000, mode = "cover" } = {}) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      const targetRatio = targetWidth / targetHeight;
+      const sourceRatio = img.width / img.height;
+
+      let sx = 0, sy = 0, sw = img.width, sh = img.height;
+      if (mode === "cover") {
+        if (sourceRatio > targetRatio) {
+          sw = Math.round(img.height * targetRatio);
+          sx = Math.round((img.width - sw) / 2);
+        } else if (sourceRatio < targetRatio) {
+          sh = Math.round(img.width / targetRatio);
+          sy = Math.round((img.height - sh) / 2);
+        }
+      }
+
+      // 원본이 권장 해상도보다 작으면 억지로 늘리지 않는다 (확대하면 흐려지기만 함)
+      let outW = mode === "cover" ? Math.min(targetWidth, sw) : targetWidth;
+      let outH = Math.round(outW / targetRatio);
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      const keepPng = file.type === "image/png";
+
+      const draw = () => {
+        canvas.width = outW;
+        canvas.height = outH;
+        if (!keepPng) {
+          // JPEG는 투명도가 없어 검게 깔리므로 흰 배경을 먼저 채운다
+          ctx.fillStyle = "#FFFFFF";
+          ctx.fillRect(0, 0, outW, outH);
+        }
+        if (mode === "cover") {
+          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, outW, outH);
+        } else {
+          const scale = Math.min(outW / sw, outH / sh);
+          const dw = Math.round(sw * scale);
+          const dh = Math.round(sh * scale);
+          ctx.drawImage(img, sx, sy, sw, sh, Math.round((outW - dw) / 2), Math.round((outH - dh) / 2), dw, dh);
+        }
+      };
+
+      draw();
+      let quality = 0.88;
+      let dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", quality);
+      while (dataUrl.length > maxBase64Length && (quality > 0.35 || outW > 400)) {
+        if (quality > 0.35) {
+          quality -= 0.08;
+        } else {
+          outW = Math.round(outW * 0.85);
+          outH = Math.round(outW / targetRatio);
+          draw();
+        }
+        dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", keepPng ? undefined : quality);
+      }
+      resolve({ dataUrl, contentType: keepPng ? "image/png" : "image/jpeg" });
+    };
+    img.onerror = reject;
+    img.src = objectUrl;
+  });
+}
+
+// 규격에 맞춰 자른 뒤 업로드하고 저장된 주소를 돌려준다
+async function uploadCropped(file, width, height, fit) {
+  const { dataUrl, contentType } = await cropImageToBox(file, width, height, { mode: fit || "cover" });
+  const dataBase64 = dataUrl.split(",")[1];
+  const res = await fetch("/api/upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ filename: file.name, contentType, dataBase64 }),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  const { url } = await res.json();
+  return url;
+}
+
 // 어드민 폼에서 영문 항목을 비워두면 저장 시 한글 값을 자동 번역해 채운다.
 async function translateText(text) {
   if (!text || !text.trim()) return "";
@@ -167,118 +220,6 @@ async function translateText(text) {
   } catch {
     return "";
   }
-}
-
-async function uploadImage(file) {
-  const { dataUrl, contentType } = await compressImage(file);
-  const dataBase64 = dataUrl.split(",")[1];
-  const res = await fetch("/api/upload", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ filename: file.name, contentType, dataBase64 }),
-  });
-  if (!res.ok) throw new Error(await res.text());
-  return res.json();
-}
-
-function renderImageManager(data, textarea, syncFromData) {
-  const wrap = el("div", { class: "media-manager" });
-  const fields = findImageFields(data);
-  if (fields.length === 0) return wrap;
-  wrap.appendChild(el("h3", { class: "media-manager-title", text: "이미지 관리" }));
-  const grid = el("div", { class: "media-grid" });
-  fields.forEach((path) => {
-    const value = getPath(data, path) || "";
-    const row = el("div", { class: "media-row" });
-    const thumbWrap = el("div", { class: "media-thumb" });
-    if (value) {
-      thumbWrap.appendChild(el("img", { src: value, alt: "" }));
-    } else {
-      thumbWrap.appendChild(el("span", { text: "없음" }));
-    }
-    row.appendChild(thumbWrap);
-    row.appendChild(el("div", { class: "media-label", text: pathLabel(path) }));
-
-    const fileInput = el("input", { type: "file", accept: "image/*" });
-    fileInput.style.display = "none";
-    const changeBtn = el("button", { class: "mini-btn", type: "button", text: "변경" });
-    changeBtn.addEventListener("click", () => fileInput.click());
-    fileInput.addEventListener("change", async () => {
-      const file = fileInput.files[0];
-      if (!file) return;
-      changeBtn.disabled = true;
-      changeBtn.textContent = "업로드 중...";
-      try {
-        const { url } = await uploadImage(file);
-        setPath(data, path, url);
-        textarea.value = JSON.stringify(data, null, 2);
-        syncFromData();
-      } catch (e) {
-        alert("업로드 실패: " + e.message);
-      } finally {
-        changeBtn.disabled = false;
-        changeBtn.textContent = "변경";
-      }
-    });
-
-    const clearBtn = el("button", { class: "mini-btn danger", type: "button", text: "삭제" });
-    clearBtn.addEventListener("click", async () => {
-      if (value.startsWith("/api/asset/")) {
-        const id = value.split("/").pop();
-        fetch(`/api/asset/${id}`, { method: "DELETE" }).catch(() => {});
-      }
-      setPath(data, path, "");
-      textarea.value = JSON.stringify(data, null, 2);
-      syncFromData();
-    });
-
-    row.appendChild(el("div", { class: "media-actions" }, [changeBtn, clearBtn, fileInput]));
-    grid.appendChild(row);
-  });
-  wrap.appendChild(grid);
-  return wrap;
-}
-
-function renderArrayManager(data, textarea, syncFromData) {
-  const wrap = el("div", { class: "array-manager" });
-  const fields = findArrayFields(data);
-  if (fields.length === 0) return wrap;
-  wrap.appendChild(el("h3", { class: "media-manager-title", text: "목록 항목 추가 / 삭제" }));
-  fields.forEach((path) => {
-    const arr = getPath(data, path);
-    const section = el("div", { class: "array-section" }, [el("div", { class: "array-path", text: pathLabel(path) })]);
-    const list = el("div", { class: "array-list" });
-    arr.forEach((item, i) => {
-      const row = el("div", { class: "array-item-row" }, [el("span", { text: itemLabel(item, i) })]);
-      const delBtn = el("button", { class: "mini-btn danger", type: "button", text: "삭제" });
-      delBtn.addEventListener("click", () => {
-        if (!confirm(`'${itemLabel(item, i)}' 항목을 삭제할까요?`)) return;
-        arr.splice(i, 1);
-        textarea.value = JSON.stringify(data, null, 2);
-        syncFromData();
-      });
-      row.appendChild(delBtn);
-      list.appendChild(row);
-    });
-    section.appendChild(list);
-    const addBtn = el("button", { class: "mini-btn", type: "button", text: "+ 새 항목 추가" });
-    addBtn.addEventListener("click", () => {
-      // Clone the shape of the last item so required fields exist, blanking
-      // out text/number values for the admin to fill in.
-      const template = arr[arr.length - 1] || {};
-      const blank = JSON.parse(JSON.stringify(template), (key, v) => {
-        if (typeof v === "string") return "";
-        if (typeof v === "number") return 0;
-        return v;
-      });
-      arr.push(blank);
-      textarea.value = JSON.stringify(data, null, 2);
-      syncFromData();
-    });
-    section.appendChild(addBtn);
-    wrap.appendChild(section);
-  });
-  return wrap;
 }
 
 function slugify(s) {
@@ -404,7 +345,7 @@ function buildBrandFields(prefill) {
     el("div", { class: "form-row-2" }, [formField("브랜드 설명 (한글)", descKo), formField("브랜드 설명 (영문)", descEn)]),
     el("div", { class: "form-row-2" }, [
       formField("브랜드 대표 테마 색상", el("div", { class: "color-row" }, [color, colorText])),
-      formField("브랜드 로고 이미지 첨부", logoFile),
+      formField("브랜드 로고 이미지 첨부 (권장 400×200 · 잘리지 않게 여백을 두고 맞춤)", logoFile),
     ]),
     previewSlot,
   ]);
@@ -417,8 +358,7 @@ function buildBrandFields(prefill) {
     async getBrand() {
       let logo = currentLogo;
       if (logoFile.files[0]) {
-        const { url } = await uploadImage(logoFile.files[0]);
-        logo = url;
+        logo = await uploadCropped(logoFile.files[0], 400, 200, "contain");
       }
       let descriptionEn = descEn.value.trim();
       if (!descriptionEn && descKo.value.trim()) descriptionEn = await translateText(descKo.value.trim());
@@ -687,9 +627,9 @@ function buildProductFields(prefill, allBrands, categories) {
     el("div", { class: "form-row-2" }, [formField("소속 브랜드 선택", brandSelect, true), formField("제품 카테고리", categorySelect, true)]),
     el("div", { class: "form-row-2" }, [formField("제품명 (한글)", nameKo, true), formField("제품명 (영문)", nameEn)]),
     el("div", { class: "form-row-3" }, [formField("반려동물 구분", petType), formField("제품 규격 / 용량", spec), formField("상품 바코드 / 코드", code)]),
-    formField("제품 대표 이미지 첨부", mainImage),
+    formField("제품 대표 이미지 첨부 (권장 1000×1000 · 잘리지 않게 여백을 두고 맞춤)", mainImage),
     mainPreviewSlot,
-    formField("상세정보 페이지 이미지 첨부 (여러 장 가능)", detailImages),
+    formField("상세정보 페이지 이미지 첨부 (여러 장 가능 · 세로로 긴 이미지도 잘리지 않습니다)", detailImages),
     detailPreview,
     formField("바로 구매하기 링크 (URL)", buyLink),
     formField("제품 주요 특징 (줄바꿈으로 구분)", features),
@@ -706,15 +646,20 @@ function buildProductFields(prefill, allBrands, categories) {
     async getProduct() {
       let image = currentImage;
       if (mainImage.files[0]) {
-        const { url } = await uploadImage(mainImage.files[0]);
-        image = url;
+        image = await uploadCropped(mainImage.files[0], 1000, 1000, "contain");
       }
       let detailUrls = currentDetailImages;
       if (detailImages.files.length) {
         detailUrls = [];
         for (const f of detailImages.files) {
-          const { url } = await uploadImage(f);
-          detailUrls.push(url);
+          const { dataUrl, contentType } = await compressImage(f);
+          const res = await fetch("/api/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ filename: f.name, contentType, dataBase64: dataUrl.split(",")[1] }),
+          });
+          if (!res.ok) throw new Error(await res.text());
+          detailUrls.push((await res.json()).url);
         }
       }
       const nameKoVal = nameKo.value.trim();
@@ -947,82 +892,9 @@ async function loadSection(id) {
     return;
   }
 
-  panel.innerHTML = "";
-  const textarea = el("textarea", { class: "json-editor", spellcheck: "false" });
-  textarea.value = JSON.stringify(data, null, 2);
-
-  const status = el("div", { class: "editor-status" });
-  const saveBtn = el("button", { class: "submit-btn", type: "button", text: "저장" });
-  const previewLink = el("a", { class: "preview-link", href: section.preview, target: "_blank", rel: "noopener", text: "실제 페이지 보기 ↗" });
-
-  // Re-parse the textarea into `data` whenever the admin edits raw JSON by
-  // hand, so the image/array managers above always reflect the latest state.
-  let mediaWrap, arrayWrap;
-  function refreshManagers() {
-    const freshImg = renderImageManager(data, textarea, refreshManagers);
-    const freshArr = renderArrayManager(data, textarea, refreshManagers);
-    mediaWrap.replaceWith(freshImg);
-    mediaWrap = freshImg;
-    arrayWrap.replaceWith(freshArr);
-    arrayWrap = freshArr;
-  }
-  textarea.addEventListener("change", () => {
-    try {
-      data = JSON.parse(textarea.value);
-      status.textContent = "";
-      status.className = "editor-status";
-      refreshManagers();
-    } catch (e) {
-      status.textContent = "JSON 형식 오류: " + e.message;
-      status.className = "editor-status error";
-    }
-  });
-
-  saveBtn.addEventListener("click", async () => {
-    let parsed;
-    try {
-      parsed = JSON.parse(textarea.value);
-    } catch (e) {
-      status.textContent = "JSON 형식 오류: " + e.message;
-      status.className = "editor-status error";
-      return;
-    }
-    saveBtn.disabled = true;
-    saveBtn.textContent = "저장 중...";
-    try {
-      const res = await fetch(section.endpoint, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed),
-      });
-      if (res.status === 401) {
-        showLogin("로그인이 만료되었습니다. 다시 로그인해주세요.");
-        return;
-      }
-      if (!res.ok) throw new Error(await res.text());
-      status.textContent = "저장되었습니다. 모든 방문자에게 즉시 반영됩니다.";
-      status.className = "editor-status success";
-    } catch (e) {
-      status.textContent = "저장 실패: " + e.message;
-      status.className = "editor-status error";
-    } finally {
-      saveBtn.disabled = false;
-      saveBtn.textContent = "저장";
-    }
-  });
-
-  mediaWrap = renderImageManager(data, textarea, refreshManagers);
-  arrayWrap = renderArrayManager(data, textarea, refreshManagers);
-  panel.appendChild(mediaWrap);
-  panel.appendChild(arrayWrap);
-  panel.appendChild(
-    el("div", { class: "editor-toolbar" }, [
-      el("p", { class: "editor-hint", text: "위에서 다루지 못하는 텍스트 필드는 아래 JSON을 직접 수정하세요. 수정 후 다른 곳을 클릭하면 위 목록에도 반영됩니다." }),
-      previewLink,
-    ])
-  );
-  panel.appendChild(textarea);
-  panel.appendChild(el("div", { class: "editor-actions" }, [saveBtn, status]));
+  // 예전에는 원시 JSON을 직접 고치는 방식이었지만, 지금은 자리마다 알맞은
+  // 입력칸을 만들어 보여준다 (문구는 한글만 넣으면 영문은 저장 시 자동 번역).
+  renderContentForm(panel, id, data, section.endpoint, section.preview);
 }
 
 async function loadInquiries() {
