@@ -96,6 +96,7 @@ async function loadContent(endpoint, localJsonPath) {
 // features/featuresEn) re-render their content in the selected language via
 // the onChange callback passed to setupLangToggle.
 const UI_STRINGS = {
+  "홈": "Home",
   "회사소개": "About Us",
   "브랜드": "Brands",
   "수입브랜드": "Imported Brands",
