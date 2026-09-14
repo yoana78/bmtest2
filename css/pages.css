@@ -100,6 +100,9 @@
   transition: box-shadow .3s ease, transform .3s ease;
   display: flex;
   flex-direction: column;
+  /* 그리드 아이템의 기본 min-width는 auto라서, 내용물(이미지/긴 텍스트)의 고유 크기보다
+     좁게는 절대 줄어들지 않아 모바일 2열에서 카드가 트랙 밖으로 밀려나갔음(그리드 블로우아웃) */
+  min-width: 0;
 }
 .product-card:hover { box-shadow: 0 18px 40px rgba(15,23,42,.12); transform: translateY(-3px); }
 .product-card .thumb { aspect-ratio: 1/1; background: var(--bg-alt); overflow: hidden; display: flex; align-items: center; justify-content: center; }
