@@ -134,6 +134,12 @@ function openModal(p) {
         features.length ? el("ul", { class: "pd-features" }, features.map((f) => el("li", { text: f }))) : null,
         nutritionGrid,
         el("div", { class: "pd-ingredients" }, [el("strong", { text: labels.ingredients }), document.createTextNode(ingredients || "-")]),
+        // 관리자에서 저장한 구매 링크(http/https)가 있을 때만 버튼 노출
+        /^https?:\/\//i.test((p.buyLink || "").trim())
+          ? el("div", { class: "pd-actions" }, [
+              el("a", { class: "pd-buy-btn", href: p.buyLink.trim(), target: "_blank", rel: "noopener noreferrer", text: lang === "en" ? "Buy Now ↗" : "바로 구매하기 ↗" }),
+            ])
+          : null,
         p.detailImages && p.detailImages.length
           ? el(
               "div",
