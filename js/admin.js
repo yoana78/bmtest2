@@ -99,9 +99,19 @@ function compressImage(file, { maxDimension = 1600, startQuality = 0.85, maxBase
       const ctx = canvas.getContext("2d");
       ctx.drawImage(img, 0, 0, width, height);
 
-      const keepPng = file.type === "image/png";
+      let keepPng = file.type === "image/png";
       let quality = startQuality;
       let dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", quality);
+
+      // PNG has no quality setting, so an oversized PNG would hit the shrink loop below and lose
+      // most of its resolution (e.g. 1116x2000 -> 419x750). Flatten it on white and use JPEG at full size.
+      if (keepPng && dataUrl.length > maxBase64Length) {
+        keepPng = false;
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        dataUrl = canvas.toDataURL("image/jpeg", quality);
+      }
 
       while (dataUrl.length > maxBase64Length && (quality > 0.3 || canvas.width > 300)) {
         if (quality > 0.3) quality -= 0.1;
@@ -151,7 +161,7 @@ function cropImageToBox(file, targetWidth, targetHeight, { maxBase64Length = 850
 
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
-      const keepPng = file.type === "image/png";
+      let keepPng = file.type === "image/png";
 
       const draw = () => {
         canvas.width = outW;
@@ -174,6 +184,12 @@ function cropImageToBox(file, targetWidth, targetHeight, { maxBase64Length = 850
       draw();
       let quality = 0.88;
       let dataUrl = canvas.toDataURL(keepPng ? "image/png" : "image/jpeg", quality);
+      // Same PNG issue as compressImage: switch an oversized PNG to JPEG instead of shrinking it.
+      if (keepPng && dataUrl.length > maxBase64Length) {
+        keepPng = false;
+        draw();
+        dataUrl = canvas.toDataURL("image/jpeg", quality);
+      }
       while (dataUrl.length > maxBase64Length && (quality > 0.35 || outW > 400)) {
         if (quality > 0.35) {
           quality -= 0.08;
