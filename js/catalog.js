@@ -127,6 +127,7 @@ function openModal(p) {
         el("div", { class: "brand-tag", text: brandLabels[p.brandId] || p.brandId }),
         nameEl,
         el("div", { class: "meta-row" }, [
+          p.code ? el("span", { html: `<strong>${lang === "en" ? "Barcode" : "바코드"}</strong> ${p.code}` }) : null,
           el("span", { html: `<strong>${labels.spec}</strong> ${p.spec}` }),
           el("span", { html: `<strong>${labels.origin}</strong> ${origin}` }),
           el("span", { html: `<strong>${labels.shelfLife}</strong> ${shelfLife}` }),
