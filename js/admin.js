@@ -7,6 +7,7 @@ const SECTIONS = [
   { id: "home", label: "홈페이지", endpoint: "/api/content", preview: "index.html" },
   { id: "about", label: "회사소개", endpoint: "/api/about-content", preview: "about.html" },
   { id: "trust", label: "신뢰와 인증", endpoint: "/api/trust-content", preview: "trust.html" },
+  { id: "security", label: "보안" },
 ];
 
 let activeSection = "home";
@@ -889,9 +890,132 @@ async function renderAddProductForm(panel) {
   renderList();
 }
 
+// 관리자 비밀번호 변경 + 로그인/변경 이력(IP 포함) — 콘텐츠 편집과는 별개인 계정 보안 섹션.
+async function renderSecuritySection(panel) {
+  panel.innerHTML = "";
+
+  const currentInput = el("input", { type: "password", required: true });
+  const nextInput = el("input", { type: "password", required: true });
+  const confirmInput = el("input", { type: "password", required: true });
+  const pwStatus = el("div", { class: "editor-status" });
+  const pwSubmit = el("button", { class: "submit-btn", type: "button", text: "비밀번호 변경" });
+
+  pwSubmit.addEventListener("click", async () => {
+    pwStatus.textContent = "";
+    pwStatus.className = "editor-status";
+    if (nextInput.value.length < 4) {
+      pwStatus.textContent = "새 비밀번호는 4자 이상이어야 합니다.";
+      pwStatus.className = "editor-status error";
+      return;
+    }
+    if (nextInput.value !== confirmInput.value) {
+      pwStatus.textContent = "새 비밀번호가 서로 일치하지 않습니다.";
+      pwStatus.className = "editor-status error";
+      return;
+    }
+    pwSubmit.disabled = true;
+    pwSubmit.textContent = "변경 중...";
+    try {
+      const res = await fetch("/api/change-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ currentPassword: currentInput.value, newPassword: nextInput.value }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        pwStatus.textContent = data.error || "비밀번호 변경에 실패했습니다.";
+        pwStatus.className = "editor-status error";
+        return;
+      }
+      pwStatus.textContent = "비밀번호가 변경되었습니다.";
+      pwStatus.className = "editor-status success";
+      currentInput.value = "";
+      nextInput.value = "";
+      confirmInput.value = "";
+      loadAuditLog();
+    } catch {
+      pwStatus.textContent = "비밀번호 변경에 실패했습니다.";
+      pwStatus.className = "editor-status error";
+    } finally {
+      pwSubmit.disabled = false;
+      pwSubmit.textContent = "비밀번호 변경";
+    }
+  });
+
+  const pwPanel = el("div", { class: "admin-panel" }, [
+    el("h2", { text: "🔑 관리자 비밀번호 변경" }),
+    el("div", { class: "admin-form" }, [
+      el("div", { class: "form-field" }, [el("label", { text: "현재 비밀번호" }), currentInput]),
+      el("div", { class: "form-field" }, [el("label", { text: "새 비밀번호" }), nextInput]),
+      el("div", { class: "form-field" }, [el("label", { text: "새 비밀번호 확인" }), confirmInput]),
+      pwStatus,
+      pwSubmit,
+    ]),
+  ]);
+
+  const historyBody = el("div");
+  const refreshBtn = el("button", { class: "lang-btn", type: "button", text: "🔄 새로고침" });
+  refreshBtn.addEventListener("click", loadAuditLog);
+  const historyPanel = el("div", { class: "admin-panel" }, [
+    el("div", { class: "admin-panel-head" }, [el("h2", { text: "🕵️ 로그인·변경 이력" }), refreshBtn]),
+    historyBody,
+  ]);
+
+  panel.appendChild(pwPanel);
+  panel.appendChild(historyPanel);
+
+  const ACTION_LABELS = {
+    login_success: "로그인 성공",
+    login_fail: "로그인 실패",
+    password_change: "비밀번호 변경",
+  };
+
+  async function loadAuditLog() {
+    historyBody.innerHTML = "";
+    historyBody.appendChild(el("p", { class: "admin-loading", text: "불러오는 중..." }));
+    let logs;
+    try {
+      const res = await fetch("/api/audit-log", { cache: "no-store" });
+      const data = await res.json();
+      logs = data.logs || [];
+    } catch {
+      historyBody.innerHTML = "";
+      historyBody.appendChild(el("p", { class: "admin-error", text: "이력을 불러오지 못했습니다." }));
+      return;
+    }
+    historyBody.innerHTML = "";
+    if (logs.length === 0) {
+      historyBody.appendChild(el("p", { class: "admin-empty", text: "아직 기록이 없습니다." }));
+      return;
+    }
+    const table = el("table", { style: "width:100%;border-collapse:collapse;font-size:13px" });
+    const thead = el("tr", { style: "border-bottom:2px solid var(--line);text-align:left" }, [
+      el("th", { style: "padding:8px 12px", text: "시각" }),
+      el("th", { style: "padding:8px 12px", text: "IP 주소" }),
+      el("th", { style: "padding:8px 12px", text: "동작" }),
+    ]);
+    table.appendChild(el("thead", {}, [thead]));
+    const tbody = el("tbody");
+    logs.forEach((log) => {
+      tbody.appendChild(
+        el("tr", { style: "border-bottom:1px solid var(--bg-alt)" }, [
+          el("td", { style: "padding:8px 12px;white-space:nowrap", text: log.created_at }),
+          el("td", { style: "padding:8px 12px;font-family:monospace", text: log.ip }),
+          el("td", { style: "padding:8px 12px", text: ACTION_LABELS[log.action] || log.action }),
+        ])
+      );
+    });
+    table.appendChild(tbody);
+    historyBody.appendChild(table);
+  }
+
+  loadAuditLog();
+}
+
 async function loadSection(id) {
   if (id === "add-brand") return renderAddBrandForm(qs("#editor-panel"));
   if (id === "add-product") return renderAddProductForm(qs("#editor-panel"));
+  if (id === "security") return renderSecuritySection(qs("#editor-panel"));
 
   const section = SECTIONS.find((s) => s.id === id);
   const panel = qs("#editor-panel");
@@ -999,6 +1123,7 @@ function setupLogin() {
       }
       qs("#login-password").value = "";
       showDashboard();
+      setupIdleLogout();
     } catch {
       errorEl.textContent = "로그인 중 오류가 발생했습니다.";
       errorEl.hidden = false;
@@ -1016,10 +1141,34 @@ function setupLogout() {
   });
 }
 
+// 은행 앱처럼, 15분 동안 마우스/키보드 조작이 없으면 자동으로 로그아웃한다.
+// 로그인 성공 시와, 이미 유효한 세션으로 열렸을 때 둘 다에서 호출되므로 중복 등록을 막는다.
+let idleLogoutArmed = false;
+function setupIdleLogout() {
+  if (idleLogoutArmed) return;
+  idleLogoutArmed = true;
+  const IDLE_LIMIT_MS = 15 * 60 * 1000;
+  let idleTimer = setTimeout(autoLogout, IDLE_LIMIT_MS);
+  async function autoLogout() {
+    await fetch("/api/logout", { method: "POST" });
+    location.reload();
+  }
+  ["mousemove", "keydown", "click", "scroll"].forEach((ev) => {
+    window.addEventListener(ev, () => {
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(autoLogout, IDLE_LIMIT_MS);
+    });
+  });
+}
+
 (async function init() {
   setupLogin();
   setupLogout();
   const authed = await checkSession();
-  if (authed) showDashboard();
-  else showLogin();
+  if (authed) {
+    showDashboard();
+    setupIdleLogout();
+  } else {
+    showLogin();
+  }
 })();
