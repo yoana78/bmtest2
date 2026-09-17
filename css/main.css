@@ -225,12 +225,29 @@ h2.section-title {
   align-items: center;
   padding: 78px 0;
   border-top: 1px solid var(--line);
-  transition: background .3s ease;
+  position: relative;
+  z-index: 0;
 }
 .phi-item:last-child { border-bottom: 1px solid var(--line); }
-/* brand-card/infra-card와 같은 느낌으로, 블록에 마우스를 올리면 배경이
-   흰색으로 밝아진다 (섹션 배경 --bg는 옅은 아이보리색이라 흰색과 대비가 생김). */
-.phi-item:not(.phi-lead):hover { background: #fff; }
+/* brand-card/infra-card와 같은 느낌으로, 블록(철학 포함 4개 전부)에 마우스를
+   올리면 배경이 흰색으로 밝아진다. .wrap이 좌우 32px 여백을 두고 가운데 정렬돼
+   있어서 배경을 item 박스 안에만 칠하면 화면 좌우가 잘려 보이므로, 실제 칠하는
+   면은 별도의 ::before로 뷰포트 전체 폭까지 뻗게 하고 글/사진(z-index:0, 이 요소
+   기준 위 레이어)은 그대로 원래 폭 안에 둔다 — 이 조합이 "배경만 꽉 차 보이게"
+   하는 표준적인 방법이다. */
+.phi-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: transparent;
+  transition: background .3s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.phi-item:hover::before { background: #fff; }
 .phi-item.reverse .phi-media { order: 2; }
 
 /* Opening block: no photo, wider measure, sets the section's voice. */
