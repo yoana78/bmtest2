@@ -343,9 +343,9 @@ h2.section-title {
 /* 브랜드 개수가 4의 배수가 아니면 마지막 줄에 빈 칸이 회색 상자로 그대로 보인다.
    흔한 나머지(1장/2장)는 마지막 카드(들)이 그 줄을 채우도록 늘려서 "빈 칸"이
    아니라 의도된 레이아웃처럼 보이게 한다. */
-.brand-grid .brand-card:last-child:nth-child(4n+1) { grid-column: 1 / -1; }
+.brand-grid .brand-card:last-child:nth-child(4n+1) { grid-column: 1 / -1; border-top: 1px solid var(--line); }
 .brand-grid .brand-card:last-child:nth-child(4n+2),
-.brand-grid .brand-card:nth-last-child(2):nth-child(4n+1) { grid-column: span 2; }
+.brand-grid .brand-card:nth-last-child(2):nth-child(4n+1) { grid-column: span 2; border-top: 1px solid var(--line); }
 .brand-card {
   position: relative;
   background: var(--bg-alt);
@@ -385,6 +385,10 @@ h2.section-title {
   max-width: 82%;
   width: auto;
   object-fit: contain;
+}
+#retail-grid .logo-card img {
+  max-height: 60px;
+  max-width: 100%;
 }
 .logo-card.muted img {
   filter: grayscale(1);
@@ -663,7 +667,7 @@ footer.site-footer {
   transition: box-shadow .3s ease, transform .3s ease;
 }
 .infra-card:hover { box-shadow: 0 18px 40px rgba(15, 23, 42, .12); transform: translateY(-3px); z-index: 1; }
-.infra-card .infra-media { aspect-ratio: 16/9; overflow: hidden; background: var(--navy-deep); }
+.infra-card .infra-media { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--navy-deep); }
 .infra-card .infra-media img,
 .infra-card .infra-media video {
   width: 100%;
@@ -671,7 +675,14 @@ footer.site-footer {
   object-fit: cover;
   transition: transform .5s ease;
 }
-.infra-card:hover .infra-media img,
+.infra-card .infra-media img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease, transform .5s ease;
+}
+.infra-card .infra-media img.active { opacity: 1; }
+.infra-card:hover .infra-media img.active,
 .infra-card:hover .infra-media video { transform: scale(1.05); }
 .infra-card .infra-media.empty {
   display: flex;

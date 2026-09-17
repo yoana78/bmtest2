@@ -101,7 +101,7 @@ const UI_STRINGS = {
   "브랜드": "Brands",
   "수입브랜드": "Imported Brands",
   "제품 카탈로그": "Product Catalog",
-  "신뢰와 인증": "Trust & Certification",
+  "품질·인증": "Trust & Certification",
   "문의하기": "Contact",
   "관리자": "Admin",
   "기업 안내": "Company",
@@ -175,8 +175,12 @@ function renderFooter(f, lang) {
   const company = (activeLang === "en" && f.companyEn) || f.company;
   const address = (activeLang === "en" && f.addressEn) || f.address;
   document.getElementById("foot-company").textContent = company;
-  document.getElementById("foot-address").textContent = `${address} | TEL: ${f.tel} | FAX: ${f.fax}`;
-  document.getElementById("foot-email").textContent = `E-MAIL: ${f.email} | ${brnLabel}: ${f.brn}`;
+  const addressEl = document.getElementById("foot-address");
+  addressEl.innerHTML =
+    activeLang === "en"
+      ? `${address}<br>${brnLabel}: ${f.brn}`
+      : `${address} | ${brnLabel}: ${f.brn}`;
+  document.getElementById("foot-email").textContent = `TEL: ${f.tel} | FAX: ${f.fax} | E-MAIL: ${f.email}`;
   document.getElementById("foot-copy").textContent = f.copyright;
   setupLegalModals();
 }

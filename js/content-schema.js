@@ -175,13 +175,14 @@ const CONTENT_SCHEMA = {
         label: "생산 및 R&D 인프라",
         type: "list",
         itemLabel: (it) => it.title || "새 시설",
-        newItem: () => ({ eyebrow: "", title: "", titleEn: "", body: "", bodyEn: "", tags: [], image: "" }),
+        newItem: () => ({ eyebrow: "", title: "", titleEn: "", body: "", bodyEn: "", tags: [], image: "", images: [] }),
         fields: [
           { key: "eyebrow", label: "작은 라벨", type: "plain" },
           { key: "title", label: "제목", type: "text", size: "13.5px" },
           { key: "body", label: "본문", type: "textarea", size: "13.5px" },
           { key: "tags", label: "태그 (한 줄에 하나씩)", type: "lines" },
-          { key: "image", label: "사진", type: "image", width: 1600, height: 1200 },
+          { key: "image", label: "사진 (한 장만 쓸 때)", type: "image", width: 1600, height: 1200 },
+          { key: "images", label: "여러 장 사진 (자동 로테이션 — 채우면 위 '사진'보다 우선 적용)", type: "imageList", width: 1600, height: 1200 },
         ],
       },
       {
@@ -212,7 +213,7 @@ const CONTENT_SCHEMA = {
   },
 
   trust: {
-    label: "신뢰와 인증",
+    label: "품질·인증",
     groups: [
       {
         key: "hero",

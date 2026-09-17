@@ -6,7 +6,7 @@ const SECTIONS = [
   { id: "add-product", label: "신규 제품 추가" },
   { id: "home", label: "홈페이지", endpoint: "/api/content", preview: "index.html" },
   { id: "about", label: "회사소개", endpoint: "/api/about-content", preview: "about.html" },
-  { id: "trust", label: "신뢰와 인증", endpoint: "/api/trust-content", preview: "trust.html" },
+  { id: "trust", label: "품질·인증", endpoint: "/api/trust-content", preview: "trust.html" },
   { id: "security", label: "보안" },
 ];
 

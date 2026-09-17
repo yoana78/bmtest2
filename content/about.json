@@ -195,12 +195,18 @@
         "ISO 22000",
         "HACCP"
       ],
-      "image": "assets/homad/homad_03.jpg"
+      "image": "assets/homad/homad_03.jpg",
+      "images": [
+        "assets/homad/homad_01.jpg",
+        "assets/homad/homad_02.jpg",
+        "assets/homad/homad_03.jpg",
+        "assets/homad/homad_04.jpg"
+      ]
     },
     {
       "eyebrow": "R&D CENTER",
-      "title": "웰젠 R&D 연구소",
-      "titleEn": "Wellzen R&D Center",
+      "title": "R&D 연구소",
+      "titleEn": "R&D Center",
       "body": "반려동물 전용 헬스케어 전문 연구소로 고품질 원료 검증 및 가공 기술 개발을 주도합니다.",
       "bodyEn": "A dedicated pet healthcare research center leading high-quality ingredient verification and processing technology development.",
       "tags": [
@@ -211,7 +217,11 @@
         "Healthcare R&D",
         "Ingredient Processing Tech"
       ],
-      "image": "assets/wellzen/wellzen_02.png"
+      "image": "assets/wellzen/wellzen_02.jpg",
+      "images": [
+        "assets/wellzen/wellzen_01.jpg",
+        "assets/wellzen/wellzen_02.jpg"
+      ]
     },
     {
       "eyebrow": "LOGISTICS CENTER",
@@ -243,7 +253,12 @@
         "Hygiene Products",
         "Global OEM/ODM"
       ],
-      "image": "assets/china/qingdao-factory.jpg"
+      "image": "assets/china/qingdao-factory.jpg",
+      "images": [
+        "assets/china/qingdao-factory.jpg",
+        "assets/china/qingdao-factory-2.jpg",
+        "assets/china/qingdao-factory-3.jpg"
+      ]
     }
   ],
   "ciIntro": {

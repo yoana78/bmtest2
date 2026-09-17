@@ -47,14 +47,32 @@ function renderHistory(intro, list) {
   });
 }
 
+// 사진이 여러 장(card.images)이면 몇 초마다 자동으로 다음 사진으로 크로스페이드한다.
+let infraRotators = [];
+function startInfraRotation(figure, count) {
+  if (count < 2) return;
+  let idx = 0;
+  const imgs = [...figure.querySelectorAll("img")];
+  const timer = setInterval(() => {
+    imgs[idx].classList.remove("active");
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add("active");
+  }, 4000);
+  infraRotators.push(timer);
+}
+
 function renderInfra(intro, list) {
   document.querySelector("#infra-root .section-title").textContent = t(intro, "title", lang);
   const grid = document.getElementById("infra-grid");
   grid.innerHTML = "";
+  infraRotators.forEach(clearInterval);
+  infraRotators = [];
+
   list.forEach((card) => {
     const title = t(card, "title", lang);
     const tags = (lang === "en" && card.tagsEn) || card.tags;
     let media;
+    const images = card.images && card.images.length ? card.images : (card.image ? [card.image] : []);
     if (card.video) {
       const videoEl = el("video", { src: card.video, loop: true, playsinline: true, preload: "auto" });
       // Setting the `muted` *property* (not just the attribute) is required —
@@ -64,8 +82,11 @@ function renderInfra(intro, list) {
       videoEl.defaultMuted = true;
       videoEl.autoplay = true;
       media = el("div", { class: "infra-media" }, [videoEl]);
-    } else if (card.image) {
-      media = el("div", { class: "infra-media" }, [el("img", { src: card.image, alt: title, loading: "lazy" })]);
+    } else if (images.length) {
+      media = el("div", { class: "infra-media" }, images.map((src, n) =>
+        el("img", { src, alt: title, loading: "lazy", class: n === 0 ? "active" : "" })
+      ));
+      startInfraRotation(media, images.length);
     } else {
       media = el("div", { class: "infra-media empty" }, [el("span", { text: card.eyebrow })]);
     }
