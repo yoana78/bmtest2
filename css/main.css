@@ -263,9 +263,10 @@ h2.section-title {
   transform: scale(1.04);
 }
 .phi-media img.active { opacity: 1; transform: scale(1); }
-/* 블록에 마우스를 올리면 사진이 살짝 확대·채도가 올라가고, 태그가 색으로 채워진다
-   (infra-card의 hover 처리와 같은 원리). */
-.phi-item:hover .phi-media img.active { transform: scale(1.06); filter: saturate(1.15); }
+/* 사진 영역에 직접 마우스를 올리면 그 사진만 살짝 확대·채도가 올라간다 —
+   블록 전체가 아니라 사진 위에 있을 때만 반응한다. 태그 색 채움은
+   블록 전체(.phi-item:hover) 기준으로 그대로 둔다 — 이미 정상 동작. */
+.phi-media:hover img.active { transform: scale(1.06); filter: saturate(1.15); }
 .phi-label {
   font-family: var(--sans);
   font-size: 11px;
