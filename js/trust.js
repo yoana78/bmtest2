@@ -34,14 +34,28 @@ function setupLightbox() {
   });
 }
 
+const CERT_LOGO_MAP = {
+  "ISO 14001": "assets/cert_logos/iso14001.png",
+  "ISO 22000": "assets/cert_logos/iso22000.png",
+  "HACCP": "assets/cert_logos/haccp.png",
+  "AAFCO": "assets/cert_logos/aafco.png",
+};
+
 function renderCertifications(intro, list) {
-  document.querySelector("#cert-root .section-title").textContent = t(intro, "title");
+  document.querySelector("#cert-root .bm-trust-title").textContent = t(intro, "title");
+  document.querySelector("#cert-root .bm-trust-desc").textContent = t(intro, "body");
   const grid = document.getElementById("cert-grid");
   grid.innerHTML = "";
   list.forEach((c) => {
-    const card = el("div", { class: "cert-card no-thumb" + (c.image ? " clickable" : ""), "data-reveal": "" }, [
-      el("h3", { text: t(c, "title") }),
-      el("p", { text: t(c, "body") }),
+    const logo = CERT_LOGO_MAP[c.code];
+    const badgeClass = "bm-cert-logo-badge" + (c.code === "AAFCO" ? " aafco" : "");
+    const card = el("div", { class: "bm-cert-card" + (c.image ? " clickable" : ""), "data-reveal": "" }, [
+      el("div", { class: "bm-cert-badge-wrap" }, [
+        el("span", { class: "bm-cert-code", text: c.code }),
+        el("div", { class: badgeClass }, logo ? [el("img", { src: logo, alt: c.code })] : []),
+      ]),
+      el("h3", { class: "bm-cert-card-title", text: t(c, "title") }),
+      el("p", { class: "bm-cert-card-desc", text: t(c, "body") }),
     ]);
     if (c.image) card.addEventListener("click", () => openLightbox(c.image, c.code));
     grid.appendChild(card);

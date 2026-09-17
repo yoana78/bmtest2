@@ -231,22 +231,98 @@
 .pd-buy-btn:hover { opacity: .88; color: #fff; }
 
 /* ---------- Trust page ---------- */
-.cert-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.cert-card.clickable { cursor: pointer; }
-.cert-card {
+/* siteC 트러스트 페이지의 "품질 및 안전 인증 시스템" 섹션과 동일한 디자인 */
+.bm-trust-section-head {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 16px;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bm-trust-section-head::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 70px;
+  height: 2px;
+  background: var(--signature);
+}
+.bm-trust-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signature);
+  margin-bottom: 4px;
+  display: block;
+}
+.bm-trust-title {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0;
+}
+.bm-trust-desc {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 520px;
+  text-align: right;
+  line-height: 1.5;
+  margin: 0;
+}
+.bm-cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.bm-cert-card {
   background: #fff;
   border: 1px solid var(--line);
-  padding: 36px 28px;
-  min-height: 176px;
-  text-align: center;
+  border-radius: 18px;
+  padding: 22px 20px 26px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+  justify-content: flex-start;
+  box-shadow: 0 4px 16px rgba(0,0,0,.02);
+  transition: all .3s cubic-bezier(.16,1,.3,1);
+  position: relative;
+  overflow: hidden;
 }
-.cert-card:hover { box-shadow: 0 18px 40px rgba(15,23,42,.1); transform: translateY(-3px); border-color: var(--signature); }
-.cert-card h3 { font-family: var(--serif); font-size: 16px; font-weight: 500; margin: 0 0 10px; }
-.cert-card p { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
+.bm-cert-card.clickable { cursor: pointer; }
+.bm-cert-card:hover { transform: translateY(-8px); box-shadow: 0 16px 36px rgba(0,102,179,.12); border-color: var(--signature); }
+.bm-cert-badge-wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+.bm-cert-code {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--signature);
+  letter-spacing: .04em;
+  background: #EBF5FF;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bm-cert-logo-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  flex-shrink: 0;
+}
+.bm-cert-logo-badge.aafco { width: 58px; height: 40px; padding: 4px 6px; border-radius: 10px; }
+.bm-cert-logo-badge img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.bm-cert-logo-badge.aafco img { max-height: 20px; }
+.bm-cert-card-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 800; color: var(--navy); line-height: 1.4; margin: 0 0 8px; }
+.bm-cert-card-desc { font-size: .86rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
 
 .patent-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
 .patent-card { background: #fff; border: 1px solid var(--line); overflow: hidden; transition: box-shadow .3s ease; }
@@ -327,7 +403,10 @@
   .product-detail { grid-template-columns: 1fr; max-height: none; }
   .product-detail .pd-body { max-height: none; overflow-y: visible; }
   .product-modal .sheet { overflow-y: auto; }
-  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .bm-cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .bm-trust-section-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .bm-trust-title { font-size: 1.35rem; }
+  .bm-trust-desc { text-align: left; }
   .patent-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .form-grid-2 { grid-template-columns: 1fr; }

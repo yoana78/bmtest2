@@ -227,7 +227,10 @@ const CONTENT_SCHEMA = {
         ],
       },
       { key: "certIntro", label: "품질 인증 섹션 제목", type: "object",
-        fields: [{ key: "title", label: "섹션 제목", type: "text", size: "19~26px" }] },
+        fields: [
+          { key: "title", label: "섹션 제목", type: "text", size: "19~26px" },
+          { key: "body", label: "섹션 설명 (오른쪽에 표시)", type: "textarea", size: "13.5px" },
+        ] },
       {
         key: "certifications",
         label: "품질 인증",

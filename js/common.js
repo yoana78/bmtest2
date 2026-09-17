@@ -1,3 +1,10 @@
+// bmtest2.pages.dev/#/admin 처럼 다른 시안과 같은 방식으로 접속하려는 경우를 위한
+// 우회 경로. 이 사이트는 정적 다중 페이지 구조라 실제 라우팅은 admin.html이지만,
+// 해시만 보고 그리로 넘겨준다 (주소창 URL은 그대로 admin.html로 바뀐다).
+if (location.hash === "#/admin") {
+  location.replace("admin.html");
+}
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
