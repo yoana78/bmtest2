@@ -21,8 +21,13 @@
 }
 
 * { box-sizing: border-box; }
+html { overflow-x: hidden; }
 body {
   margin: 0;
+  /* .phi-item의 hover 배경이 100vw로 뷰포트 전체 폭을 채우는데, 세로 스크롤바가
+     있으면 100vw가 실제 보이는 폭보다 스크롤바 두께만큼 더 커져서 가로 스크롤이
+     생긴다 — 그 미세한 초과분을 여기서 숨긴다. */
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
@@ -247,6 +252,11 @@ h2.section-title {
   z-index: -1;
   pointer-events: none;
 }
+/* 철학(첫 블록)은 섹션 맨 위, 히어로 바로 다음이라 위쪽에 section-pad의 120px
+   여백이 그대로 남는다 — hover 흰 배경이 그 여백 밑에서부터 시작되면 히어로와
+   흰 배경 사이에 원래 배경색(--bg) 띠가 남아 "잘린" 것처럼 보인다. 그 120px을
+   위로 마저 덮어서 히어로 바로 아래부터 흰 배경이 시작되게 한다. */
+.phi-item.phi-lead::before { top: -120px; }
 .phi-item:hover::before { background: #fff; }
 .phi-item.reverse .phi-media { order: 2; }
 
