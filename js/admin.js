@@ -225,6 +225,102 @@ async function uploadCropped(file, width, height, fit) {
   return url;
 }
 
+// 테두리(모서리)에서부터 흰색 계열 픽셀을 안쪽으로 연결해서(flood fill) 투명 처리한다.
+// 이미지 전체에서 흰 픽셀을 다 지우는 게 아니라 "테두리와 연결된" 흰 배경만 지우기 때문에,
+// 로고 글자처럼 피사체 안에 있는 흰색은 지워지지 않는다.
+// 반환하는 bgFraction이 아주 작으면(예: 박스 사진처럼 프레임을 꽉 채운 경우) 지울 배경이
+// 사실상 없다는 뜻이므로, 호출부에서 투명 PNG 대신 원래의 흰 배경 JPEG로 되돌린다.
+function floodFillWhiteBackground(canvas, ctx, { threshold = 235 } = {}) {
+  const { width, height } = canvas;
+  const imageData = ctx.getImageData(0, 0, width, height);
+  const data = imageData.data;
+  const isBg = (idx) => data[idx] >= threshold && data[idx + 1] >= threshold && data[idx + 2] >= threshold;
+  const visited = new Uint8Array(width * height);
+  const stack = [];
+
+  const pushIfBg = (x, y) => {
+    if (x < 0 || x >= width || y < 0 || y >= height) return;
+    const p = y * width + x;
+    if (visited[p]) return;
+    if (!isBg(p * 4)) return;
+    visited[p] = 1;
+    stack.push(p);
+  };
+
+  for (let x = 0; x < width; x++) { pushIfBg(x, 0); pushIfBg(x, height - 1); }
+  for (let y = 0; y < height; y++) { pushIfBg(0, y); pushIfBg(width - 1, y); }
+
+  let removedCount = 0;
+  while (stack.length) {
+    const p = stack.pop();
+    const x = p % width, y = (p / width) | 0;
+    data[p * 4 + 3] = 0;
+    removedCount++;
+    pushIfBg(x + 1, y);
+    pushIfBg(x - 1, y);
+    pushIfBg(x, y + 1);
+    pushIfBg(x, y - 1);
+  }
+
+  ctx.putImageData(imageData, 0, 0);
+  return removedCount / (width * height);
+}
+
+// 제품 "대표 이미지" 전용 업로드: 규격 안에 맞춰 넣은 뒤(contain) 흰 배경을 투명으로
+// 지운 PNG로 저장한다. 지울 배경이 없으면(예: 박스 사진) 기존처럼 흰 배경 JPEG로 저장한다.
+async function uploadProductImageTransparent(file, width, height, { maxBase64Length = 850000, minBgFraction = 0.03 } = {}) {
+  const result = await new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      const targetRatio = width / height;
+      const scale = Math.min(width / img.width, height / img.height, 1);
+      let dw = Math.round(img.width * scale);
+      let dh = Math.round(img.height * scale);
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      const draw = () => {
+        canvas.width = dw;
+        canvas.height = dh;
+        ctx.clearRect(0, 0, dw, dh);
+        ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, dw, dh);
+      };
+      draw();
+
+      const bgFraction = floodFillWhiteBackground(canvas, ctx);
+      if (bgFraction < minBgFraction) {
+        resolve(null); // 지울 배경이 없음 - 호출부에서 기존 cropImageToBox 경로로 대체한다
+        return;
+      }
+
+      let dataUrl = canvas.toDataURL("image/png");
+      while (dataUrl.length > maxBase64Length && canvas.width > 200) {
+        dw = Math.round(dw * 0.85);
+        dh = Math.round(dh * 0.85);
+        draw();
+        floodFillWhiteBackground(canvas, ctx);
+        dataUrl = canvas.toDataURL("image/png");
+      }
+      resolve({ dataUrl, contentType: "image/png" });
+    };
+    img.onerror = reject;
+    img.src = objectUrl;
+  });
+
+  const final = result || (await cropImageToBox(file, width, height, { mode: "contain" }));
+  const dataBase64 = final.dataUrl.split(",")[1];
+  const res = await fetch("/api/upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ filename: file.name, contentType: final.contentType, dataBase64 }),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  const { url } = await res.json();
+  return url;
+}
+
 // 어드민 폼에서 영문 항목을 비워두면 저장 시 한글 값을 자동 번역해 채운다.
 async function translateText(text) {
   if (!text || !text.trim()) return "";
@@ -666,7 +762,7 @@ function buildProductFields(prefill, allBrands, categories) {
     async getProduct() {
       let image = currentImage;
       if (mainImage.files[0]) {
-        image = await uploadCropped(mainImage.files[0], 1000, 1000, "contain");
+        image = await uploadProductImageTransparent(mainImage.files[0], 1000, 1000);
       }
       let detailUrls = currentDetailImages;
       if (detailImages.files.length) {
