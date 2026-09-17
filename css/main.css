@@ -263,6 +263,9 @@ h2.section-title {
   transform: scale(1.04);
 }
 .phi-media img.active { opacity: 1; transform: scale(1); }
+/* 블록에 마우스를 올리면 사진이 살짝 확대·채도가 올라가고, 태그가 색으로 채워진다
+   (infra-card의 hover 처리와 같은 원리). */
+.phi-item:hover .phi-media img.active { transform: scale(1.06); filter: saturate(1.15); }
 .phi-label {
   font-family: var(--sans);
   font-size: 11px;
@@ -286,6 +289,13 @@ h2.section-title {
   border: 1px solid var(--line);
   padding: 5px 12px;
   border-radius: 999px;
+  background: transparent;
+  transition: background .25s ease, border-color .25s ease, color .25s ease;
+}
+.phi-item:hover .phi-tags span {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
 }
 
 /* ---------- Brands ---------- */
