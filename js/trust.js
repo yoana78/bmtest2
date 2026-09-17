@@ -49,7 +49,8 @@ function renderCertifications(intro, list) {
   list.forEach((c) => {
     const logo = CERT_LOGO_MAP[c.code];
     const badgeClass = "bm-cert-logo-badge" + (c.code === "AAFCO" ? " aafco" : "");
-    const card = el("div", { class: "bm-cert-card" + (c.image ? " clickable" : ""), "data-reveal": "" }, [
+    const currentImg = (lang === "en" && c.imageEn) || c.image;
+    const card = el("div", { class: "bm-cert-card" + (currentImg ? " clickable" : ""), "data-reveal": "" }, [
       el("div", { class: "bm-cert-badge-wrap" }, [
         el("span", { class: "bm-cert-code", text: c.code }),
         el("div", { class: badgeClass }, logo ? [el("img", { src: logo, alt: c.code })] : []),
@@ -57,7 +58,7 @@ function renderCertifications(intro, list) {
       el("h3", { class: "bm-cert-card-title", text: t(c, "title") }),
       el("p", { class: "bm-cert-card-desc", text: t(c, "body") }),
     ]);
-    if (c.image) card.addEventListener("click", () => openLightbox(c.image, c.code));
+    if (currentImg) card.addEventListener("click", () => openLightbox(currentImg, c.code));
     grid.appendChild(card);
   });
 }

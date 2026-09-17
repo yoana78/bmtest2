@@ -19,7 +19,8 @@
       "code": "ISO 14001",
       "title": "환경경영시스템 (ISO 14001)",
       "body": "생산 전 과정에서 환경 영향을 최소화하는 국제 표준 환경경영시스템을 적용합니다.",
-      "image": "assets/certifications/iso14001.png",
+      "image": "assets/certifications/iso14001.jpg",
+      "imageEn": "assets/certifications/iso14001_en.jpg",
       "titleEn": "Environmental Management System",
       "bodyEn": "Certified environmental management system minimizing environmental impact across production processes."
     },
@@ -27,7 +28,8 @@
       "code": "ISO 22000",
       "title": "식품안전경영시스템 (ISO 22000)",
       "body": "원료 입고부터 제조, 포장 전 과정에 걸쳐 국제 표준 식품안전 경영시스템을 적용합니다.",
-      "image": "assets/certifications/iso22000.png",
+      "image": "assets/certifications/iso22000.jpg",
+      "imageEn": "assets/certifications/iso22000_en.jpg",
       "titleEn": "Food Safety Management System",
       "bodyEn": "Certified international food safety management from raw materials to final packaging."
     },
@@ -35,7 +37,8 @@
       "code": "HACCP",
       "title": "HACCP 위해요소 중점관리",
       "body": "제조 공정상 발생할 수 있는 위해요소를 사전 차단하여 안전한 사료와 간식을 생산합니다.",
-      "image": "assets/certifications/haccp.png",
+      "image": "assets/certifications/haccp.jpg",
+      "imageEn": "assets/certifications/haccp_en.jpg",
       "titleEn": "Hazard Analysis Critical Control Point",
       "bodyEn": "Rigorous monitoring and prevention of biological, chemical, and physical hazards."
     },

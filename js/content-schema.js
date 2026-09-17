@@ -236,12 +236,13 @@ const CONTENT_SCHEMA = {
         label: "품질 인증",
         type: "list",
         itemLabel: (it) => it.code || it.title || "새 인증",
-        newItem: () => ({ code: "", title: "", titleEn: "", body: "", bodyEn: "", image: "" }),
+        newItem: () => ({ code: "", title: "", titleEn: "", body: "", bodyEn: "", image: "", imageEn: "" }),
         fields: [
           { key: "code", label: "인증 코드", type: "plain" },
           { key: "title", label: "제목", type: "text", size: "13.5px" },
           { key: "body", label: "설명", type: "textarea", size: "13.5px" },
-          { key: "image", label: "인증서 사진", type: "image", width: 1240, height: 1754, fit: "contain" },
+          { key: "image", label: "인증서 사진 (한글)", type: "image", width: 1240, height: 1754, fit: "contain" },
+          { key: "imageEn", label: "인증서 사진 (영문)", type: "image", width: 1240, height: 1754, fit: "contain" },
         ],
       },
       {
