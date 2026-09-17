@@ -225,8 +225,12 @@ h2.section-title {
   align-items: center;
   padding: 78px 0;
   border-top: 1px solid var(--line);
+  transition: background .3s ease;
 }
 .phi-item:last-child { border-bottom: 1px solid var(--line); }
+/* brand-card/infra-card와 같은 느낌으로, 블록에 마우스를 올리면 배경이
+   흰색으로 밝아진다 (섹션 배경 --bg는 옅은 아이보리색이라 흰색과 대비가 생김). */
+.phi-item:not(.phi-lead):hover { background: #fff; }
 .phi-item.reverse .phi-media { order: 2; }
 
 /* Opening block: no photo, wider measure, sets the section's voice. */
