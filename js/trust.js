@@ -8,11 +8,12 @@ function renderPageHero(data) {
   root.querySelector(".hero-body").textContent = t(data, "body", lang);
 }
 
-function openLightbox(src, alt) {
+function openLightbox(src, alt, caption) {
   const box = document.getElementById("image-lightbox");
   const img = document.getElementById("lightbox-img");
   img.src = src;
   img.alt = alt || "";
+  document.getElementById("lightbox-caption-title").textContent = caption || alt || "";
   box.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -58,7 +59,7 @@ function renderCertifications(intro, list) {
       el("h3", { class: "bm-cert-card-title", text: t(c, "title") }),
       el("p", { class: "bm-cert-card-desc", text: t(c, "body") }),
     ]);
-    if (currentImg) card.addEventListener("click", () => openLightbox(currentImg, c.code));
+    if (currentImg) card.addEventListener("click", () => openLightbox(currentImg, c.code, `${c.code} — ${t(c, "title")}`));
     grid.appendChild(card);
   });
 }

@@ -137,9 +137,16 @@
       </div>
     </footer>
 
-    <div class="image-lightbox" id="image-lightbox">
-      <button class="close-btn" type="button" id="lightbox-close" aria-label="닫기">&times;</button>
-      <img id="lightbox-img" src="" alt="" />
+    <div class="modal-backdrop" id="image-lightbox">
+      <div class="modal-content">
+        <button class="modal-close-btn" type="button" id="lightbox-close" aria-label="닫기">&times;</button>
+        <img id="lightbox-img" src="" alt="" />
+        <div class="modal-caption">
+          <div>
+            <h4 id="lightbox-caption-title" style="margin:0;font-size:1.05rem;font-weight:500;"></h4>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./js/common.js"></script>
