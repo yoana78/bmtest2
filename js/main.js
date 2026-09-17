@@ -14,9 +14,26 @@ function renderHero(data) {
   cta.querySelector("span").textContent = t(data, "ctaText", lang);
 }
 
+// 사진이 여러 장(item.images)이면 몇 초마다 자동으로 다음 사진으로 크로스페이드한다.
+let phiRotators = [];
+function startPhiRotation(figure, count) {
+  if (count < 2) return;
+  let idx = 0;
+  const imgs = [...figure.querySelectorAll("img")];
+  const timer = setInterval(() => {
+    imgs[idx].classList.remove("active");
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add("active");
+  }, 4000);
+  phiRotators.push(timer);
+}
+
 function renderPhilosophy(items) {
   const root = document.getElementById("philosophy-root");
   root.innerHTML = "";
+  phiRotators.forEach(clearInterval);
+  phiRotators = [];
+
   items.forEach((item, i) => {
     const tags = (lang === "en" && item.tagsEn) || item.tags;
     const text = el("div", { class: "phi-text" }, [
@@ -26,19 +43,20 @@ function renderPhilosophy(items) {
       el("div", { class: "phi-tags" }, tags.map((tag) => el("span", { text: tag }))),
     ]);
 
-    if (!item.image) {
+    const images = (item.images && item.images.length ? item.images : (item.image ? [item.image] : []));
+    if (!images.length) {
       root.appendChild(el("div", { class: "phi-item phi-lead", "data-reveal": "" }, [text]));
       return;
     }
 
-    const caption = t(item, "caption", lang);
-    const media = el("figure", { class: "phi-media" }, [
-      el("img", { src: item.image, alt: caption || item.title, loading: "lazy" }),
-      caption ? el("figcaption", { text: caption }) : null,
-    ]);
+    const title = t(item, "title", lang);
+    const media = el("figure", { class: "phi-media" }, images.map((src, n) =>
+      el("img", { src, alt: title, loading: "lazy", class: n === 0 ? "active" : "" })
+    ));
     // Alternate which side the photo sits on so the four blocks don't read as a list.
     const flip = i % 2 === 1 ? " reverse" : "";
     root.appendChild(el("div", { class: `phi-item${flip}`, "data-reveal": "" }, [media, text]));
+    startPhiRotation(media, images.length);
   });
 }
 

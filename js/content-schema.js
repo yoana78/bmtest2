@@ -35,15 +35,15 @@ const CONTENT_SCHEMA = {
         label: "철학 섹션 (스크롤 블록)",
         type: "list",
         itemLabel: (it) => it.title || "새 블록",
-        newItem: () => ({ num: "", label: "", labelEn: "", title: "", titleEn: "", body: "", bodyEn: "", tags: [], tagsEn: [], image: "", caption: "" }),
+        newItem: () => ({ num: "", label: "", labelEn: "", title: "", titleEn: "", body: "", bodyEn: "", tags: [], tagsEn: [], image: "", images: [] }),
         fields: [
           { key: "num", label: "번호 (예: 01)", type: "plain" },
           { key: "label", label: "라벨", type: "text", size: "13px" },
           { key: "title", label: "제목", type: "text", size: "19~26px" },
           { key: "body", label: "본문", type: "textarea", size: "13.5px" },
           { key: "tags", label: "태그 (한 줄에 하나씩)", type: "lines" },
-          { key: "image", label: "사진", type: "image", width: 1200, height: 1600 },
-          { key: "caption", label: "사진 설명", type: "plain" },
+          { key: "image", label: "사진 (한 장만 쓸 때)", type: "image", width: 1200, height: 1600 },
+          { key: "images", label: "여러 장 사진 (자동 로테이션 — 채우면 위 '사진'보다 우선 적용)", type: "imageList", width: 1200, height: 1600 },
         ],
       },
       {

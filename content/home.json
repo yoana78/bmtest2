@@ -31,7 +31,7 @@
         "Pet Healthcare"
       ],
       "image": "",
-      "caption": ""
+      "images": []
     },
     {
       "num": "02",
@@ -50,8 +50,12 @@
         "HACCP"
       ],
       "image": "assets/homad/homad_01.jpg",
-      "caption": "호마드 공장 — 생산 라인",
-      "captionEn": "Homad Factory — Production Line"
+      "images": [
+        "assets/homad/homad_01.jpg",
+        "assets/homad/homad_02.jpg",
+        "assets/homad/homad_03.jpg",
+        "assets/homad/homad_04.jpg"
+      ]
     },
     {
       "num": "03",
@@ -70,8 +74,10 @@
         "Ingredient Verification"
       ],
       "image": "assets/wellzen/wellzen_02.png",
-      "caption": "웰젠 R&D — 원료 검증",
-      "captionEn": "Wellzen R&D — Ingredient Verification"
+      "images": [
+        "assets/wellzen/wellzen_01.png",
+        "assets/wellzen/wellzen_02.png"
+      ]
     },
     {
       "num": "04",
@@ -90,8 +96,7 @@
         "Global Export"
       ],
       "image": "assets/expo/expo_2024_03.jpg",
-      "caption": "국제 펫 박람회 — 부명 부스",
-      "captionEn": "International Pet Expo — BOOMYUNG Booth"
+      "images": []
     }
   ],
   "brandsIntro": {

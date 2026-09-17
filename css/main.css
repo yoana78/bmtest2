@@ -242,21 +242,27 @@ h2.section-title {
 }
 .phi-lead .phi-body { max-width: 560px; font-size: 14px; }
 
-.phi-media { margin: 0; overflow: hidden; }
-.phi-media img {
-  width: 100%;
+/* 사진 여러 장을 겹쳐놓고 크로스페이드하려면, 크기를 이미지가 아니라 이 감싸는
+   상자(container)가 갖고 있어야 한다 — 이미지 각각에 aspect-ratio를 주면 여러 장이
+   겹쳐질 자리 자체가 안 생긴다. 반응형(폭이 줄어들 때 비율이 바뀌는 것)도 이제 이
+   상자 기준으로 동작한다. */
+.phi-media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
   aspect-ratio: 4 / 3;
+}
+.phi-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform .5s ease;
+  opacity: 0;
+  transition: opacity 1s ease, transform 6s ease;
+  transform: scale(1.04);
 }
-.phi-media:hover img { transform: scale(1.05); }
-.phi-media figcaption {
-  margin-top: 12px;
-  font-size: 11.5px;
-  letter-spacing: 0.03em;
-  color: var(--ink-soft);
-  opacity: .75;
-}
+.phi-media img.active { opacity: 1; transform: scale(1); }
 .phi-label {
   font-family: var(--sans);
   font-size: 11px;
@@ -292,6 +298,12 @@ h2.section-title {
   background: var(--line);
   border: 1px solid var(--line);
 }
+/* 브랜드 개수가 4의 배수가 아니면 마지막 줄에 빈 칸이 회색 상자로 그대로 보인다.
+   흔한 나머지(1장/2장)는 마지막 카드(들)이 그 줄을 채우도록 늘려서 "빈 칸"이
+   아니라 의도된 레이아웃처럼 보이게 한다. */
+.brand-grid .brand-card:last-child:nth-child(4n+1) { grid-column: 1 / -1; }
+.brand-grid .brand-card:last-child:nth-child(4n+2),
+.brand-grid .brand-card:nth-last-child(2):nth-child(4n+1) { grid-column: span 2; }
 .brand-card {
   position: relative;
   background: var(--bg-alt);
@@ -744,7 +756,18 @@ body.nav-open { overflow: hidden; }
   .phi-item { grid-template-columns: 1fr; gap: 26px; padding: 52px 0; }
   .phi-item.reverse .phi-media { order: 0; }
   .phi-item.phi-lead { padding-bottom: 56px; }
+  /* 좁은 화면에서는 사진이 위, 글이 아래로 쌓이면서 태그가 옅은 테두리만으로는
+     눈에 잘 안 띄어서, 이 폭에서는 배경을 채운 알약 형태로 바꾼다. */
+  .phi-tags span {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+  }
   .brand-grid { grid-template-columns: repeat(2, 1fr); }
+  /* 4열 기준 span 규칙을 먼저 무효화한 뒤, 2열 기준으로 다시 계산한다 —
+     전체 개수가 홀수면 마지막 카드가 혼자 남으므로 그 줄을 꽉 채운다. */
+  .brand-grid .brand-card { grid-column: auto; }
+  .brand-grid .brand-card:last-child:nth-child(2n+1) { grid-column: 1 / -1; }
   .distributor-grid { grid-template-columns: repeat(4, 1fr); }
   .imported-logo-grid { grid-template-columns: repeat(3, 1fr); }
   .foot-top { flex-direction: column; }
