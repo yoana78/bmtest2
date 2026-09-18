@@ -300,15 +300,15 @@ function trimCanvasToContent(canvas, ctx, { padding = 0.03 } = {}) {
   return trimmed;
 }
 
-// 제품 "대표 이미지" 전용 업로드: 규격 안에 맞춰 넣은 뒤(contain) 흰 배경을 투명으로
-// 지운 PNG로 저장한다. 지울 배경이 없으면(예: 박스 사진) 기존처럼 흰 배경 JPEG로 저장한다.
-async function uploadProductImageTransparent(file, width, height, { maxBase64Length = 850000, minBgFraction = 0.03 } = {}) {
+// 제품 "대표 이미지" 전용 업로드: 규격 안에 맞춰 넣은 뒤(contain) 흰 배경을 예외 없이
+// 투명으로 지운 PNG로 저장한다. JPEG로 올려도 자동으로 누끼를 따서 PNG로 변환하고,
+// 지워진 배경만큼 여백을 잘라내 제품이 프레임을 꽉 채우게 한다.
+async function uploadProductImageTransparent(file, width, height, { maxBase64Length = 850000 } = {}) {
   const result = await new Promise((resolve, reject) => {
     const img = new Image();
     const objectUrl = URL.createObjectURL(file);
     img.onload = () => {
       URL.revokeObjectURL(objectUrl);
-      const targetRatio = width / height;
       const scale = Math.min(width / img.width, height / img.height, 1);
       let dw = Math.round(img.width * scale);
       let dh = Math.round(img.height * scale);
@@ -323,11 +323,7 @@ async function uploadProductImageTransparent(file, width, height, { maxBase64Len
       };
       draw();
 
-      const bgFraction = floodFillWhiteBackground(canvas, ctx);
-      if (bgFraction < minBgFraction) {
-        resolve(null); // 지울 배경이 없음 - 호출부에서 기존 cropImageToBox 경로로 대체한다
-        return;
-      }
+      floodFillWhiteBackground(canvas, ctx);
 
       const trimmedCanvas = trimCanvasToContent(canvas, ctx);
       let dataUrl = trimmedCanvas.toDataURL("image/png");
@@ -346,12 +342,11 @@ async function uploadProductImageTransparent(file, width, height, { maxBase64Len
     img.src = objectUrl;
   });
 
-  const final = result || (await cropImageToBox(file, width, height, { mode: "contain" }));
-  const dataBase64 = final.dataUrl.split(",")[1];
+  const dataBase64 = result.dataUrl.split(",")[1];
   const res = await fetch("/api/upload", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ filename: file.name, contentType: final.contentType, dataBase64 }),
+    body: JSON.stringify({ filename: file.name, contentType: result.contentType, dataBase64 }),
   });
   if (!res.ok) throw new Error(await res.text());
   const { url } = await res.json();

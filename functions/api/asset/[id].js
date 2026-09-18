@@ -12,7 +12,9 @@ export async function onRequestGet({ params, env }) {
   return new Response(bytes, {
     headers: {
       "Content-Type": row.content_type || "application/octet-stream",
-      "Cache-Control": "public, max-age=31536000, immutable",
+      // 같은 id의 이미지 내용을 나중에 교체하는 일이 있어서(관리자 재업로드, 배경 제거 등)
+      // immutable로 캐시하면 방문자 브라우저에 옛날 이미지가 계속 남는다.
+      "Cache-Control": "public, max-age=0, must-revalidate",
     },
   });
 }
