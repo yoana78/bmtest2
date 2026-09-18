@@ -303,7 +303,7 @@ function trimCanvasToContent(canvas, ctx, { padding = 0.03 } = {}) {
 // 제품 "대표 이미지" 전용 업로드: 규격 안에 맞춰 넣은 뒤(contain) 흰 배경을 예외 없이
 // 투명으로 지운 PNG로 저장한다. JPEG로 올려도 자동으로 누끼를 따서 PNG로 변환하고,
 // 지워진 배경만큼 여백을 잘라내 제품이 프레임을 꽉 채우게 한다.
-async function uploadProductImageTransparent(file, width, height, { maxBase64Length = 850000 } = {}) {
+async function uploadProductImageTransparent(file, width, height, { maxBase64Length = 500000 } = {}) {
   const result = await new Promise((resolve, reject) => {
     const img = new Image();
     const objectUrl = URL.createObjectURL(file);
