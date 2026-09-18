@@ -386,6 +386,29 @@ async function fetchJson(endpoint) {
   return res.json();
 }
 
+// 지워진 브랜드/제품이 쓰던 업로드 이미지 id를 뽑아, 서버에 정리를 요청한다.
+// 서버가 다시 한 번 "다른 문서에서도 안 쓰는지" 확인한 뒤 지우므로,
+// 같은 이미지를 여러 곳에서 공유하는 경우에도 안전하다.
+function assetIdsIn(value) {
+  const json = typeof value === "string" ? value : JSON.stringify(value);
+  const ids = new Set();
+  for (const m of json.matchAll(/\/api\/asset\/([0-9a-fA-F-]{36})/g)) ids.add(m[1]);
+  return [...ids];
+}
+
+async function cleanupAssets(ids) {
+  if (!ids.length) return;
+  try {
+    await fetch("/api/assets-cleanup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ids }),
+    });
+  } catch {
+    // 이미지 정리는 보조 작업이라, 실패해도 삭제 자체를 되돌리지는 않는다
+  }
+}
+
 async function putJson(endpoint, data) {
   const res = await fetch(endpoint, {
     method: "PUT",
@@ -594,6 +617,7 @@ async function upsertBrand(fields, existingId) {
 async function deleteBrand(id) {
   const ownData = await fetchJson("/api/brands-content");
   const importedData = await fetchJson("/api/imported-content");
+  const removed = [...(ownData.brands || []), ...(importedData.brands || [])].filter((b) => b.id === id);
   ownData.brands = (ownData.brands || []).filter((b) => b.id !== id);
   importedData.brands = (importedData.brands || []).filter((b) => b.id !== id);
   await putJson("/api/brands-content", ownData);
@@ -606,6 +630,8 @@ async function deleteBrand(id) {
   const homeData = await fetchJson("/api/content");
   homeData.brands = (homeData.brands || []).filter((b) => b.href !== `brands.html#${id}`);
   await putJson("/api/content", homeData);
+
+  await cleanupAssets(assetIdsIn(removed));
 }
 
 function openBrandEditModal(brand, panel) {
@@ -907,8 +933,10 @@ async function upsertProduct(fields, existingId) {
 
 async function deleteProduct(id) {
   const catalogData = await fetchJson("/api/catalog-content");
+  const removed = (catalogData.products || []).filter((p) => p.id === id);
   catalogData.products = (catalogData.products || []).filter((p) => p.id !== id);
   await putJson("/api/catalog-content", catalogData);
+  await cleanupAssets(assetIdsIn(removed));
 }
 
 function openProductEditModal(product, allBrands, categories, panel) {
